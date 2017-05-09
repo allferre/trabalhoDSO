@@ -8,7 +8,7 @@ import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
  *
  * @author Allan
  */
-public class SisClaviculario {
+public class sisclaviculario {
 
     public static void main(String[] args) {
         ControladorPrincipal ctrlP = new ControladorPrincipal();
