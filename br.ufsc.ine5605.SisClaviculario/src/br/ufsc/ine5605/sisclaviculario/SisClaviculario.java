@@ -13,6 +13,8 @@ public class SisClaviculario {
     public static void main(String[] args) {
         ControladorPrincipal ctrlP = new ControladorPrincipal();
         
+        // teste do karai da poha
+        
         
         Funcionario funcionario1 = new Funcionario(123,"Allan","2804",222,Veiculo.Cargo.DIRETOR);
         Funcionario funcionario2 = new Funcionario(456,"Graci","2804",222,Veiculo.Cargo.DIRETOR);
