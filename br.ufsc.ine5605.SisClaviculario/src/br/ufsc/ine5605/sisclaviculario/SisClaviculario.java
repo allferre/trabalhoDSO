@@ -26,6 +26,7 @@ public class SisClaviculario {
     
    ctrlP.incluirFuncionario(funcionario1, funcionario2, funcionario3);
    ctrlP.incluirVeiculo(veiculo1, veiculo2, veiculo3);
+   
    ctrlP.inicia();
     
     

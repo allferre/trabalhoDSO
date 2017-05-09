@@ -72,5 +72,12 @@ public class ControladorFuncionario {
         telasCabecalho.cadastradoSucesso();
     }
 
+    public void incluirFuncionario(Funcionario funcionario1, Funcionario funcionario2, Funcionario funcionario3) {
+        listaFuncionarios.add(funcionario1);
+        listaFuncionarios.add(funcionario2);
+        listaFuncionarios.add(funcionario3);
+        
+    }
+
 }
 

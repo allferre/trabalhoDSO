@@ -73,5 +73,11 @@ public class ControladorVeiculo {
     public ArrayList<Veiculo> solicitarListaVeiculos() {
         return ctrlP.pedirListaVeiculos();
     }
+
+    void incluirVeiculo(Veiculo veiculo1, Veiculo veiculo2, Veiculo veiculo3) {
+        listaVeiculos.add(veiculo1);
+        listaVeiculos.add(veiculo2);
+        listaVeiculos.add(veiculo3);
+    }
 }
 
