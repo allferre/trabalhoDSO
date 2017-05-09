@@ -48,5 +48,9 @@ public class ControladorEmprestimo {
     public ArrayList<Veiculo> solicitaListaVeiculos() {
          return ctrlP.pedirListaVeiculos();
     }
+    
+     public ArrayList<Veiculo> solicitarListaVeiculos() {
+        return ctrlP.pedirListaVeiculos();
+    }
 
 }
