@@ -74,10 +74,11 @@ public class ControladorVeiculo {
         return ctrlP.pedirListaVeiculos();
     }
 
-    void incluirVeiculo(Veiculo veiculo1, Veiculo veiculo2, Veiculo veiculo3) {
+    void incluirVeiculo(Veiculo veiculo1, Veiculo veiculo2, Veiculo veiculo3, Veiculo veiculo4) {
         listaVeiculos.add(veiculo1);
         listaVeiculos.add(veiculo2);
         listaVeiculos.add(veiculo3);
+        listaVeiculos.add(veiculo4);
     }
 }
 

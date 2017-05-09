@@ -94,15 +94,16 @@ public class TelasCabecalho {
     }
     
     public void cabecalhoTelaEmprestimo(){
-            System.out.println(" ________________________________");
-            System.out.println("|      Empréstimo/devolução      |");
-            System.out.println("|           de veículo           |");
-            System.out.println("|--------------------------------|");
-            System.out.println("|  Escolha uma opção:            |");
-            System.out.println("|    1 - Solicitar um veículo    |");
-            System.out.println("|    2 - Devolver um veículo     |");
-            System.out.println("|    3 - Voltar ao menu inicial  |");
-            System.out.println("|________________________________|");
+            System.out.println(" __________________________________");
+            System.out.println("|      Empréstimo/devolução        |");
+            System.out.println("|           de veículo             |");
+            System.out.println("|----------------------------------|");
+            System.out.println("|  Escolha uma opção:              |");
+            System.out.println("|  1 - Solicitar um veículo        |");
+            System.out.println("|  2 - Devolver um veículo         |");
+            System.out.println("|  3 - Exibe lista de Emprestimos  |");
+            System.out.println("|  4 - Voltar ao menu inicial      |");
+            System.out.println("|__________________________________|");
     }
     
 }

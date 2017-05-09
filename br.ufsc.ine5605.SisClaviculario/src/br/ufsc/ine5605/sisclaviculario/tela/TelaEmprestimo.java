@@ -4,9 +4,10 @@ import br.ufsc.ine5605.sisclaviculario.controle.ControladorEmprestimo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.Cargo;
-import br.ufsc.ine5605.sisclaviculario.controle.ControladorVeiculo;
+import br.ufsc.ine5605.sisclaviculario.entidade.Emprestimo;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Date;
 
 //teste git, from neatBeans
 /**
@@ -46,6 +47,9 @@ public class TelaEmprestimo {
                     devolverVeiculo();
                     break;
                 case 3:
+                    exibeListaEprestimos();
+                    break;
+                case 4:
                     ctrlE.voltarTelaInicial();
                     break;
                 default:
@@ -59,6 +63,7 @@ public class TelaEmprestimo {
       ArrayList<Veiculo> verificaVeiculo = ctrlE.solicitaListaVeiculos();
       ArrayList<Funcionario> funcEncontrado = ctrlE.solicitarListaFuncionarios();
         Funcionario funcEncontradoo = verificaNumMatricula();
+        String motivo = "";
 
         if (funcEncontradoo.getCargo() == Cargo.DIRETOR) {
             System.out.println("Olá Sr(a) " + funcEncontradoo.getNome() + ", por favor digite a placa do veículo: ");
@@ -66,6 +71,10 @@ public class TelaEmprestimo {
             if (verificaPlacaExiste(placaSolicitada) != null && verificaPlacaDisponivel(placaSolicitada) != null) {
                 System.out.println(" **** Veículo liberado com Sucesso, obrigado Sr(a) " + funcEncontradoo.getNome() + " ****");
                 // registrar o acesso com as informações do empréstimo
+                motivo = " **** Veículo liberado com Sucesso, obrigado Sr(a) " + funcEncontradoo.getNome() + " ****";
+                Date data = new Date();
+                Emprestimo emprestimo = new Emprestimo(funcEncontradoo.getNumMatricula(),placaSolicitada, data, motivo);
+                ctrlE.incluirEmprestimo(emprestimo);
             }
         } else if (funcEncontradoo.getCargo() == Cargo.FUNCIONARIO) {
             System.out.println("Digite a placa do carro: ");
@@ -73,6 +82,10 @@ public class TelaEmprestimo {
             if (verificaPlacaExiste(placaSolicitada) != null && verificaPlacaDisponivel(placaSolicitada) != null && verificaPlacaCargo(placaSolicitada) != null) {
                 System.out.println(" **** Veículo liberado com Sucesso **** ");
                 // registrar o acesso com as informações do empréstimo
+                motivo = " **** Veículo liberado com Sucesso ****";
+                Date data = new Date();
+                Emprestimo emprestimo = new Emprestimo(funcEncontradoo.getNumMatricula(),placaSolicitada, data, motivo);
+                ctrlE.incluirEmprestimo(emprestimo);
             }
         }
     }
@@ -123,7 +136,7 @@ public class TelaEmprestimo {
 
     public Veiculo verificaPlacaCargo(String placaSolicitada) {
 
-        for (Veiculo verificaVeiculo : ctrlE.solicitarListaVeiculos()) {
+        for (Veiculo verificaVeiculo : ctrlE.solicitarListaVeiculos()) { // verifica a restrição do acesso pelo Funcionário
             if (verificaVeiculo.getCargo() == Cargo.FUNCIONARIO) {
                 return verificaVeiculo;
             } else {
@@ -132,4 +145,25 @@ public class TelaEmprestimo {
         }
         return null;
     }
+    
+    public void exibeListaEprestimos() {
+        
+        System.out.println(" -------------------------------------------------------");
+        System.out.println("|                 Lista de Empréstimos                  |");
+        System.out.println(" -------------------------------------------------------");
+
+        for (int i = 0; i < ctrlE.getListaEmprestimos().size(); i++) {
+            Emprestimo emprestimo = ctrlE.getListaEmprestimos().get(i);
+        }
+
+        for (Emprestimo emprestimo : ctrlE.getListaEmprestimos()) {
+            System.out.println("-------------------------------------------------------");
+            System.out.println("Placa:  " + emprestimo.getPlacaUsada());
+            System.out.println("Número de Matrícula: " + emprestimo.getNumMatricula());
+            System.out.println("Data do empréstimo: " + emprestimo.getData());
+            System.out.println("Motivo: " + emprestimo.getMotivo());
+            System.out.println("-------------------------------------------------------");
+        }
+    }
+    
 }

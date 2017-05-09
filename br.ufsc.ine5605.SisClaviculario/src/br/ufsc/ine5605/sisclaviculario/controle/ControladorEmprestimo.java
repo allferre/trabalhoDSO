@@ -18,10 +18,13 @@ public class ControladorEmprestimo {
     private TelaEmprestimo telaEmprestimo;
     private ControladorPrincipal ctrlP;
     private TelasCabecalho telasCabecalho;
+    private ArrayList<Emprestimo> listaEmprestimos;
     public static ControladorEmprestimo INSTANCE = new ControladorEmprestimo();
     
     private ControladorEmprestimo(){
+        this.telaEmprestimo = new TelaEmprestimo(this);
         this.telasCabecalho = new TelasCabecalho();
+        this.listaEmprestimos = new ArrayList<>();
         
     }
     
@@ -51,6 +54,18 @@ public class ControladorEmprestimo {
     
      public ArrayList<Veiculo> solicitarListaVeiculos() {
         return ctrlP.pedirListaVeiculos();
+    }
+
+    public void incluirEmprestimo(Emprestimo emprestimo) {
+        listaEmprestimos.add(emprestimo);
+    }
+
+    public ArrayList<Emprestimo> getListaEmprestimos() {
+        return listaEmprestimos;
+    }
+
+    public void setListaEmprestimos(ArrayList<Emprestimo> listaEmprestimos) {
+        this.listaEmprestimos = listaEmprestimos;
     }
 
 }
