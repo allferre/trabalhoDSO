@@ -15,7 +15,6 @@ public class sisclaviculario {
         
         // teste do karai da poha
         
-        
         Funcionario funcionario1 = new Funcionario(123,"Allan","2804",222,Veiculo.Cargo.DIRETOR);
         Funcionario funcionario2 = new Funcionario(456,"Graci","2804",222,Veiculo.Cargo.DIRETOR);
         Funcionario funcionario3 = new Funcionario(789,"Hulk","2804",222,Veiculo.Cargo.FUNCIONARIO);
@@ -28,10 +27,6 @@ public class sisclaviculario {
    ctrlP.incluirVeiculo(veiculo1, veiculo2, veiculo3);
    
    ctrlP.inicia();
-    
-    
-    
-    
     }
 
 }
