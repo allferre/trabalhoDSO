@@ -1,4 +1,4 @@
-package br.ufsc.ine5605.Sisclaviculario;
+package br.ufsc.ine5605.sisclaviculario;
 
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorPrincipal;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
@@ -8,7 +8,7 @@ import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
  *
  * @author Allan
  */
-public class sisclaviculario {
+public class SisClaviculario {
 
     public static void main(String[] args) {
         ControladorPrincipal ctrlP = new ControladorPrincipal();

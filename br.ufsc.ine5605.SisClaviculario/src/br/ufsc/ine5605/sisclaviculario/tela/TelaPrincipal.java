@@ -38,7 +38,7 @@ public class TelaPrincipal {
                     telaEmprestimo();
                     break;
                 case 4:
-                    //telaRelatorios();
+                    telaRelatorioAcessos();
                     break;
                 default:
                     System.out.println(" *** Insira apenas o número das opções do Menu *** ");
@@ -65,5 +65,10 @@ public class TelaPrincipal {
         ctrlP.iniciarListaFuncionarios();
     }
 
+    public void telaRelatorioAcessos(){
+        ctrlP.iniciarRelatorio();
+    }
+
+ 
 }
 
