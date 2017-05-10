@@ -123,15 +123,14 @@ public class TelasCabecalho {
     }
     
    public void cabecalhoMotivoNegacao(){
-            System.out.println(" _____________________________________________ ");
-            System.out.println("|                                             |");
-            System.out.println("|   Escolha uma das opções para fazer a busca |");
-            System.out.println("|                                             |");
-            System.out.println("|    (1) - Matricula não existe                              |");
-            System.out.println("|    (2) - Modelo                             |");
-            System.out.println("|    (3) - Marca                              |");
-            System.out.println("|    (4) - Ano                                |");
-            System.out.println("|    (5) - Quilometragem                      |");
-            System.out.println("|_____________________________________________|");
+            System.out.println(" ____________________________________________________");
+            System.out.println("|                                                   |");
+            System.out.println("| Escolha uma das opções para continuar com a busca |");
+            System.out.println("|                                                   |");
+            System.out.println("|    (1) - Matricula inexistente                    |");
+            System.out.println("|    (2) - Usuário não possui acesso ao veículo     |");
+            System.out.println("|    (3) - Veículo indisponível (em uso)            |");
+            System.out.println("|    (4) - Acesso bloqueado                         |");
+            System.out.println("|___________________________________________________|");
    } 
 }
