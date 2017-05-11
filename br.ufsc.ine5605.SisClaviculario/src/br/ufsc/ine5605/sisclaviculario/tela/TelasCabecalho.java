@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Allan
+ * @author Allan e Graciela
  */
 public class TelasCabecalho {
     
