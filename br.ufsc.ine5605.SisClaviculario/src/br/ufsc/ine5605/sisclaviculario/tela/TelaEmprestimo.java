@@ -1,13 +1,16 @@
 package br.ufsc.ine5605.sisclaviculario.tela;
 
+import Enum.Motivo;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorEmprestimo;
+import br.ufsc.ine5605.sisclaviculario.controle.ControladorPrincipal;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
-import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.Cargo;
+import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.CargoVeiculo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Emprestimo;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.InputMismatchException;
 
 //teste git, from neatBeans
 /**
@@ -21,15 +24,27 @@ public class TelaEmprestimo {
     private ArrayList<Funcionario> listaFuncionarios;
     private Veiculo veiculoVerificado;
     private int numeroMatricula;
-    //private Funcionario funcEncontrado;
+    private String motivo;
+    private Date dataDoEvento;
+    private static TelaEmprestimo INSTANCE;
+    
 
-    public TelaEmprestimo(ControladorEmprestimo ctrlE) {
-        this.ctrlE = ctrlE;
+    public TelaEmprestimo(){ //ControladorEmprestimo ctrlE) {
+        //this.ctrlE = ctrlE;
         teclado = new Scanner(System.in);
         listaFuncionarios = new ArrayList<>();
         this.numeroMatricula = numeroMatricula;
-        //this.funcEncontrado = funcEncontrado;
-
+        this.motivo = motivo;
+        this.dataDoEvento = dataDoEvento;
+       
+    }
+    
+     public static TelaEmprestimo getINSTANCE(){
+    
+        if(INSTANCE == null){
+            return INSTANCE = new TelaEmprestimo();
+        }
+        return INSTANCE;
     }
 
     public void exibeMenuEmprestimo() {
@@ -41,7 +56,7 @@ public class TelaEmprestimo {
 
             switch (opcao) {
                 case 1:
-                    solicitarVeiculo();
+                    ControladorEmprestimo.getINSTANCE().solicitarVeiculo();
                     break;
                 case 2:
                     devolverVeiculo();
@@ -59,36 +74,7 @@ public class TelaEmprestimo {
         } while (opcao != 0);
     }
 
-    public void solicitarVeiculo() {
-      ArrayList<Veiculo> verificaVeiculo = ctrlE.solicitaListaVeiculos();
-      ArrayList<Funcionario> funcEncontrado = ctrlE.solicitarListaFuncionarios();
-        Funcionario funcEncontradoo = verificaNumMatricula();
-        String motivo = "";
-
-        if (funcEncontradoo.getCargo() == Cargo.DIRETOR) {
-            System.out.println("Olá Sr(a) " + funcEncontradoo.getNome() + ", por favor digite a placa do veículo: ");
-            String placaSolicitada = teclado.next();
-            if (verificaPlacaExiste(placaSolicitada) != null && verificaPlacaDisponivel(placaSolicitada) != null) {
-                System.out.println(" **** Veículo liberado com Sucesso, obrigado Sr(a) " + funcEncontradoo.getNome() + " ****");
-                // registrar o acesso com as informações do empréstimo
-                motivo = " **** Veículo liberado com Sucesso, obrigado Sr(a) " + funcEncontradoo.getNome() + " ****";
-                Date data = new Date();
-                Emprestimo emprestimo = new Emprestimo(funcEncontradoo.getNumMatricula(),placaSolicitada, data, motivo);
-                ctrlE.incluirEmprestimo(emprestimo);
-            }
-        } else if (funcEncontradoo.getCargo() == Cargo.FUNCIONARIO) {
-            System.out.println("Digite a placa do carro: ");
-            String placaSolicitada = teclado.next();
-            if (verificaPlacaExiste(placaSolicitada) != null && verificaPlacaDisponivel(placaSolicitada) != null && verificaPlacaCargo(placaSolicitada) != null) {
-                System.out.println(" **** Veículo liberado com Sucesso **** ");
-                // registrar o acesso com as informações do empréstimo
-                motivo = " **** Veículo liberado com Sucesso ****";
-                Date data = new Date();
-                Emprestimo emprestimo = new Emprestimo(funcEncontradoo.getNumMatricula(),placaSolicitada, data, motivo);
-                ctrlE.incluirEmprestimo(emprestimo);
-            }
-        }
-    }
+ 
 
     public void devolverVeiculo() {
 
@@ -106,29 +92,34 @@ public class TelaEmprestimo {
         }
         System.out.println(" ***Esse número de matrícula não consta no banco de dados*** ");
         return null;
+
     }
 
     public Veiculo verificaPlacaExiste(String placaSolicitada) {
 
         for (Veiculo verificaVeiculo : ctrlE.solicitarListaVeiculos()) {  //verifica se a placa existe 
             if (verificaVeiculo.getPlaca().equals(placaSolicitada)) {
+
                 return verificaVeiculo;
+
             } else {
-                System.out.println(" ***Essa placa não consta no banco de dados*** ");
+                motivo = " ***Essa placa não consta no banco de dados*** ";
+                break;
             }
         }
         return null;
     }
 
     public Veiculo verificaPlacaDisponivel(String placaSolicitada) {
-        
+
         for (Veiculo verificaVeiculo : ctrlE.solicitarListaVeiculos()) {  //verifica se o veículo está disponível 
             if (verificaVeiculo.getEmprestado() == null) {
-               
+
                 return verificaVeiculo;
-                
+
             } else {
                 System.out.println(" ***Esse veículo não está disponível*** ");
+                break;
             }
         }
         return null;
@@ -137,17 +128,18 @@ public class TelaEmprestimo {
     public Veiculo verificaPlacaCargo(String placaSolicitada) {
 
         for (Veiculo verificaVeiculo : ctrlE.solicitarListaVeiculos()) { // verifica a restrição do acesso pelo Funcionário
-            if (verificaVeiculo.getCargo() == Cargo.FUNCIONARIO) {
+            if (verificaVeiculo.getCargoVeiculo() == CargoVeiculo.FUNCIONARIO) {
                 return verificaVeiculo;
             } else {
                 System.out.println(" ***Vc não possui acesso a esse veículo*** ");
+                break;
             }
         }
         return null;
     }
-    
+
     public void exibeListaEprestimos() {
-        
+
         System.out.println(" -------------------------------------------------------");
         System.out.println("|                 Lista de Empréstimos                  |");
         System.out.println(" -------------------------------------------------------");
@@ -165,5 +157,46 @@ public class TelaEmprestimo {
             System.out.println("-------------------------------------------------------");
         }
     }
+
+    public void mensagemDoEvento(String tipo) {
+        System.out.println(tipo);
+        System.out.println("-----------------------------------------------");
+        System.out.println("");
+    }
+
+    public int recebeMatricula() {
+        System.out.println("Digite a Matrícula: ");
+        return recebeInteiro();
+    }
+
+    public void mensagemDeErro(int i) {
+        switch (i) {
+
+            case 1:
+                System.out.println("O valor digitado é inválido!");
+        }
+    }
+
+    public String recebePlaca() {
+        System.out.println("Digite a placa: ");
+        String placa = teclado.next();
+        teclado.nextLine();
+        return placa;
+    }
     
+        public int recebeInteiro() {
+
+        try {
+            return teclado.nextInt();
+        } catch (InputMismatchException e) {
+            mensagemDeErro(1);
+            teclado.nextLine();
+            return 0;
+        }
+    }
+
+    public void exibeMensagem(String motivo) {
+        System.out.println(motivo);
+    }
+
 }

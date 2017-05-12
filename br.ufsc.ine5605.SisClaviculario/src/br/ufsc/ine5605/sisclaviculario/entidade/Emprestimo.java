@@ -1,4 +1,3 @@
- 
 package br.ufsc.ine5605.sisclaviculario.entidade;
 import java.util.Date;
 

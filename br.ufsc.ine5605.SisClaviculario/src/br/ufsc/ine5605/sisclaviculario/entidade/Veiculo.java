@@ -6,17 +6,28 @@ package br.ufsc.ine5605.sisclaviculario.entidade;
  */
 public class Veiculo {
 
-    public enum Cargo {DIRETOR, FUNCIONARIO};
-    
+    public enum CargoVeiculo {
+
+        DIRETOR("Diretor"),
+        FUNCIONARIO("Funcionario");
+        public String mensagem;
+
+        CargoVeiculo(String mensagem) {
+
+            this.mensagem = mensagem;
+        }
+
+    }
+
     private String placa;
     private String modelo;
     private String marca;
     private int ano;
     private float quilometragem;
-    private Cargo cargo;
-    private Funcionario emprestado;
-    
-    public Veiculo(String placa, String modelo, String marca, int ano, float quilometragem, Cargo cargo) {
+    private CargoVeiculo cargo;
+    private Veiculo emprestado;
+
+    public Veiculo(String placa, String modelo, String marca, int ano, float quilometragem, CargoVeiculo cargo, Veiculo emprestado) {
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
@@ -67,21 +78,22 @@ public class Veiculo {
         this.quilometragem = quilometragem;
     }
 
-    public Cargo getCargo() {
+    public CargoVeiculo getCargoVeiculo() {
         return cargo;
     }
 
-    public void setCargo(Cargo cargo) {
+    public void setCargoVeiculo(CargoVeiculo cargo) {
         this.cargo = cargo;
     }
 
-    public Funcionario getEmprestado() {
+    public Veiculo getEmprestado() {
         return emprestado;
     }
 
-    public void setEmprestado(Funcionario emprestado) {
+    public void setEmprestado(Veiculo emprestado) {
         this.emprestado = emprestado;
     }
-    
-}
 
+ 
+
+}

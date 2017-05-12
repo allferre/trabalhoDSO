@@ -18,7 +18,7 @@ public class ControladorFuncionario {
     private TelasCabecalho telasCabecalho;
     private Scanner teclado;
     private ControladorPrincipal ctrlP;
-    public static ControladorFuncionario INSTANCE = new ControladorFuncionario();
+    public static ControladorFuncionario INSTANCE;
 
     private ControladorFuncionario() {
         this.telaFuncionario = new TelaFuncionario(this);
@@ -26,6 +26,13 @@ public class ControladorFuncionario {
         this.telasCabecalho = new TelasCabecalho();
         teclado = new Scanner(System.in);
 
+    }
+
+    public static ControladorFuncionario getINSTANCE() {
+        if (INSTANCE == null) {
+            return INSTANCE = new ControladorFuncionario();
+        }
+        return INSTANCE;
     }
 
     public void setControladorP(ControladorPrincipal CtrlP) {
@@ -77,8 +84,20 @@ public class ControladorFuncionario {
         listaFuncionarios.add(funcionario2);
         listaFuncionarios.add(funcionario3);
         listaFuncionarios.add(funcionario4);
-        
+
+    }
+
+    Funcionario procuraFuncPelaMatricula(int matricula) {
+        for (Funcionario funcionarioEncontrar : listaFuncionarios) {
+            if (funcionarioEncontrar.getNumMatricula() == matricula) {
+                return funcionarioEncontrar;
+            }
+        }
+        return null;
+    }
+
+    public void marcaAcesso(int matricula, boolean acessoLiberado) {
+        procuraFuncPelaMatricula(matricula).setAcessoLiberado(acessoLiberado);
     }
 
 }
-

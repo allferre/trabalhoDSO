@@ -3,7 +3,7 @@ package br.ufsc.ine5605.sisclaviculario.tela;
 import java.util.Scanner;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorVeiculo;
-import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.Cargo;
+import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.CargoVeiculo;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +14,7 @@ public class TelaVeiculo {
 
     private Scanner teclado;
     private ControladorVeiculo ctrlV;
-    private Cargo cargo;
+    private CargoVeiculo cargo;
 
     public TelaVeiculo(ControladorVeiculo ctrlV) {
         this.ctrlV = ctrlV;
@@ -83,10 +83,10 @@ public class TelaVeiculo {
         teclado.nextLine();
         switch (opcao) {
             case 1:
-                cargo = Cargo.DIRETOR;
+                cargo = CargoVeiculo.DIRETOR;
                 break;
             case 2:
-                cargo = Cargo.FUNCIONARIO;
+                cargo = CargoVeiculo.FUNCIONARIO;
                 break;
             default:
                 System.out.println("Insira apenas uma das opções: (1) ou (2) ");
@@ -125,7 +125,7 @@ public class TelaVeiculo {
             System.out.println("Modelo: " + veiculo.getModelo());
             System.out.println("Marca: " + veiculo.getMarca());
             System.out.println("Ano: " + veiculo.getAno());
-            System.out.println("Categoria do usuário: " + veiculo.getCargo());
+            System.out.println("Categoria do usuário: " + veiculo.getCargoVeiculo().mensagem);
             System.out.println("-------------------------------------------------------");
         }
     }

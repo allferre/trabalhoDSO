@@ -2,7 +2,8 @@ package br.ufsc.ine5605.sisclaviculario.tela;
 
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorFuncionario;
-import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.Cargo;
+import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario.CargoFuncionario;
+//import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.Cargo;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -10,23 +11,23 @@ import java.util.ArrayList;
  *
  * @author Allan
  */
-public class TelaFuncionario {
+public class TelaFuncionario extends TelasCabecalho {
 
     private Scanner teclado;
     private ControladorFuncionario ctrlF;
-    private Cargo cargo;
+    private CargoFuncionario cargo;
 
     public TelaFuncionario(ControladorFuncionario ctrlF) {
         this.ctrlF = ctrlF;
         teclado = new Scanner(System.in);
-
     }
 
     public void telaFuncionario() {
 
         int opcao = 0;
         do {
-            ctrlF.cabecalhoTelaFuncionario();
+            //ctrlF.cabecalhoTelaFuncionario();
+            cabecalhoTelaFuncionario();
             opcao = teclado.nextInt();
 
             switch (opcao) {
@@ -79,10 +80,10 @@ public class TelaFuncionario {
         teclado.nextLine();
         switch (opcao) {
             case 1:
-                cargo = Cargo.DIRETOR;
+                cargo = CargoFuncionario.DIRETOR;
                 break;
             case 2:
-                cargo = Cargo.FUNCIONARIO;
+                cargo = CargoFuncionario.FUNCIONARIO;
                 break;
             default:
                 System.out.println("Insira apenas uma das opções: (1) ou (2) ");
@@ -163,10 +164,10 @@ public class TelaFuncionario {
                     teclado.next();
                     switch (aux1) {
                         case 1:
-                            f.setCargo(Cargo.DIRETOR);
+                            f.setCargo(CargoFuncionario.DIRETOR);
                             break;
                         case 2:
-                            f.setCargo(Cargo.FUNCIONARIO);
+                            f.setCargo(CargoFuncionario.FUNCIONARIO);
                             break;
                         default:
                             System.out.println(" *** Insira apenas uma das opções: (1) ou (2) *** ");
@@ -192,7 +193,7 @@ public class TelaFuncionario {
             System.out.println("Número de Matrícula: " + funcionario.getNumMatricula());
             System.out.println("Data de nascimento: " + funcionario.getDataNascimento());
             System.out.println("Telefone: " + funcionario.getTelefone());
-            System.out.println("Cargo do funcionário: " + funcionario.getCargo());
+            System.out.println("Cargo do funcionário: " + funcionario.getCargoFuncionario());
             System.out.println("-------------------------------------------------------");
         }
     }

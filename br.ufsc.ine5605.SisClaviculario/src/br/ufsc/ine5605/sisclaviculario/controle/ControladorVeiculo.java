@@ -5,6 +5,7 @@ import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorPrincipal;
 import br.ufsc.ine5605.sisclaviculario.tela.TelasCabecalho;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,16 +17,23 @@ public class ControladorVeiculo {
     private ArrayList<Veiculo> listaVeiculos;
     private TelasCabecalho telasCabecalho;
     private ControladorPrincipal ctrlP;
-    public static ControladorVeiculo INSTANCE = new ControladorVeiculo();
+    public static ControladorVeiculo INSTANCE; // = new ControladorVeiculo();
 
     private ControladorVeiculo() {
         this.telaVeiculo = new TelaVeiculo(this);
         listaVeiculos = new ArrayList<>();
         this.telasCabecalho = new TelasCabecalho();
-        
+
     }
-    
-    public void setControladorP(ControladorPrincipal CtrlP){
+
+    public static ControladorVeiculo getINSTANCE() {
+        if (INSTANCE == null) {
+            return INSTANCE = new ControladorVeiculo();
+        }
+        return INSTANCE;
+    }
+
+    public void setControladorP(ControladorPrincipal CtrlP) {
         this.ctrlP = CtrlP;
     }
 
@@ -80,5 +88,23 @@ public class ControladorVeiculo {
         listaVeiculos.add(veiculo3);
         listaVeiculos.add(veiculo4);
     }
-}
 
+    public Veiculo procuraVeiculoPelaPlaca(String placa) {
+        for (Veiculo veiculoLocalizar : listaVeiculos) {
+            if (veiculoLocalizar.getPlaca().equals(placa)) {
+                return veiculoLocalizar;
+            }
+        }
+        return null;
+    }
+
+    public Veiculo procuraDisponibilidadeVeiculo(String placa) {
+         for (Veiculo veiculoLocalizar : listaVeiculos) {
+                Veiculo veiculoLocalizado = veiculoLocalizar.(placa);
+             if (getEmprestado() != null ){
+         }
+         }
+    
+    return null;
+    }
+}
