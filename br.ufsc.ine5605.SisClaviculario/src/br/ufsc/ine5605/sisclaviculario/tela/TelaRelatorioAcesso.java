@@ -64,17 +64,28 @@ public class TelaRelatorioAcesso {
  
 
     private void listaTodosAcessos() {
-        ctrlR.pedirListaEmprestimos();
+
+        for (int i = 0; i < ctrlR.pedirListaEmprestimos().size(); i++) {
+           // Funcionario funcionario = ctrlR.getListaFuncionarios().get(i);
+        }
+
+        for (Funcionario funcionario : ctrlF.getListaFuncionarios()) {
+            System.out.println("-------------------------------------------------------");
+            System.out.println("Dados de  " + funcionario.getNome());
+            System.out.println("Número de Matrícula: " + funcionario.getNumMatricula());
+            System.out.println("Data de nascimento: " + funcionario.getDataNascimento());
+            System.out.println("Telefone: " + funcionario.getTelefone());
+            System.out.println("Cargo do funcionário: " + funcionario.getCargo());
+            System.out.println("-------------------------------------------------------");
+        }
+    }   
     }
 
     private void listaAcessosNegados() {
-        
+       
     }
 
     private void listaAcessosPermitidos() {
-    }
-
-    private void filtrarPorMotivoNegacao() {
     }
 
     private void filtrarPorNumMatricula() {
@@ -86,7 +97,10 @@ public class TelaRelatorioAcesso {
     public void mostraRelatorioAcesso() {
 
     }
-
+    private void filtrarPorMotivoNegacao() {
+    
+    
+    }
     
 }
 
