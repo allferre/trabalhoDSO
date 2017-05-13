@@ -36,7 +36,7 @@ public class ControladorEmprestimo {
     private ControladorEmprestimo() {
         this.listaEmprestimos = new ArrayList<>();
         this.eventosEmprestimo = new ArrayList<>();
-        teclado = new Scanner(System.in);
+        this.teclado = new Scanner(System.in);
         this.dataDoEvento = dataDoEvento;
         this.guardaMatricula = 0;
         this.contadorDeAcessos = 0;

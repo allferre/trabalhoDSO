@@ -43,7 +43,7 @@ public class TelaVeiculo extends TelasCabecalho {
                     excluirVeiculo();
                     break;
                 case 3:
-                    //alterarVeiculo(); *******************
+                    alterarVeiculo(); 
                     break;
                 case 4:
                     exibeListaVeiculos();
@@ -99,11 +99,9 @@ public class TelaVeiculo extends TelasCabecalho {
                 System.out.println("Insira apenas uma das opções: (1) ou (2) ");
         }
 
-       // emprestado = true;
+        emprestado = false;
 
-        Veiculo veiculo = new Veiculo(placa, modelo, marca, ano, quilometragem, cargo, emprestado);
-
-        ControladorVeiculo.getINSTANCE().incluiVeiculo(veiculo);
+        ControladorVeiculo.getINSTANCE().incluiVeiculo(placa, modelo, marca, ano, quilometragem, cargo, emprestado);
 
         System.out.println("|*********************************|");
         System.out.println("|      Cadastrado com sucesso!    |");
@@ -145,6 +143,33 @@ public class TelaVeiculo extends TelasCabecalho {
         System.out.println("Digite o número da placa do veículo: ");
         String placa = teclado.next();
         return placa;
+    }
+
+    public void alterarVeiculo() {
+        String placa = pedeNumPlaca();
+        
+        boolean found = false;
+        Veiculo v = null;
+        
+        for ( Veiculo veiculoAlterar : ControladorVeiculo.getINSTANCE().getListaVeiculos()){
+            if (veiculoAlterar.getPlaca().equals(placa)){
+                v = veiculoAlterar;
+                found = true;
+                break;
+            }
+        }
+        
+        if (v != null && found) {
+        
+        
+        }
+        
+        
+        
+        
+        
+        
+        
     }
 
 }

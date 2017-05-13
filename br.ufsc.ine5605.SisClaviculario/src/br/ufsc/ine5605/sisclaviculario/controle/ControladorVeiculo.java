@@ -40,10 +40,6 @@ public class ControladorVeiculo {
         TelaVeiculo.getINSTANCE().exibeTelaVeiculo();
     }
 
-    public void incluiVeiculo(Veiculo veiculo) {
-        listaVeiculos.add(veiculo);
-    }
-
     public void cabecalhoTelaVeiculo() {
         TelasCabecalho.getINSTANCE().cabecalhoTelaVeiculo();
     }
@@ -134,6 +130,11 @@ public class ControladorVeiculo {
                 veiculoLocalizar.setEmprestado(setaDevolvido);
             }
         }
+    }
+
+    public void incluiVeiculo(String placa, String modelo, String marca, int ano, int quilometragem, CargoVeiculo cargo, boolean emprestado) {
+        Veiculo veiculo = new Veiculo(placa, modelo, marca, ano, quilometragem, cargo, emprestado);
+        listaVeiculos.add(veiculo);
     }
     
     

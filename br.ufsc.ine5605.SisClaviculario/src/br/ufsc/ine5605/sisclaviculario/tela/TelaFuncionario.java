@@ -126,16 +126,16 @@ public class TelaFuncionario extends TelasCabecalho {
         boolean found = false;
         Funcionario f = null;
 
-        for (Funcionario funcionarioAlterar : ctrlF.getListaFuncionarios()) {
+        for (Funcionario funcionarioAlterar : ControladorFuncionario.getINSTANCE().getListaFuncionarios()) {
             if (funcionarioAlterar.getNumMatricula() == matriculaParaAlterar) {
                 f = funcionarioAlterar;
-                found = true;
+                //found = true;
                 break;
             }
         }
 
         if (f != null && found) {
-            ctrlF.cabecalhoAlteraFuncionario();
+            ControladorFuncionario.getINSTANCE().cabecalhoAlteraFuncionario();
             int aux = teclado.nextInt();
             switch (aux) {
                 case 1:
