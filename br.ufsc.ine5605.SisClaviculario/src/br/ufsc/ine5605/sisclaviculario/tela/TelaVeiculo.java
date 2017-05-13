@@ -10,10 +10,9 @@ import java.util.ArrayList;
  *
  * @author Allan
  */
-public class TelaVeiculo {
+public class TelaVeiculo extends TelasCabecalho {
 
     private Scanner teclado;
-    private ControladorVeiculo ctrlV;
     private CargoVeiculo cargo;
     private boolean emprestado;
     private static TelaVeiculo INSTANCE;
@@ -33,7 +32,7 @@ public class TelaVeiculo {
 
         int opcao = 0;
         do {
-            ctrlV.cabecalhoTelaVeiculo();
+            ControladorVeiculo.getINSTANCE().cabecalhoTelaVeiculo();
             opcao = teclado.nextInt();
 
             switch (opcao) {
@@ -50,7 +49,7 @@ public class TelaVeiculo {
                     exibeListaVeiculos();
                     break;
                 case 5:
-                    ctrlV.voltaTelaInicial();
+                    ControladorVeiculo.getINSTANCE().voltaTelaInicial();
                     break;
                 default:
                     System.out.println(" *** Insira apenas o número das opções do Menu *** ");
@@ -104,7 +103,7 @@ public class TelaVeiculo {
 
         Veiculo veiculo = new Veiculo(placa, modelo, marca, ano, quilometragem, cargo, emprestado);
 
-        ctrlV.incluiVeiculo(veiculo);
+        ControladorVeiculo.getINSTANCE().incluiVeiculo(veiculo);
 
         System.out.println("|*********************************|");
         System.out.println("|      Cadastrado com sucesso!    |");
@@ -117,7 +116,7 @@ public class TelaVeiculo {
 
         String placaParaExcluir = pedeNumPlaca();
 
-        if (ctrlV.excluiVeiculoPelaPlaca(placaParaExcluir)) {
+        if (ControladorVeiculo.getINSTANCE().excluiVeiculoPelaPlaca(placaParaExcluir)) {
             System.out.println("Veículo excluido com sucesso! ");
         } else {
             System.out.println("Não foi possível excluir o veículo! ");
@@ -126,10 +125,10 @@ public class TelaVeiculo {
 
     public void exibeListaVeiculos() {
 
-        for (int i = 0; i < ctrlV.getListaVeiculos().size(); i++) {
-            Veiculo veiculo = ctrlV.getListaVeiculos().get(i);
+        for (int i = 0; i < ControladorVeiculo.getINSTANCE().getListaVeiculos().size(); i++) {
+            Veiculo veiculo = ControladorVeiculo.getINSTANCE().getListaVeiculos().get(i);
         }
-        for (Veiculo veiculo : ctrlV.getListaVeiculos()) {
+        for (Veiculo veiculo : ControladorVeiculo.getINSTANCE().getListaVeiculos()) {
             System.out.println("-------------------------------------------------------");
             System.out.println("Dados de  " + veiculo.getPlaca());
             System.out.println("Modelo: " + veiculo.getModelo());

@@ -193,17 +193,17 @@ public class TelaFuncionario extends TelasCabecalho {
 
     public void exibeListaFuncionarios() {
 
-        for (int i = 0; i < ctrlF.getListaFuncionarios().size(); i++) {
-            Funcionario funcionario = ctrlF.getListaFuncionarios().get(i);
+        for (int i = 0; i < ControladorFuncionario.getINSTANCE().getListaFuncionarios().size(); i++) {
+            Funcionario funcionario = ControladorFuncionario.getINSTANCE().getListaFuncionarios().get(i);
         }
 
-        for (Funcionario funcionario : ctrlF.getListaFuncionarios()) {
+        for (Funcionario funcionario : ControladorFuncionario.getINSTANCE().getListaFuncionarios()) {
             System.out.println("-------------------------------------------------------");
             System.out.println("Dados de  " + funcionario.getNome());
             System.out.println("Número de Matrícula: " + funcionario.getNumMatricula());
             System.out.println("Data de nascimento: " + funcionario.getDataNascimento());
             System.out.println("Telefone: " + funcionario.getTelefone());
-            System.out.println("Cargo do funcionário: " + funcionario.getCargoFuncionario());
+            System.out.println("Cargo do funcionário: " + funcionario.getCargoFuncionario().mensagem);
             System.out.println("-------------------------------------------------------");
         }
     }

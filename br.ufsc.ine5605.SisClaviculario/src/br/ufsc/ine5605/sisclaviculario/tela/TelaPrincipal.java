@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * @author Allan
  */
-public class TelaPrincipal {
+public class TelaPrincipal extends TelasCabecalho {
 
     private Scanner teclado;
     private static TelaPrincipal INSTANCE;

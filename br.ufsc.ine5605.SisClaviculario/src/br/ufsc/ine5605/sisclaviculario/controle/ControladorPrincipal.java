@@ -20,8 +20,6 @@ public class ControladorPrincipal {
     private static ControladorPrincipal INSTANCE;
 
 
-
-
     private ControladorPrincipal() {
 
     }

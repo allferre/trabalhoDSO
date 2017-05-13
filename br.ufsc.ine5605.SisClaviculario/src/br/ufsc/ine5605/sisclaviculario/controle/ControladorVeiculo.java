@@ -16,8 +16,6 @@ public class ControladorVeiculo {
 
   
     private ArrayList<Veiculo> listaVeiculos;
-    private TelasCabecalho telasCabecalho;
-    private ControladorPrincipal ctrlP;
     private static ControladorVeiculo INSTANCE; 
 
     private ControladorVeiculo() {

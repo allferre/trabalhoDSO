@@ -15,9 +15,7 @@ public class ControladorFuncionario {
 
    
     private ArrayList<Funcionario> listaFuncionarios;
-    private TelasCabecalho telasCabecalho;
     private Scanner teclado;
-    private ControladorPrincipal ctrlP;
     private static ControladorFuncionario INSTANCE;
 
     private ControladorFuncionario() {

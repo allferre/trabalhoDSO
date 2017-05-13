@@ -17,10 +17,9 @@ import java.util.InputMismatchException;
  *
  * @author Allan
  */
-public class TelaEmprestimo {
+public class TelaEmprestimo extends TelasCabecalho {
 
     private Scanner teclado;
-    private ControladorEmprestimo ctrlE;
     private ArrayList<Funcionario> listaFuncionarios;
     private Veiculo veiculoVerificado;
     private int numeroMatricula;
@@ -29,8 +28,7 @@ public class TelaEmprestimo {
     private static TelaEmprestimo INSTANCE;
     
 
-    public TelaEmprestimo(){ //ControladorEmprestimo ctrlE) {
-        //this.ctrlE = ctrlE;
+    public TelaEmprestimo(){ 
         teclado = new Scanner(System.in);
         listaFuncionarios = new ArrayList<>();
         this.numeroMatricula = numeroMatricula;
@@ -51,7 +49,7 @@ public class TelaEmprestimo {
         int opcao = 0;
 
         do {
-            ctrlE.telaEmprestimo();
+            ControladorEmprestimo.getINSTANCE().telaEmprestimo();
             opcao = teclado.nextInt();
 
             switch (opcao) {
@@ -65,7 +63,7 @@ public class TelaEmprestimo {
                     exibeListaEprestimos();
                     break;
                 case 4:
-                    ctrlE.voltarTelaInicial();
+                    ControladorEmprestimo.getINSTANCE().voltarTelaInicial();
                     break;
                 default:
                     System.out.println("Insira apenas o número das opções do Menu");
@@ -74,55 +72,8 @@ public class TelaEmprestimo {
         } while (opcao != 0);
     }
 
- 
-
     public void devolverVeiculo() {
 
-    }
-
-    public Funcionario verificaNumMatricula() { // Verificar se existe esse número de matrícula
-
-        System.out.println("Digite o número de matrícula do funcionário: ");
-        numeroMatricula = teclado.nextInt();
-
-        for (Funcionario verificaFuncionario : ctrlE.solicitarListaFuncionarios()) { // verifica se o número de matrícula consta no banco de dados
-            if (verificaFuncionario.getNumMatricula() == numeroMatricula) {
-                return verificaFuncionario;
-            }
-        }
-        System.out.println(" ***Esse número de matrícula não consta no banco de dados*** ");
-        return null;
-
-    }
-
-    public Veiculo verificaPlacaExiste(String placaSolicitada) {
-
-        for (Veiculo verificaVeiculo : ctrlE.solicitarListaVeiculos()) {  //verifica se a placa existe 
-            if (verificaVeiculo.getPlaca().equals(placaSolicitada)) {
-
-                return verificaVeiculo;
-
-            } else {
-                motivo = " ***Essa placa não consta no banco de dados*** ";
-                break;
-            }
-        }
-        return null;
-    }
-
-  
-
-    public Veiculo verificaPlacaCargo(String placaSolicitada) {
-
-        for (Veiculo verificaVeiculo : ctrlE.solicitarListaVeiculos()) { // verifica a restrição do acesso pelo Funcionário
-            if (verificaVeiculo.getCargoVeiculo() == CargoVeiculo.FUNCIONARIO) {
-                return verificaVeiculo;
-            } else {
-                System.out.println(" ***Vc não possui acesso a esse veículo*** ");
-                break;
-            }
-        }
-        return null;
     }
 
     public void exibeListaEprestimos() {
@@ -131,11 +82,11 @@ public class TelaEmprestimo {
         System.out.println("|                 Lista de Empréstimos                  |");
         System.out.println(" -------------------------------------------------------");
 
-        for (int i = 0; i < ctrlE.getListaEmprestimos().size(); i++) {
-            Emprestimo emprestimo = ctrlE.getListaEmprestimos().get(i);
+        for (int i = 0; i < ControladorEmprestimo.getINSTANCE().getListaEmprestimos().size(); i++) {
+            Emprestimo emprestimo = ControladorEmprestimo.getINSTANCE().getListaEmprestimos().get(i);
         }
 
-        for (Emprestimo emprestimo : ctrlE.getListaEmprestimos()) {
+        for (Emprestimo emprestimo : ControladorEmprestimo.getINSTANCE().getListaEmprestimos()) {
             System.out.println("-------------------------------------------------------");
             System.out.println("Placa:  " + emprestimo.getPlacaUsada());
             System.out.println("Número de Matrícula: " + emprestimo.getNumMatricula());
