@@ -4,7 +4,6 @@ import java.util.Scanner;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorVeiculo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.CargoVeiculo;
-import java.util.ArrayList;
 
 /**
  *

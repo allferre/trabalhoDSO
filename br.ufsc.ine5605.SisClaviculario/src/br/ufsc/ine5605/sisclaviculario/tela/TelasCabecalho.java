@@ -1,6 +1,5 @@
 package br.ufsc.ine5605.sisclaviculario.tela;
 
-import br.ufsc.ine5605.sisclaviculario.controle.ControladorPrincipal;
 import java.util.Scanner;
 
 /**

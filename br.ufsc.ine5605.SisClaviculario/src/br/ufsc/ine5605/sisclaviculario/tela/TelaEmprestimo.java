@@ -1,14 +1,8 @@
 package br.ufsc.ine5605.sisclaviculario.tela;
 
-import Enum.Motivo;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorEmprestimo;
-import br.ufsc.ine5605.sisclaviculario.controle.ControladorPrincipal;
-import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
-import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.CargoVeiculo;
-import br.ufsc.ine5605.sisclaviculario.entidade.Emprestimo;
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 
@@ -20,7 +14,6 @@ import java.util.InputMismatchException;
 public class TelaEmprestimo extends TelasCabecalho {
 
     private Scanner teclado;
-    private ArrayList<Funcionario> listaFuncionarios;
     private Veiculo veiculoVerificado;
     private int numeroMatricula;
     private String motivo;
@@ -30,7 +23,6 @@ public class TelaEmprestimo extends TelasCabecalho {
 
     public TelaEmprestimo(){ 
         teclado = new Scanner(System.in);
-        listaFuncionarios = new ArrayList<>();
         this.numeroMatricula = numeroMatricula;
         this.motivo = motivo;
         this.dataDoEvento = dataDoEvento;
@@ -60,7 +52,7 @@ public class TelaEmprestimo extends TelasCabecalho {
                     ControladorEmprestimo.getINSTANCE().devolverVeiculo();
                     break;
                 case 3:
-                    exibeListaEprestimos();
+                   // exibeListaEprestimos();
                     break;
                 case 4:
                     ControladorEmprestimo.getINSTANCE().voltarTelaInicial();
@@ -73,7 +65,7 @@ public class TelaEmprestimo extends TelasCabecalho {
     }
 
 
-    public void exibeListaEprestimos() {
+   /* public void exibeListaEprestimos() {
 
         System.out.println(" -------------------------------------------------------");
         System.out.println("|                 Lista de Empréstimos                  |");
@@ -91,7 +83,7 @@ public class TelaEmprestimo extends TelasCabecalho {
             System.out.println("Motivo: " + emprestimo.getMotivo());
             System.out.println("-------------------------------------------------------");
         }
-    }
+    }*/
 
     public void mensagemDoEvento(String tipo) {
         System.out.println(tipo);

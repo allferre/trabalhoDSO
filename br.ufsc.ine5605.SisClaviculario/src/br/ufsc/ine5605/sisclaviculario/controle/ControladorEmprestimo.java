@@ -1,17 +1,12 @@
 package br.ufsc.ine5605.sisclaviculario.controle;
 
-import Enum.Motivo;
-import br.ufsc.ine5605.sisclaviculario.entidade.Emprestimo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario.CargoFuncionario;
 import br.ufsc.ine5605.sisclaviculario.tela.TelaEmprestimo;
 import br.ufsc.ine5605.sisclaviculario.tela.TelasCabecalho;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
-import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.CargoVeiculo;
 import Enum.Motivo;
-import br.ufsc.ine5605.sisclaviculario.entidade.RelatorioAcesso;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Date;
 
@@ -21,25 +16,25 @@ import java.util.Date;
  */
 public class ControladorEmprestimo {
 
-    private ArrayList<Emprestimo> listaEmprestimos;
+    //private ArrayList<Emprestimo> listaEmprestimos;
     private Scanner teclado;
     private Date dataDoEvento;
     private static ControladorEmprestimo INSTANCE;
-    private int guardaMatricula;
-    private int contadorDeAcessos;
-    private ArrayList<Emprestimo> eventosEmprestimo;
+    //private int guardaMatricula;
+    //private int contadorDeAcessos;
+    //private ArrayList<Emprestimo> eventosEmprestimo;
     private boolean veiculoOcupado;
     private int contadorAcessoNegado;
 
-    ; // = new ControladorEmprestimo();
+  
     
     private ControladorEmprestimo() {
-        this.listaEmprestimos = new ArrayList<>();
-        this.eventosEmprestimo = new ArrayList<>();
+        //this.listaEmprestimos = new ArrayList<>();
+        //this.eventosEmprestimo = new ArrayList<>();
         this.teclado = new Scanner(System.in);
         this.dataDoEvento = dataDoEvento;
-        this.guardaMatricula = 0;
-        this.contadorDeAcessos = 0;
+       // this.guardaMatricula = 0;
+        //this.contadorDeAcessos = 0;
         this.veiculoOcupado = false;
         this.contadorAcessoNegado = 0;
 
@@ -77,7 +72,7 @@ public class ControladorEmprestimo {
         return ControladorPrincipal.getINSTANCE().pedirListaVeiculos();
     }
 
-    public void incluirEmprestimo(Emprestimo emprestimo) {
+    /*public void incluirEmprestimo(Emprestimo emprestimo) {
         listaEmprestimos.add(emprestimo);
     }
 
@@ -87,7 +82,7 @@ public class ControladorEmprestimo {
 
     public void setListaEmprestimos(ArrayList<Emprestimo> listaEmprestimos) {
         this.listaEmprestimos = listaEmprestimos;
-    }
+    } */
 
     public void solicitarVeiculo() {
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();

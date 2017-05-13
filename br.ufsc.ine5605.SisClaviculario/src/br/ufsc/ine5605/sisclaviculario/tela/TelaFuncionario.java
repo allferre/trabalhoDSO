@@ -3,9 +3,7 @@ package br.ufsc.ine5605.sisclaviculario.tela;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorFuncionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario.CargoFuncionario;
-//import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.Cargo;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +12,6 @@ import java.util.ArrayList;
 public class TelaFuncionario extends TelasCabecalho {
 
     private Scanner teclado;
-    private ControladorFuncionario ctrlF;
     private CargoFuncionario cargo;
     private static TelaFuncionario INSTANCE;
 

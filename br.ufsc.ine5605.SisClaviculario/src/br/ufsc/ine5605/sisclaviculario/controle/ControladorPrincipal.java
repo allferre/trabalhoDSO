@@ -1,7 +1,6 @@
 package br.ufsc.ine5605.sisclaviculario.controle;
 
 import br.ufsc.ine5605.sisclaviculario.tela.TelaPrincipal;
-import br.ufsc.ine5605.sisclaviculario.entidade.Emprestimo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
 import br.ufsc.ine5605.sisclaviculario.tela.TelasCabecalho;
@@ -87,15 +86,13 @@ public class ControladorPrincipal {
 
     public void iniciarRelatorio() {
     
-        //ctrlR.exibeTelaRelatorioAcesso();
+        ControladorRelatorioAcesso.iniciaTelaRelatorioAcesso();
         
     }
 
-    public ArrayList<Emprestimo> pedirListaEmprestimos() {
+   /* public ArrayList<Emprestimo> pedirListaEmprestimos() {
         return ControladorEmprestimo.getINSTANCE().getListaEmprestimos();
-        
-
-    }
+    } */
 
     public void setaVeiculoOcupado(String placa, boolean veiculoOcupado) {
         ControladorVeiculo.getINSTANCE().setaVeiculoOcupado(placa, veiculoOcupado);

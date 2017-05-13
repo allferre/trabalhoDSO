@@ -7,6 +7,10 @@ import java.util.Date;
 public class ControladorRelatorioAcesso {
     
     private static ControladorRelatorioAcesso INSTANCE;
+
+    static void iniciaTelaRelatorioAcesso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public ArrayList<RelatorioAcesso> listaRelatoriosAcesso;
     
     private ControladorRelatorioAcesso(){
