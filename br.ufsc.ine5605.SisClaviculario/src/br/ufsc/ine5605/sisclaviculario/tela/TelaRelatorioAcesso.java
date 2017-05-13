@@ -1,5 +1,6 @@
 
 package br.ufsc.ine5605.sisclaviculario.tela;
+import Enum.Motivo;
 import java.util.Scanner;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorRelatorioAcesso;
 import br.ufsc.ine5605.sisclaviculario.entidade.RelatorioAcesso;
@@ -82,9 +83,29 @@ public class TelaRelatorioAcesso extends TelasCabecalho{
 
     private void listaAcessosNegados() {
        
+    for (int i = 0; i < ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso.size(); i++) {
+       
+            RelatorioAcesso relatorioAcessoNegado = ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso().get(i); 
+        }
+      if (RelatorioAcesso relatorioAcessoNegado.getMensagemAcesso.equals(Motivo.AcessoBloqueado.mensagem) ){
+        } else {
+            
+        }
+    
+        for (RelatorioAcesso relatorioAcessonegado : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()){
+         
+            System.out.println("-------------------------------------------------------");
+            System.out.println("Número de Matrícula: " + relatorioAcessoNegado.getMatriculaAcesso());
+            System.out.println("Placa do Veículo: " + relatorioAcessoNegado.getPlacaAcesso());
+            System.out.println("Status de Acesso: " + relatorioAcessoNegado.getMensagemAcesso());
+            System.out.println("Data da Tentativa de Acesso: " + relatorioAcessoNegado.getDataAcesso() );
+            System.out.println("-------------------------------------------------------");
+        }
     }
 
     private void listaAcessosPermitidos() {
+    
+    
     }
 
     private void filtrarPorNumMatricula() {
