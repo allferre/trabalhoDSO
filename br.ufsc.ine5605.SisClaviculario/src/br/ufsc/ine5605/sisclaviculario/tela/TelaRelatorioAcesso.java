@@ -159,7 +159,46 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
     }
 
     private void filtrarPorMotivoNegacao() {
+       
+        int opcao = 0;
+        do {
+            cabecalhoMotivoNegacao();
+            opcao = teclado.nextInt();
 
+            switch (opcao) {
+                case 1:
+                    listaMatriculasInexistentes();
+                    break;
+                case 2:
+                    listaUsuarioNaoPossuiAcesso();
+                    break;
+                case 3:
+                    listaVeiculoIndisponivel();
+                    break;
+                case 4:
+                    listaAcessoBloqueado();
+                    break;
+                case 8:
+                    ControladorRelatorioAcesso.getINSTANCE().voltarTelaInicial();
+                    break;
+                default:
+                    System.out.println("Insira apenas o número das opções do Menu");
+            }
+
+        } while (opcao != 0);
+    
+    }
+
+    private void listaMatriculasInexistentes() {
+    }
+
+    private void listaUsuarioNaoPossuiAcesso() {
+    }
+
+    private void listaVeiculoIndisponivel() {
+    }
+
+    private void listaAcessoBloqueado() {
     }
 
 }
