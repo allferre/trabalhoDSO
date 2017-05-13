@@ -21,13 +21,13 @@ import java.util.Date;
  */
 public class ControladorEmprestimo {
 
-    private TelaEmprestimo telaEmprestimo;
-    private ControladorPrincipal ctrlP;
-    private TelasCabecalho telasCabecalho;
+   
+   
+    
     private ArrayList<Emprestimo> listaEmprestimos;
     private Scanner teclado;
     private Date dataDoEvento;
-    public static ControladorEmprestimo INSTANCE;
+    private static ControladorEmprestimo INSTANCE;
     private int guardaMatricula;
     private int contadorDeAcessos;
     private ArrayList<Emprestimo> eventosEmprestimo;
@@ -37,8 +37,6 @@ public class ControladorEmprestimo {
     ; // = new ControladorEmprestimo();
     
     private ControladorEmprestimo() {
-        //this.telaEmprestimo = new TelaEmprestimo(this);
-        this.telasCabecalho = new TelasCabecalho();
         this.listaEmprestimos = new ArrayList<>();
         this.eventosEmprestimo = new ArrayList<>();
         teclado = new Scanner(System.in);
@@ -58,32 +56,28 @@ public class ControladorEmprestimo {
         return INSTANCE;
     }
 
-    public void setControladorP(ControladorPrincipal CtrlP) {
-        this.ctrlP = CtrlP;
-    }
-
     public void exibeTelaEmprestimo() {
-        telaEmprestimo.exibeMenuEmprestimo();
+        TelaEmprestimo.getINSTANCE().exibeMenuEmprestimo();
     }
 
     public void voltarTelaInicial() {
-        ctrlP.inicia();
+        ControladorPrincipal.getINSTANCE().inicia();
     }
 
     public void telaEmprestimo() {
-        telasCabecalho.cabecalhoTelaEmprestimo();
+        TelasCabecalho.getINSTANCE().cabecalhoTelaEmprestimo();
     }
 
     public ArrayList<Funcionario> solicitarListaFuncionarios() {
-        return ctrlP.pedirListaFuncionarios();
+        return ControladorPrincipal.getINSTANCE().pedirListaFuncionarios();
     }
 
     public ArrayList<Veiculo> solicitaListaVeiculos() {
-        return ctrlP.pedirListaVeiculos();
+        return ControladorPrincipal.getINSTANCE().pedirListaVeiculos();
     }
 
     public ArrayList<Veiculo> solicitarListaVeiculos() {
-        return ctrlP.pedirListaVeiculos();
+        return ControladorPrincipal.getINSTANCE().pedirListaVeiculos();
     }
 
     public void incluirEmprestimo(Emprestimo emprestimo) {
@@ -145,11 +139,12 @@ public class ControladorEmprestimo {
             contadorAcessoNegado++;
             String motivo = Motivo.AcessoNaoPermitido.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else if (ControladorPrincipal.getINSTANCE().verificaDisponibilidadeVeiculo(placa) == null)) {
+        } else  {
             geraAcesso(matricula, placa, Motivo.VeiculoLiberado.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoLiberado.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-            setaVeiculo(placa); // altera Status do veículo para ocupado
+            veiculoOcupado = true;
+            ControladorPrincipal.getINSTANCE().setaVeiculoOcupado(placa, veiculoOcupado); // altera a disponibilidade do veículo para ocupado
         }
 
     }

@@ -36,7 +36,7 @@ private int numMatricula;
         this.dataNascimento = dataNascimento;
         this.telefone = telefone;
         this.cargo = cargo;
-        this.acessoLiberado = true;
+        this.acessoLiberado = false;
         
     }
 

@@ -10,11 +10,17 @@ import java.util.Scanner;
 public class TelasCabecalho {
     
     private Scanner teclado;
-    private ControladorPrincipal ctrlP;
+    private static TelasCabecalho INSTANCE; 
     
-    public void TelasCabecalho(ControladorPrincipal ctrlP){
+    private void TelasCabecalho(){
         this.teclado = new Scanner(System.in);
-        this.ctrlP = ctrlP;
+    }
+    
+    public static TelasCabecalho getINSTANCE(){
+        if (INSTANCE == null){
+            return INSTANCE = new TelasCabecalho();
+        }
+        return INSTANCE;
     }
     
     public void cabecalhoTelaPrincipal(){              

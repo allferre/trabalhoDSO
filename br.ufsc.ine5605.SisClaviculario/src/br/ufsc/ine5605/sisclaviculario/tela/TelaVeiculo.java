@@ -16,10 +16,17 @@ public class TelaVeiculo {
     private ControladorVeiculo ctrlV;
     private CargoVeiculo cargo;
     private boolean emprestado;
+    private static TelaVeiculo INSTANCE;
 
-    public TelaVeiculo(ControladorVeiculo ctrlV) {
-        this.ctrlV = ctrlV;
+    private TelaVeiculo() {
         teclado = new Scanner(System.in);
+    }
+
+    public static TelaVeiculo getINSTANCE() {
+        if (INSTANCE == null) {
+            return INSTANCE = new TelaVeiculo();
+        }
+        return INSTANCE;
     }
 
     public void exibeTelaVeiculo() {
@@ -92,12 +99,12 @@ public class TelaVeiculo {
             default:
                 System.out.println("Insira apenas uma das opções: (1) ou (2) ");
         }
-        
+
         emprestado = true;
 
         Veiculo veiculo = new Veiculo(placa, modelo, marca, ano, quilometragem, cargo, emprestado);
-        
-         ctrlV.incluiVeiculo(veiculo);
+
+        ctrlV.incluiVeiculo(veiculo);
 
         System.out.println("|*********************************|");
         System.out.println("|      Cadastrado com sucesso!    |");
@@ -141,4 +148,3 @@ public class TelaVeiculo {
     }
 
 }
-

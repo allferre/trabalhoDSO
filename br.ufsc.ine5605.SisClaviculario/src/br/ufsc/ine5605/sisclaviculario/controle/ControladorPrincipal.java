@@ -16,31 +16,13 @@ import java.util.List;
  */
 public class ControladorPrincipal {
 
-    private TelaPrincipal telaPrincipal;
-    private ControladorEmprestimo ctrlE;
-    private ControladorVeiculo ctrlV;
-    private ControladorFuncionario ctrlF;
-    private TelasCabecalho telasCabecalho;
 
-    public static ControladorPrincipal INSTANCE;
+    private static ControladorPrincipal INSTANCE;
 
-    private ControladorRelatorioAcesso ctrlR;
+
 
 
     private ControladorPrincipal() {
-        this.telaPrincipal = new TelaPrincipal(this);
-        //this.ctrlE = ControladorEmprestimo.INSTANCE;
-        //this.ctrlE.setControladorP(this);
-        this.ctrlV = ControladorVeiculo.INSTANCE;
-        this.ctrlV.setControladorP(this);
-        this.ctrlF = ControladorFuncionario.INSTANCE;
-
-//        this.ctrlF.setControladorP(this);
-
-        this.ctrlF.setControladorP(this);
-       // this.ctrlR = ControladorRelatorioAcesso.INSTANCE;
-
-        this.telasCabecalho = new TelasCabecalho();
 
     }
     
@@ -52,35 +34,31 @@ public class ControladorPrincipal {
     }
 
     public void inicia() {
-        telaPrincipal.exibeMenuInicial();
+        TelaPrincipal.getINSTANCE().exibeMenuInicial();
     }
 
     public void iniciarEmprestimo() {
-        ctrlE.exibeTelaEmprestimo();
+       ControladorEmprestimo.getINSTANCE().exibeTelaEmprestimo();
     }
 
     public void iniciarCadastroVeiculo() {
-        ctrlV.exibeTelaVeiculo();
+        ControladorVeiculo.getINSTANCE().exibeTelaVeiculo();
     }
     
     public void iniciarCadastroFuncionario(){
-        ctrlF.exibeTelaFuncionario();
-    }
-    
-    public void iniciarListaFuncionarios(){
-     //   ctrlF.aListaFuncionarios();
+        ControladorFuncionario.getINSTANCE().exibeTelaFuncionario();
     }
     
     public void cabecalhoTelaPrincipal(){
-         telasCabecalho.cabecalhoTelaPrincipal();       
+         TelasCabecalho.getINSTANCE().cabecalhoTelaPrincipal();       
     }
 
     public  ArrayList<Funcionario> pedirListaFuncionarios() {
-        return ctrlF.getListaFuncionarios();
+        return ControladorFuncionario.getINSTANCE().getListaFuncionarios();
     }
 
     public ArrayList<Veiculo> pedirListaVeiculos() {
-        return ctrlV.getListaVeiculos();
+        return ControladorVeiculo.getINSTANCE().getListaVeiculos();
     }
 
     public void incluirFuncionario(Funcionario funcionario1, Funcionario funcionario2, Funcionario funcionario3, Funcionario funcionario4) {
@@ -88,7 +66,7 @@ public class ControladorPrincipal {
     }
 
     public void incluirVeiculo(Veiculo veiculo1, Veiculo veiculo2, Veiculo veiculo3, Veiculo veiculo4) {
-        ctrlV.incluirVeiculo(veiculo1, veiculo2, veiculo3, veiculo4);
+        ControladorVeiculo.getINSTANCE().incluirVeiculo(veiculo1, veiculo2, veiculo3, veiculo4);
     }
 
 
@@ -97,12 +75,8 @@ public class ControladorPrincipal {
     }
     
      public ArrayList<Veiculo> getListaDeVeiculos() {
-        
         return ControladorVeiculo.getINSTANCE().getListaVeiculos();
-        
     }
-
-
 
    public void alteraAcesso(int matricula, boolean acessoLiberado){
         ControladorFuncionario.getINSTANCE().marcaAcesso(matricula, acessoLiberado);
@@ -123,7 +97,7 @@ public class ControladorPrincipal {
     }
 
     public ArrayList<Emprestimo> pedirListaEmprestimos() {
-        return ctrlE.getListaEmprestimos();
+        return ControladorEmprestimo.getINSTANCE().getListaEmprestimos();
         
 
     }

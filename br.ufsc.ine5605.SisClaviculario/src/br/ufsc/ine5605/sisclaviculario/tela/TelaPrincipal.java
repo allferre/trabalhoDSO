@@ -11,20 +11,26 @@ import java.util.Scanner;
 public class TelaPrincipal {
 
     private Scanner teclado;
-    private ControladorPrincipal ctrlP;
+    private static TelaPrincipal INSTANCE;
 
-    public TelaPrincipal(ControladorPrincipal ctrlP) {
+    private TelaPrincipal() {
         this.teclado = new Scanner(System.in);
-        this.ctrlP = ctrlP;
-
     }
+    
+     public static TelaPrincipal getINSTANCE() {
+        if (INSTANCE == null) {
+            return INSTANCE = new TelaPrincipal();
+        }
+        return INSTANCE;
+    }
+
 
     public void exibeMenuInicial() {
 
         int opcao = 0;
 
         do {
-            ctrlP.cabecalhoTelaPrincipal();
+            ControladorPrincipal.getINSTANCE().cabecalhoTelaPrincipal();
             opcao = teclado.nextInt();
 
             switch (opcao) {
@@ -50,23 +56,19 @@ public class TelaPrincipal {
     }
 
     public void telaFuncionario() {
-        ctrlP.iniciarCadastroFuncionario();
+        ControladorPrincipal.getINSTANCE().iniciarCadastroFuncionario();
     }
 
     public void telaVeiculo() {
-        ctrlP.iniciarCadastroVeiculo();
+        ControladorPrincipal.getINSTANCE().iniciarCadastroVeiculo();
     }
 
     public void telaEmprestimo() {
-        ctrlP.iniciarEmprestimo();
-    }
-
-    public void fazerListaFuncionarios() {
-        ctrlP.iniciarListaFuncionarios();
+        ControladorPrincipal.getINSTANCE().iniciarEmprestimo();
     }
 
     public void telaRelatorioAcessos(){
-        ctrlP.iniciarRelatorio();
+        ControladorPrincipal.getINSTANCE().iniciarRelatorio();
     }
 
  

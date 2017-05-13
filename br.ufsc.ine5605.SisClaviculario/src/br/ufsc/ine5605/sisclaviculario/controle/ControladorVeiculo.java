@@ -14,17 +14,14 @@ import java.util.List;
  */
 public class ControladorVeiculo {
 
-    private TelaVeiculo telaVeiculo;
+  
     private ArrayList<Veiculo> listaVeiculos;
     private TelasCabecalho telasCabecalho;
     private ControladorPrincipal ctrlP;
-    public static ControladorVeiculo INSTANCE; // = new ControladorVeiculo();
+    private static ControladorVeiculo INSTANCE; 
 
     private ControladorVeiculo() {
-        this.telaVeiculo = new TelaVeiculo(this);
         listaVeiculos = new ArrayList<>();
-        this.telasCabecalho = new TelasCabecalho();
-
     }
 
     public static ControladorVeiculo getINSTANCE() {
@@ -34,9 +31,6 @@ public class ControladorVeiculo {
         return INSTANCE;
     }
 
-    public void setControladorP(ControladorPrincipal CtrlP) {
-        this.ctrlP = CtrlP;
-    }
 
     public ArrayList<Veiculo> getListaVeiculos() {
         return listaVeiculos;
@@ -47,7 +41,7 @@ public class ControladorVeiculo {
     }
 
     public void exibeTelaVeiculo() {
-        telaVeiculo.exibeTelaVeiculo();
+        TelaVeiculo.getINSTANCE().exibeTelaVeiculo();
     }
 
     public void incluiVeiculo(Veiculo veiculo) {
@@ -55,15 +49,15 @@ public class ControladorVeiculo {
     }
 
     public void cabecalhoTelaVeiculo() {
-        telasCabecalho.cabecalhoTelaVeiculo();
+        TelasCabecalho.getINSTANCE().cabecalhoTelaVeiculo();
     }
 
     public void voltaTelaInicial() {
-        ctrlP.inicia();
+        ControladorPrincipal.getINSTANCE().inicia();
     }
 
     public void cabecalhoAlteraVeiculo() {
-        telasCabecalho.cabecalhoAlteraVeiculo();
+        TelasCabecalho.getINSTANCE().cabecalhoAlteraVeiculo();
     }
 
     public boolean excluiVeiculoPelaPlaca(String placaParaExcluir) {
@@ -80,7 +74,7 @@ public class ControladorVeiculo {
     }
 
     public ArrayList<Veiculo> solicitarListaVeiculos() {
-        return ctrlP.pedirListaVeiculos();
+        return ControladorPrincipal.getINSTANCE().pedirListaVeiculos();
     }
 
     void incluirVeiculo(Veiculo veiculo1, Veiculo veiculo2, Veiculo veiculo3, Veiculo veiculo4) {

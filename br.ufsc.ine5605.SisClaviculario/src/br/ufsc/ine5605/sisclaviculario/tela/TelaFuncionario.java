@@ -16,11 +16,21 @@ public class TelaFuncionario extends TelasCabecalho {
     private Scanner teclado;
     private ControladorFuncionario ctrlF;
     private CargoFuncionario cargo;
+    private static TelaFuncionario INSTANCE;
 
-    public TelaFuncionario(ControladorFuncionario ctrlF) {
-        this.ctrlF = ctrlF;
+    private TelaFuncionario() {
+        
         teclado = new Scanner(System.in);
     }
+    
+     public static TelaFuncionario getINSTANCE() {
+
+        if (INSTANCE == null) {
+            return INSTANCE = new TelaFuncionario();
+        }
+        return INSTANCE;
+    }
+
 
     public void telaFuncionario() {
 
