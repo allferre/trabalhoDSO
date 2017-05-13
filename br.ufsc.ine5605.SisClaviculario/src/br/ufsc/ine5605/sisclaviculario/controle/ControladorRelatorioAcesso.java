@@ -33,6 +33,10 @@ public class ControladorRelatorioAcesso {
     public void setListaRelatoriosAcesso(ArrayList<RelatorioAcesso> listaRelatoriosAcesso) {
         this.listaRelatoriosAcesso = listaRelatoriosAcesso;
     }
+
+    public void voltarTelaInicial() {
+        ControladorPrincipal.getINSTANCE().inicia();
+    }
     
 }
 

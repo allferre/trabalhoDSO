@@ -5,6 +5,7 @@ import java.util.Scanner;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorRelatorioAcesso;
 import br.ufsc.ine5605.sisclaviculario.entidade.RelatorioAcesso;
 
+
 //@author Graciela Banegas
  
 public class TelaRelatorioAcesso extends TelasCabecalho{
@@ -52,7 +53,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho{
                     filtrarPorPlaca();
                     break;
                 case 8:
-                    ctrlR.voltarTelaInicial();
+                    ControladorRelatorioAcesso.getINSTANCE().voltarTelaInicial();
                     break;
                 default:
                     System.out.println("Insira apenas o número das opções do Menu");
@@ -87,10 +88,31 @@ public class TelaRelatorioAcesso extends TelasCabecalho{
        
             RelatorioAcesso relatorioAcessoNegado = ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso().get(i); 
         }
-      if (RelatorioAcesso relatorioAcessoNegado.getMensagemAcesso.equals(Motivo.AcessoBloqueado.mensagem) ){
+    
+    for (RelatorioAcesso relatorioAcesso : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso){
+        if (relatorioAcesso.getMensagemAcesso().equals(Motivo.AcessoBloqueado.mensagem) && relatorioAcesso.getMensagemAcesso().equals(Motivo.AcessoNaoPermitido.mensagem) && relatorioAcesso.getMensagemAcesso().equals(Motivo.VeiculoIndisponível.mensagem)){
+            
+        }
+    }
+      
+    //if (relatorioAcessoNegado.getMensagemAcesso.equals(Motivo.AcessoBloqueado.mensagem) ){
+        if (Motivo.AcessoBloqueado.equals(relatorioAcessoNegado.getMensagemAcesso())) ){
         } else {
             
         }
+        for (Veiculo veiculoExcluir : listaVeiculos) {
+            if (veiculoExcluir.getPlaca().equals(placaParaExcluir)) {
+                listaVeiculos.remove(veiculoExcluir);
+                conseguiuExcluir = true;
+                break;
+            }
+        
+        
+        
+        
+        
+        
+        
     
         for (RelatorioAcesso relatorioAcessonegado : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()){
          
