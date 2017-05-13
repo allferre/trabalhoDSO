@@ -2,11 +2,9 @@ package br.ufsc.ine5605.sisclaviculario.controle;
 
 import br.ufsc.ine5605.sisclaviculario.tela.TelaVeiculo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
-import br.ufsc.ine5605.sisclaviculario.controle.ControladorPrincipal;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.CargoVeiculo;
 import br.ufsc.ine5605.sisclaviculario.tela.TelasCabecalho;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *

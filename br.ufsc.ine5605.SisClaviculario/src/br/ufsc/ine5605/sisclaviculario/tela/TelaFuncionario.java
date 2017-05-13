@@ -19,11 +19,11 @@ public class TelaFuncionario extends TelasCabecalho {
     private static TelaFuncionario INSTANCE;
 
     private TelaFuncionario() {
-        
+
         teclado = new Scanner(System.in);
     }
-    
-     public static TelaFuncionario getINSTANCE() {
+
+    public static TelaFuncionario getINSTANCE() {
 
         if (INSTANCE == null) {
             return INSTANCE = new TelaFuncionario();
@@ -31,12 +31,10 @@ public class TelaFuncionario extends TelasCabecalho {
         return INSTANCE;
     }
 
-
     public void telaFuncionario() {
 
         int opcao = 0;
         do {
-            //ctrlF.cabecalhoTelaFuncionario();
             cabecalhoTelaFuncionario();
             opcao = teclado.nextInt();
 
@@ -45,7 +43,7 @@ public class TelaFuncionario extends TelasCabecalho {
                     cadastrarFuncionario();
                     break;
                 case 2:
-                    excluirFuncionario();
+                    ControladorFuncionario.getINSTANCE().excluirFuncionario();
                     break;
                 case 3:
                     alterarFuncionario();
@@ -54,7 +52,7 @@ public class TelaFuncionario extends TelasCabecalho {
                     exibeListaFuncionarios();
                     break;
                 case 5:
-                    ctrlF.voltaTelaInicial();
+                    ControladorFuncionario.getINSTANCE().voltaTelaInicial();
                     break;
                 default:
                     System.out.println(" *** Insira apenas o número das opções do Menu *** ");
@@ -99,25 +97,10 @@ public class TelaFuncionario extends TelasCabecalho {
                 System.out.println("Insira apenas uma das opções: (1) ou (2) ");
         }
 
-        Funcionario funcionario = new Funcionario(numMatricula, nome, dataNascimento, telefone, cargo);
         System.out.println("");
 
-        ctrlF.incluiFuncionario(funcionario);
-        ctrlF.cadastradoSucesso();
-    }
-
-    public void excluirFuncionario() {
-
-        int matriculaParaExcluir = pedeNumMatricula();
-        for (Funcionario funcionarioExcluir : ctrlF.getListaFuncionarios()) {
-            if (funcionarioExcluir.getNumMatricula() == matriculaParaExcluir) {
-                ctrlF.excluiFuncionarioPelaMatricula(funcionarioExcluir);
-                System.out.println("Funcionário excluido com sucesso! ");
-                break;
-            } else {
-                System.out.println("Esse número de matrícula não consta no banco de dados");
-            }
-        }
+        ControladorFuncionario.getINSTANCE().incluiFuncionario(numMatricula, nome, dataNascimento, telefone, cargo);
+        cadastradoSucesso();
     }
 
     public void alterarFuncionario() {
@@ -129,13 +112,13 @@ public class TelaFuncionario extends TelasCabecalho {
         for (Funcionario funcionarioAlterar : ControladorFuncionario.getINSTANCE().getListaFuncionarios()) {
             if (funcionarioAlterar.getNumMatricula() == matriculaParaAlterar) {
                 f = funcionarioAlterar;
-                //found = true;
+                found = true;
                 break;
             }
         }
 
         if (f != null && found) {
-            ControladorFuncionario.getINSTANCE().cabecalhoAlteraFuncionario();
+            cabecalhoAlteraFuncionario();
             int aux = teclado.nextInt();
             switch (aux) {
                 case 1:
@@ -185,7 +168,6 @@ public class TelaFuncionario extends TelasCabecalho {
                             break;
                     }
             }
-            //ctrlF.alteraFuncionarioPelaMatricula(f);
         } else {
             System.out.println("Esse número de matrícula não consta no banco de dados");
         }
@@ -213,5 +195,13 @@ public class TelaFuncionario extends TelasCabecalho {
         int numMatricula = teclado.nextInt();
         return numMatricula;
     }
-}
 
+    public void excluidoSucesso() {
+        System.out.println(" ***Funcionário excluído com sucesso*** ");
+    }
+
+    public void matriculaNaoExiste() {
+        System.out.println(" ***Matrícula não consta no banco de dados*** ");
+    }
+
+}

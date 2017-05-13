@@ -75,9 +75,18 @@ public class ControladorFuncionario {
         listaFuncionarios.add(funcionario2);
         listaFuncionarios.add(funcionario3);
         listaFuncionarios.add(funcionario4);
-
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     Funcionario procuraFuncPelaMatricula(int matricula) {
         for (Funcionario funcionarioEncontrar : listaFuncionarios) {
             if (funcionarioEncontrar.getNumMatricula() == matricula) {
@@ -90,5 +99,24 @@ public class ControladorFuncionario {
     public void marcaAcesso(int matricula, boolean acessoLiberado) {
         procuraFuncPelaMatricula(matricula).setAcessoLiberado(acessoLiberado);
     }
+
+    public void incluiFuncionario(int numMatricula, String nome, String dataNascimento, long telefone, Funcionario.CargoFuncionario cargo) {
+        Funcionario funcionario = new Funcionario(numMatricula, nome, dataNascimento, telefone, cargo);
+        listaFuncionarios.add(funcionario);
+    }
+
+    public void excluirFuncionario() {
+        int matriculaParaExcluir = TelaFuncionario.getINSTANCE().pedeNumMatricula();
+        for (Funcionario funcionarioExcluir : listaFuncionarios) {
+            if (funcionarioExcluir.getNumMatricula() == matriculaParaExcluir) {
+                listaFuncionarios.remove(funcionarioExcluir);
+                TelaFuncionario.getINSTANCE().excluidoSucesso();
+                break;
+            } else {
+                TelaFuncionario.getINSTANCE().matriculaNaoExiste();
+            }
+        }
+    }
+
 
 }

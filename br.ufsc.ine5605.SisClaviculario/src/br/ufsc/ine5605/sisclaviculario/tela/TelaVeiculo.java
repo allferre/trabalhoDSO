@@ -43,7 +43,7 @@ public class TelaVeiculo extends TelasCabecalho {
                     excluirVeiculo();
                     break;
                 case 3:
-                    alterarVeiculo(); 
+                    alterarVeiculo();
                     break;
                 case 4:
                     exibeListaVeiculos();
@@ -133,13 +133,12 @@ public class TelaVeiculo extends TelasCabecalho {
             System.out.println("Marca: " + veiculo.getMarca());
             System.out.println("Ano: " + veiculo.getAno());
             System.out.println("Categoria do usuário: " + veiculo.getCargoVeiculo().mensagem);
-            System.out.println("Disponível: "+veiculo.getEmprestado());
+            System.out.println("Disponível: " + veiculo.getEmprestado());
             System.out.println("-------------------------------------------------------");
         }
     }
 
     public String pedeNumPlaca() {
-
         System.out.println("Digite o número da placa do veículo: ");
         String placa = teclado.next();
         return placa;
@@ -147,29 +146,85 @@ public class TelaVeiculo extends TelasCabecalho {
 
     public void alterarVeiculo() {
         String placa = pedeNumPlaca();
-        
+
         boolean found = false;
         Veiculo v = null;
-        
-        for ( Veiculo veiculoAlterar : ControladorVeiculo.getINSTANCE().getListaVeiculos()){
-            if (veiculoAlterar.getPlaca().equals(placa)){
+
+        for (Veiculo veiculoAlterar : ControladorVeiculo.getINSTANCE().getListaVeiculos()) {
+            if (veiculoAlterar.getPlaca().equals(placa)) {
                 v = veiculoAlterar;
                 found = true;
                 break;
             }
         }
-        
+
         if (v != null && found) {
-        
-        
+            cabecalhoAlteraVeiculo();
+            int aux = teclado.nextInt();
+            switch (aux) {
+                case 1:
+                    System.out.println("Digite a nova placa: ");
+                    String novaPlaca = teclado.next();
+                    teclado.next();
+                    v.setPlaca(placa);
+                    break;
+                case 2:
+                    System.out.println("Digite o novo modelo: ");
+                    String novaModelo = teclado.next();
+                    teclado.next();
+                    v.setModelo(novaModelo);
+                    break;
+                case 3:
+                    System.out.println("Digite a nova marca: ");
+                    String novaMarca = teclado.next();
+                    teclado.next();
+                    v.setMarca(placa);
+                    break;
+                case 4:
+                    System.out.println("Digite o novo ano: ");
+                    int novaAno = teclado.nextInt();
+                    teclado.next();
+                    v.setAno(aux);
+                    break;
+                case 5:
+                    System.out.println("Digite a nova quilometragem: ");
+                    int novaQuilometragem = teclado.nextInt();
+                    teclado.next();
+                    v.setQuilometragem(novaQuilometragem);
+                    break;
+                case 6:
+                    System.out.println("Escolha o novo cargo:  ");
+                    System.out.println(" Digite (1) para Diretor e (2) para Funcionário: ");
+                    int aux1 = teclado.nextInt();
+                    teclado.next();
+                    switch (aux1) {
+                        case 1:
+                            v.setCargoVeiculo(CargoVeiculo.DIRETOR);
+                            break;
+                        case 2:
+                            v.setCargoVeiculo(CargoVeiculo.FUNCIONARIO);
+                            break;
+                        default:
+                            System.out.println(" *** Insira apenas uma das opções: (1) ou (2) *** ");
+                            System.out.println("");
+                            break;
+                    }
+                case 7:
+                    System.out.println("Digite a nova disponibilidade do veículo: ");
+                    System.out.println("Digite (1) para Disponível e (2) para indisponível): ");
+                    int aux2 = teclado.nextInt();
+                    teclado.next();
+                    if (aux2 == 1) {
+                        v.setEmprestado(false);
+                    } else {
+                        v.setEmprestado(true);
+                    }
+                default:
+                    System.out.println(" *** Insira apenas uma das opções: (1),(2),(3),(4) ou (5) *** ");
+            }
+
         }
-        
-        
-        
-        
-        
-        
-        
+
     }
 
 }

@@ -130,7 +130,7 @@ public class ControladorEmprestimo {
             geraAcesso(matricula, placa, Motivo.VeiculoIndisponível.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoIndisponível.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null) { // verifica se o funcionário tem acesso aquele veículo
+        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null && contadorAcessoNegado(placa) <=3) { // verifica se o funcionário tem acesso aquele veículo
             geraAcesso(matricula, placa, Motivo.AcessoNaoPermitido.mensagem, dataDoEvento);
             contadorAcessoNegado++;
             String motivo = Motivo.AcessoNaoPermitido.mensagem;
@@ -155,7 +155,8 @@ public class ControladorEmprestimo {
     public void devolverVeiculo() {
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
         // método para verificar se essa matrícula emprestou um veículo
-        String placa = TelaEmprestimo.getINSTANCE().recebePlaca();  // método para verificar se o veículo está mesmo emprestado.
+        String placa = TelaEmprestimo.getINSTANCE().recebePlaca();
+        // método para verificar se o veículo está mesmo emprestado.
         
         if (funcionario == null) {
             geraAcesso(matricula, "", Motivo.FuncionarioSemVeiculo.mensagem, dataDoEvento);
@@ -173,6 +174,10 @@ public class ControladorEmprestimo {
             ControladorPrincipal.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
             
         }
+    }
+
+    public int contadorAcessoNegado(String placa) {
+        return 0;
     }
 
 }
