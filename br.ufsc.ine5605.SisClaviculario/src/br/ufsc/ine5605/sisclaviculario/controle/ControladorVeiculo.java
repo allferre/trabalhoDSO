@@ -94,7 +94,7 @@ public class ControladorVeiculo {
     public Veiculo procuraDisponibilidadeVeiculo(String placa) {
         for (Veiculo veiculoLocalizar : listaVeiculos) {
             if (placa.equals(veiculoLocalizar.getPlaca())) {
-                if (!veiculoLocalizar.getEmprestado()) {
+                if (veiculoLocalizar.getEmprestado() == true) {
                     return veiculoLocalizar;
                 }
             }

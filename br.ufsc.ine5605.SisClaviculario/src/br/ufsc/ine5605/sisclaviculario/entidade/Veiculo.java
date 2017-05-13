@@ -35,7 +35,7 @@ public class Veiculo {
         this.ano = ano;
         this.quilometragem = quilometragem;
         this.cargo = cargo;
-        this.emprestado = false;
+        this.emprestado = emprestado;
 
     }
 

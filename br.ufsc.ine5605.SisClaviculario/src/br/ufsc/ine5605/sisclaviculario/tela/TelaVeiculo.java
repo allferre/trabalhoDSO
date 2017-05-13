@@ -135,6 +135,7 @@ public class TelaVeiculo extends TelasCabecalho {
             System.out.println("Marca: " + veiculo.getMarca());
             System.out.println("Ano: " + veiculo.getAno());
             System.out.println("Categoria do usuário: " + veiculo.getCargoVeiculo().mensagem);
+            System.out.println("Disponível: "+veiculo.getEmprestado());
             System.out.println("-------------------------------------------------------");
         }
     }
