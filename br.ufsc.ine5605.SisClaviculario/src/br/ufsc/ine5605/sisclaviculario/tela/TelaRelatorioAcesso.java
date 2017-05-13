@@ -159,7 +159,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
     }
 
     private void filtrarPorMotivoNegacao() {
-       
+
         int opcao = 0;
         do {
             cabecalhoMotivoNegacao();
@@ -186,19 +186,86 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             }
 
         } while (opcao != 0);
-    
+
     }
 
     private void listaMatriculasInexistentes() {
+
+        for (RelatorioAcesso relatorioMatriculasInexistentes : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
+            if (relatorioMatriculasInexistentes.getMensagemAcesso().equals(Motivo.MatriculaNaoExiste.mensagem)) {
+
+            }
+        }
+
+        for (RelatorioAcesso relatorioMatriculasInexistentes : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()) {
+
+            System.out.println("-------------------------------------------------------");
+            System.out.println("Número de Matrícula: " + relatorioMatriculasInexistentes.getMatriculaAcesso());
+            System.out.println("Placa do Veículo: " + relatorioMatriculasInexistentes.getPlacaAcesso());
+            System.out.println("Status de Acesso: " + relatorioMatriculasInexistentes.getMensagemAcesso());
+            System.out.println("Data da Tentativa de Acesso: " + relatorioMatriculasInexistentes.getDataAcesso());
+            System.out.println("-------------------------------------------------------");
+        }
     }
 
     private void listaUsuarioNaoPossuiAcesso() {
+
+        for (RelatorioAcesso relatorioUsuarioNaoPossuiAcesso : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
+            if (relatorioUsuarioNaoPossuiAcesso.getMensagemAcesso().equals(Motivo.AcessoNaoPermitido.mensagem)) {
+
+            }
+        }
+
+        for (RelatorioAcesso relatorioUsuarioNaoPossuiAcesso : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()) {
+
+            System.out.println("-------------------------------------------------------");
+            System.out.println("Número de Matrícula: " + relatorioUsuarioNaoPossuiAcesso.getMatriculaAcesso());
+            System.out.println("Placa do Veículo: " + relatorioUsuarioNaoPossuiAcesso.getPlacaAcesso());
+            System.out.println("Status de Acesso: " + relatorioUsuarioNaoPossuiAcesso.getMensagemAcesso());
+            System.out.println("Data da Tentativa de Acesso: " + relatorioUsuarioNaoPossuiAcesso.getDataAcesso());
+            System.out.println("-------------------------------------------------------");
+        }
+
+
     }
 
     private void listaVeiculoIndisponivel() {
+
+        for (RelatorioAcesso relatorioVeiculoIndisponivel : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
+            if (relatorioVeiculoIndisponivel.getMensagemAcesso().equals(Motivo.VeiculoIndisponível.mensagem)) {
+
+            }
+        }
+
+        for (RelatorioAcesso relatorioVeiculoIndisponivel : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()) {
+
+            System.out.println("-------------------------------------------------------");
+            System.out.println("Número de Matrícula: " + relatorioVeiculoIndisponivel.getMatriculaAcesso());
+            System.out.println("Placa do Veículo: " + relatorioVeiculoIndisponivel.getPlacaAcesso());
+            System.out.println("Status de Acesso: " + relatorioVeiculoIndisponivel.getMensagemAcesso());
+            System.out.println("Data da Tentativa de Acesso: " + relatorioVeiculoIndisponivel.getDataAcesso());
+            System.out.println("-------------------------------------------------------");
+        }
+
     }
 
     private void listaAcessoBloqueado() {
+        
+            for (RelatorioAcesso relatorioAcessoBloqueado : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
+            if (relatorioAcessoBloqueado.getMensagemAcesso().equals(Motivo.AcessoBloqueado.mensagem)) {
+
+            }
+        }
+
+        for (RelatorioAcesso relatorioAcessoBloqueado : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()) {
+
+            System.out.println("-------------------------------------------------------");
+            System.out.println("Número de Matrícula: " + relatorioAcessoBloqueado.getMatriculaAcesso());
+            System.out.println("Placa do Veículo: " + relatorioAcessoBloqueado.getPlacaAcesso());
+            System.out.println("Status de Acesso: " + relatorioAcessoBloqueado.getMensagemAcesso());
+            System.out.println("Data da Tentativa de Acesso: " + relatorioAcessoBloqueado.getDataAcesso());
+            System.out.println("-------------------------------------------------------");
     }
 
+    }
 }
