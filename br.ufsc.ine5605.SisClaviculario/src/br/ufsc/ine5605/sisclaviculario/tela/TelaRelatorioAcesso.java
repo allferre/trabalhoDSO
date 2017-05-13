@@ -84,20 +84,13 @@ public class TelaRelatorioAcesso extends TelasCabecalho{
 
     private void listaAcessosNegados() {
        
-    for (int i = 0; i < ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso.size(); i++) {
-       
-            RelatorioAcesso relatorioAcessoNegado = ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso().get(i); 
-        }
-    
-    for (RelatorioAcesso relatorioAcesso : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso){
-        if (relatorioAcesso.getMensagemAcesso().equals(Motivo.AcessoBloqueado.mensagem) && relatorioAcesso.getMensagemAcesso().equals(Motivo.AcessoNaoPermitido.mensagem) && relatorioAcesso.getMensagemAcesso().equals(Motivo.VeiculoIndisponível.mensagem)){
+    for (RelatorioAcesso relatorioAcessoNegado : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso){
+        if (relatorioAcessoNegado.getMensagemAcesso().equals(Motivo.AcessoBloqueado.mensagem) && relatorioAcessoNegado.getMensagemAcesso().equals(Motivo.AcessoNaoPermitido.mensagem) && relatorioAcessoNegado.getMensagemAcesso().equals(Motivo.VeiculoIndisponível.mensagem)&& relatorioAcessoNegado.getMensagemAcesso().equals(Motivo.MatriculaNaoExiste)){
             
         }
     }
       
-        
-    
-        for (RelatorioAcesso relatorioAcessonegado : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()){
+    for (RelatorioAcesso relatorioAcessoNegado : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()){
          
             System.out.println("-------------------------------------------------------");
             System.out.println("Número de Matrícula: " + relatorioAcessoNegado.getMatriculaAcesso());
