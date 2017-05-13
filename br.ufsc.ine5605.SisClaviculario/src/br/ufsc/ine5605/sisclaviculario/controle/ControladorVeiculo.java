@@ -3,6 +3,7 @@ package br.ufsc.ine5605.sisclaviculario.controle;
 import br.ufsc.ine5605.sisclaviculario.tela.TelaVeiculo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorPrincipal;
+import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.CargoVeiculo;
 import br.ufsc.ine5605.sisclaviculario.tela.TelasCabecalho;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,14 +111,22 @@ public class ControladorVeiculo {
     }
 
     public void setaVeiculoOcupado(String placa, boolean veiculoOcupado) {
-        for (Veiculo localizarVeiculo : listaVeiculos){
-            if (placa.equals(localizarVeiculo.getPlaca())){
+        for (Veiculo localizarVeiculo : listaVeiculos) {
+            if (placa.equals(localizarVeiculo.getPlaca())) {
                 localizarVeiculo.setEmprestado(veiculoOcupado);
             }
         }
     }
 
-    Veiculo verificaAcessoVeiculo(String placa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Veiculo verificaAcessoVeiculo(String placa) {
+        for (Veiculo veiculoLocalizar : listaVeiculos) {
+            if (placa.equals(veiculoLocalizar.getPlaca())) {
+                if (veiculoLocalizar.getCargoVeiculo() == CargoVeiculo.FUNCIONARIO) {
+                    return veiculoLocalizar;
+
+                }
+            }
+        }
+        return null;
     }
 }

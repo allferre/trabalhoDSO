@@ -32,6 +32,7 @@ public class ControladorEmprestimo {
     private int contadorDeAcessos;
     private ArrayList<Emprestimo> eventosEmprestimo;
     private boolean veiculoOcupado;
+    private int contadorAcessoNegado;
 
     ; // = new ControladorEmprestimo();
     
@@ -45,6 +46,7 @@ public class ControladorEmprestimo {
         this.guardaMatricula = 0;
         this.contadorDeAcessos = 0;
         this.veiculoOcupado = false;
+        this.contadorAcessoNegado = 0;
 
     }
 
@@ -140,6 +142,7 @@ public class ControladorEmprestimo {
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
         } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null){ // verifica se o funcionário tem acesso aquele veículo
             geraAcesso(matricula, placa, Motivo.AcessoNaoPermitido.mensagem, dataDoEvento);
+            contadorAcessoNegado++;
             String motivo = Motivo.AcessoNaoPermitido.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
         } else if (ControladorPrincipal.getINSTANCE().verificaDisponibilidadeVeiculo(placa) == null)) {
