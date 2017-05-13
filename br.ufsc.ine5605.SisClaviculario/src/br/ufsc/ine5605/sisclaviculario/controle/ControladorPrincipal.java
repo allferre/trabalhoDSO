@@ -108,5 +108,17 @@ public class ControladorPrincipal {
         return ControladorVeiculo.getINSTANCE().verificaAcessoVeiculo(placa);
     }
 
+    public void setaNovaKm(int km, String placa) {
+        ControladorVeiculo.getINSTANCE().setarNovaKm(km, placa);
+    }
+
+    public void setaDisponibilidade(boolean setaDevolvido, String placa) {
+         ControladorVeiculo.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
+    }
+
+ 
+
+  
+
 }
 

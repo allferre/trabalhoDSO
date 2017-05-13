@@ -14,8 +14,8 @@ public class SisClaviculario {
 
     public static void main(String[] args) {
         
-        Funcionario funcionario1 = new Funcionario(123,"Allan","2804",222,CargoFuncionario.DIRETOR);
-        Funcionario funcionario2 = new Funcionario(456,"Graci","2804",222,CargoFuncionario.DIRETOR);
+        Funcionario funcionario1 = new Funcionario(123,"Ironman","2804",222,CargoFuncionario.DIRETOR);
+        Funcionario funcionario2 = new Funcionario(456,"Capitão América","2804",222,CargoFuncionario.DIRETOR);
         Funcionario funcionario3 = new Funcionario(789,"Hulk","2804",222,CargoFuncionario.FUNCIONARIO);
         Funcionario funcionario4 = new Funcionario(500,"Thor","2804",222,CargoFuncionario.FUNCIONARIO);
         

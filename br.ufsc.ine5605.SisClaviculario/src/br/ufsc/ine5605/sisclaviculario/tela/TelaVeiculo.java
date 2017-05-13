@@ -81,7 +81,7 @@ public class TelaVeiculo extends TelasCabecalho {
         teclado.nextLine();
 
         System.out.println("Digite a quilometragem: ");
-        float quilometragem = teclado.nextFloat();
+        int quilometragem = teclado.nextInt();
         teclado.nextLine();
 
         System.out.println("Defina o cargo que poderá utilizar o veículo: ");
@@ -99,7 +99,7 @@ public class TelaVeiculo extends TelasCabecalho {
                 System.out.println("Insira apenas uma das opções: (1) ou (2) ");
         }
 
-        emprestado = true;
+       // emprestado = true;
 
         Veiculo veiculo = new Veiculo(placa, modelo, marca, ano, quilometragem, cargo, emprestado);
 

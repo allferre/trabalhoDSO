@@ -21,9 +21,6 @@ import java.util.Date;
  */
 public class ControladorEmprestimo {
 
-   
-   
-    
     private ArrayList<Emprestimo> listaEmprestimos;
     private Scanner teclado;
     private Date dataDoEvento;
@@ -93,12 +90,11 @@ public class ControladorEmprestimo {
     }
 
     public void solicitarVeiculo() {
-        int aux = 0;
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
         Funcionario funcionario = ControladorPrincipal.getINSTANCE().verificaExisteMatricula(matricula); // verifica se a matrícula existe
         String placa = TelaEmprestimo.getINSTANCE().recebePlaca();
         Veiculo veiculo = ControladorPrincipal.getINSTANCE().verificaExistePlaca(placa); // verifica se o veículo existe
-        if (funcionario == null) { 
+        if (funcionario == null) {
             geraAcesso(matricula, "", Motivo.MatriculaNaoExiste.mensagem, dataDoEvento);
             String motivo = Motivo.MatriculaNaoExiste.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
@@ -119,7 +115,7 @@ public class ControladorEmprestimo {
             geraAcesso(matricula, placa, Motivo.VeiculoIndisponível.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoIndisponível.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else { 
+        } else {
             geraAcesso(matricula, placa, Motivo.VeiculoLiberado.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoLiberado.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
@@ -129,34 +125,54 @@ public class ControladorEmprestimo {
     }
 
     public void solicitarVeiculoFuncionario(int matricula, String placa) {
-        
-        if ( ControladorPrincipal.getINSTANCE().verificaDisponibilidadeVeiculo(placa) != null) { // verifica se o veículo está dispoível para o funcionário
+
+        if (ControladorPrincipal.getINSTANCE().verificaDisponibilidadeVeiculo(placa) != null) { // verifica se o veículo está dispoível para o funcionário
             geraAcesso(matricula, placa, Motivo.VeiculoIndisponível.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoIndisponível.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null){ // verifica se o funcionário tem acesso aquele veículo
+        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null) { // verifica se o funcionário tem acesso aquele veículo
             geraAcesso(matricula, placa, Motivo.AcessoNaoPermitido.mensagem, dataDoEvento);
             contadorAcessoNegado++;
             String motivo = Motivo.AcessoNaoPermitido.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else  {
+        } else {
             geraAcesso(matricula, placa, Motivo.VeiculoLiberado.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoLiberado.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
             veiculoOcupado = true;
             ControladorPrincipal.getINSTANCE().setaVeiculoOcupado(placa, veiculoOcupado); // altera a disponibilidade do veículo para ocupado
         }
-
     }
-
 
     public void geraAcesso(int matricula, String placa, String mensagem, Date dataDoEvento) {
         int matriculaAcesso = matricula;
         String placaAcesso = placa;
         String mensagemAcesso = mensagem;
         Date dataAcesso = dataDoEvento;
-        
         ControladorRelatorioAcesso.getINSTANCE().adicionaNovoAcesso(matriculaAcesso, placaAcesso, mensagemAcesso, dataAcesso);
+    }
+
+    public void devolverVeiculo() {
+        int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
+        // método para verificar se essa matrícula emprestou um veículo
+        String placa = TelaEmprestimo.getINSTANCE().recebePlaca();  // método para verificar se o veículo está mesmo emprestado.
+        
+        if (funcionario == null) {
+            geraAcesso(matricula, "", Motivo.FuncionarioSemVeiculo.mensagem, dataDoEvento);
+            String motivo = Motivo.FuncionarioSemVeiculo.mensagem;
+            TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
+        } else if (veiculo == null) {
+            geraAcesso(matricula, placa, Motivo.VeiculoSemEmprestimo.mensagem, dataDoEvento);
+            String motivo = Motivo.VeiculoSemEmprestimo.mensagem;
+            TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
+        } else {
+            geraAcesso(matricula, placa, Motivo.VeiculoDevolvido.mensagem, dataDoEvento);
+            int km = TelaEmprestimo.getINSTANCE().receberNovaQuilometragem();
+            boolean setaDevolvido = false;
+            ControladorPrincipal.getINSTANCE().setaNovaKm(km, placa);
+            ControladorPrincipal.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
+            
+        }
     }
 
 }

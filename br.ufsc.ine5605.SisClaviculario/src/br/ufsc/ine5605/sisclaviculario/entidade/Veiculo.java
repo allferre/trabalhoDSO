@@ -24,11 +24,11 @@ public class Veiculo {
     private String modelo;
     private String marca;
     private int ano;
-    private float quilometragem;
+    private int quilometragem;
     private CargoVeiculo cargo;
     private boolean emprestado;
 
-    public Veiculo(String placa, String modelo, String marca, int ano, float quilometragem, CargoVeiculo cargo, boolean emprestado) {
+    public Veiculo(String placa, String modelo, String marca, int ano, int quilometragem, CargoVeiculo cargo, boolean emprestado) {
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
@@ -71,11 +71,11 @@ public class Veiculo {
         this.ano = ano;
     }
 
-    public float getQuilometragem() {
+    public int getQuilometragem() {
         return quilometragem;
     }
 
-    public void setQuilometragem(float quilometragem) {
+    public void setQuilometragem(int quilometragem) {
         this.quilometragem = quilometragem;
     }
 

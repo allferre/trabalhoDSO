@@ -11,16 +11,18 @@ package Enum;
  */
 public enum Motivo {
     
-    AcessoBloqueado("Acesso bloqueado."),
-    AcessoNaoPermitido("Não possui acesso ao veículo."), 
-    FuncionarioComVeiculo("Funcionário com empréstimo em aberto."),
-    KilometragemInvalida("O valor digitado para a kilometragem é inválido."),
-    MatriculaNaoExiste("Matricula não Existe."),
-    SemEmprestimosCadastrados("Não há emprestimos em aberto para este usuário."),
-    VeiculoDevolvido("Veículo Devolvido com sucesso"),
-    VeiculoIndisponível("Veículo não disponível."),
-    VeiculoLiberado("Acesso ao veículo liberado."),
-    VeiculoNaoExiste("Veículo não Existe.");
+    AcessoBloqueado(" ***Acesso bloqueado*** "),
+    AcessoNaoPermitido(" ****Não possui acesso ao veículo*** "), 
+    FuncionarioComVeiculo(" ***Funcionário com empréstimo em aberto*** "),
+    FuncionarioSemVeiculo(" ***Funcionário não possui empréstimos em aberto*** "),
+    KilometragemInvalida(" ***O valor digitado para a kilometragem é inválido*** "),
+    MatriculaNaoExiste(" ***Matricula não Existe*** "),
+    SemEmprestimosCadastrados(" ***Não há emprestimos em aberto para este usuário*** "),
+    VeiculoDevolvido(" ***Veículo Devolvido com sucesso*** "),
+    VeiculoIndisponível(" ***Veículo não disponível*** "),
+    VeiculoLiberado(" ***Acesso ao veículo liberado*** "),
+    VeiculoNaoExiste(" ***Veículo não Existe*** "),
+    VeiculoSemEmprestimo(" ***Veículo não está emprestado*** ");
     
     public String mensagem;
     

@@ -57,7 +57,7 @@ public class TelaEmprestimo extends TelasCabecalho {
                     ControladorEmprestimo.getINSTANCE().solicitarVeiculo();
                     break;
                 case 2:
-                    devolverVeiculo();
+                    ControladorEmprestimo.getINSTANCE().devolverVeiculo();
                     break;
                 case 3:
                     exibeListaEprestimos();
@@ -72,9 +72,6 @@ public class TelaEmprestimo extends TelasCabecalho {
         } while (opcao != 0);
     }
 
-    public void devolverVeiculo() {
-
-    }
 
     public void exibeListaEprestimos() {
 
@@ -134,7 +131,15 @@ public class TelaEmprestimo extends TelasCabecalho {
     }
 
     public void exibeMensagem(String motivo) {
+        System.out.println("");
         System.out.println(motivo);
+        System.out.println("");
+    }
+
+    public int receberNovaQuilometragem() {
+        System.out.println("Digite a quilometragem movimentada pelo veículo");
+        int km = teclado.nextInt();
+        return km;
     }
 
 }

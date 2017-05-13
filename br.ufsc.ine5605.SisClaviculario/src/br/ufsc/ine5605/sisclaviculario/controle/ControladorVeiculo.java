@@ -14,9 +14,8 @@ import java.util.List;
  */
 public class ControladorVeiculo {
 
-  
     private ArrayList<Veiculo> listaVeiculos;
-    private static ControladorVeiculo INSTANCE; 
+    private static ControladorVeiculo INSTANCE;
 
     private ControladorVeiculo() {
         listaVeiculos = new ArrayList<>();
@@ -28,7 +27,6 @@ public class ControladorVeiculo {
         }
         return INSTANCE;
     }
-
 
     public ArrayList<Veiculo> getListaVeiculos() {
         return listaVeiculos;
@@ -121,4 +119,22 @@ public class ControladorVeiculo {
         }
         return null;
     }
+
+    public void setarNovaKm(int km, String placa) {
+        for (Veiculo veiculoLocalizar : listaVeiculos) {
+            if (placa.equals(veiculoLocalizar.getPlaca())) {
+                veiculoLocalizar.setQuilometragem(km);
+            }
+        }
+    }
+
+    public void setaDisponibilidade(boolean setaDevolvido, String placa) {
+        for (Veiculo veiculoLocalizar : listaVeiculos) {
+            if (placa.equals(veiculoLocalizar.getPlaca())) {
+                veiculoLocalizar.setEmprestado(setaDevolvido);
+            }
+        }
+    }
+    
+    
 }
