@@ -21,11 +21,11 @@ public class ControladorPrincipal {
     private ControladorVeiculo ctrlV;
     private ControladorFuncionario ctrlF;
     private TelasCabecalho telasCabecalho;
-<<<<<<< HEAD
+
     public static ControladorPrincipal INSTANCE;
-=======
+
     private ControladorRelatorioAcesso ctrlR;
->>>>>>> origin/master
+
 
     private ControladorPrincipal() {
         this.telaPrincipal = new TelaPrincipal(this);
@@ -34,12 +34,12 @@ public class ControladorPrincipal {
         this.ctrlV = ControladorVeiculo.INSTANCE;
         this.ctrlV.setControladorP(this);
         this.ctrlF = ControladorFuncionario.INSTANCE;
-<<<<<<< HEAD
+
 //        this.ctrlF.setControladorP(this);
-=======
+
         this.ctrlF.setControladorP(this);
-        this.ctrlR = ControladorRelatorioAcesso.INSTANCE;
->>>>>>> origin/master
+       // this.ctrlR = ControladorRelatorioAcesso.INSTANCE;
+
         this.telasCabecalho = new TelasCabecalho();
 
     }
@@ -91,7 +91,7 @@ public class ControladorPrincipal {
         ctrlV.incluirVeiculo(veiculo1, veiculo2, veiculo3, veiculo4);
     }
 
-<<<<<<< HEAD
+
     public Funcionario verificaExisteMatricula(int matricula) {
         return ControladorFuncionario.getINSTANCE().procuraFuncPelaMatricula(matricula);        
     }
@@ -114,17 +114,26 @@ public class ControladorPrincipal {
 
     public Veiculo verificaDisponibilidadeVeiculo(String placa) {
          return ControladorVeiculo.getINSTANCE().procuraDisponibilidadeVeiculo(placa);
-=======
+    }
+
     public void iniciarRelatorio() {
     
-        ctrlR.exibeTelaRelatorioAcesso();
+        //ctrlR.exibeTelaRelatorioAcesso();
         
     }
 
     public ArrayList<Emprestimo> pedirListaEmprestimos() {
         return ctrlE.getListaEmprestimos();
         
->>>>>>> origin/master
+
+    }
+
+    public void setaVeiculoOcupado(String placa, boolean veiculoOcupado) {
+        ControladorVeiculo.getINSTANCE().setaVeiculoOcupado(placa, veiculoOcupado);
+    }
+
+    public Veiculo verificaAcessoVeiculo(String placa) {
+        return ControladorVeiculo.getINSTANCE().verificaAcessoVeiculo(placa);
     }
 
 }

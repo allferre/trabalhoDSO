@@ -99,12 +99,25 @@ public class ControladorVeiculo {
     }
 
     public Veiculo procuraDisponibilidadeVeiculo(String placa) {
-         for (Veiculo veiculoLocalizar : listaVeiculos) {
-                Veiculo veiculoLocalizado = veiculoLocalizar.(placa);
-             if (getEmprestado() != null ){
-         }
-         }
-    
-    return null;
+        for (Veiculo veiculoLocalizar : listaVeiculos) {
+            if (placa.equals(veiculoLocalizar.getPlaca())) {
+                if (!veiculoLocalizar.getEmprestado()) {
+                    return veiculoLocalizar;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void setaVeiculoOcupado(String placa, boolean veiculoOcupado) {
+        for (Veiculo localizarVeiculo : listaVeiculos){
+            if (placa.equals(localizarVeiculo.getPlaca())){
+                localizarVeiculo.setEmprestado(veiculoOcupado);
+            }
+        }
+    }
+
+    Veiculo verificaAcessoVeiculo(String placa) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

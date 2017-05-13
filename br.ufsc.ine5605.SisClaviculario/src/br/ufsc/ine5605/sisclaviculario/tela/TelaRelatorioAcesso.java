@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,24 +8,21 @@ package br.ufsc.ine5605.sisclaviculario.tela;
 /**
  *
  * @author Allan
- */
-public class TelaRelatorioAcesso {
-    
-}
-=======
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.ufsc.ine5605.sisclaviculario.tela;
+
 import java.util.Scanner;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorRelatorioAcesso;
 
 /**
  *
  * @author Graciela Banegas
- */
+ 
 public class TelaRelatorioAcesso {
   
     private Scanner teclado;
@@ -122,3 +118,4 @@ public class TelaRelatorioAcesso {
 
 
 >>>>>>> origin/master
+*/

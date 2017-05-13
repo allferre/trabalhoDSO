@@ -110,20 +110,7 @@ public class TelaEmprestimo {
         return null;
     }
 
-    public Veiculo verificaPlacaDisponivel(String placaSolicitada) {
-
-        for (Veiculo verificaVeiculo : ctrlE.solicitarListaVeiculos()) {  //verifica se o veículo está disponível 
-            if (verificaVeiculo.getEmprestado() == null) {
-
-                return verificaVeiculo;
-
-            } else {
-                System.out.println(" ***Esse veículo não está disponível*** ");
-                break;
-            }
-        }
-        return null;
-    }
+  
 
     public Veiculo verificaPlacaCargo(String placaSolicitada) {
 

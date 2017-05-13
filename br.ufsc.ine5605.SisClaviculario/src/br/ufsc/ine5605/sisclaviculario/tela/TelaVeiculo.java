@@ -15,6 +15,7 @@ public class TelaVeiculo {
     private Scanner teclado;
     private ControladorVeiculo ctrlV;
     private CargoVeiculo cargo;
+    private boolean emprestado;
 
     public TelaVeiculo(ControladorVeiculo ctrlV) {
         this.ctrlV = ctrlV;
@@ -91,8 +92,10 @@ public class TelaVeiculo {
             default:
                 System.out.println("Insira apenas uma das opções: (1) ou (2) ");
         }
+        
+        emprestado = true;
 
-        Veiculo veiculo = new Veiculo(placa, modelo, marca, ano, quilometragem, cargo);
+        Veiculo veiculo = new Veiculo(placa, modelo, marca, ano, quilometragem, cargo, emprestado);
         
          ctrlV.incluiVeiculo(veiculo);
 

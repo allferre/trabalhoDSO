@@ -31,6 +31,7 @@ public class ControladorEmprestimo {
     private int guardaMatricula;
     private int contadorDeAcessos;
     private ArrayList<Emprestimo> eventosEmprestimo;
+    private boolean veiculoOcupado;
 
     ; // = new ControladorEmprestimo();
     
@@ -43,6 +44,7 @@ public class ControladorEmprestimo {
         this.dataDoEvento = dataDoEvento;
         this.guardaMatricula = 0;
         this.contadorDeAcessos = 0;
+        this.veiculoOcupado = false;
 
     }
 
@@ -97,10 +99,10 @@ public class ControladorEmprestimo {
     public void solicitarVeiculo() {
         int aux = 0;
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
-        Funcionario funcionario = ControladorPrincipal.getINSTANCE().verificaExisteMatricula(matricula);
+        Funcionario funcionario = ControladorPrincipal.getINSTANCE().verificaExisteMatricula(matricula); // verifica se a matrícula existe
         String placa = TelaEmprestimo.getINSTANCE().recebePlaca();
-        Veiculo veiculo = ControladorPrincipal.getINSTANCE().verificaExistePlaca(placa);
-        if (funcionario == null) {
+        Veiculo veiculo = ControladorPrincipal.getINSTANCE().verificaExistePlaca(placa); // verifica se o veículo existe
+        if (funcionario == null) { 
             geraAcesso(matricula, "", Motivo.MatriculaNaoExiste.mensagem, dataDoEvento);
             String motivo = Motivo.MatriculaNaoExiste.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
@@ -117,33 +119,34 @@ public class ControladorEmprestimo {
 
     public void solicitarVeiculoDiretor(int matricula, String placa) {
 
-        if (ControladorPrincipal.getINSTANCE().verificaDisponibilidadeVeiculo(placa) != null) {
+        if (ControladorPrincipal.getINSTANCE().verificaDisponibilidadeVeiculo(placa) != null) { // verifica se o veículo está disponível para o Diretor
             geraAcesso(matricula, placa, Motivo.VeiculoIndisponível.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoIndisponível.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else if (verificaDisponibilidadeVeiculo(placa == null)) {
+        } else { 
             geraAcesso(matricula, placa, Motivo.VeiculoLiberado.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoLiberado.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-            setaVeiulo(placa); // altera Status do veículo para ocupado
+            veiculoOcupado = true;
+            ControladorPrincipal.getINSTANCE().setaVeiculoOcupado(placa, veiculoOcupado); // altera a disponibilidade do veículo para ocupado
         }
     }
 
     public void solicitarVeiculoFuncionario(int matricula, String placa) {
         
-        if ( verificaDisponibilidadeVeiculo(placa) != null) {
+        if ( ControladorPrincipal.getINSTANCE().verificaDisponibilidadeVeiculo(placa) != null) { // verifica se o veículo está dispoível para o funcionário
             geraAcesso(matricula, placa, Motivo.VeiculoIndisponível.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoIndisponível.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else if (verificaAcessoVeiculo == null){
+        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null){ // verifica se o funcionário tem acesso aquele veículo
             geraAcesso(matricula, placa, Motivo.AcessoNaoPermitido.mensagem, dataDoEvento);
             String motivo = Motivo.AcessoNaoPermitido.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else if (verificaDisponibilidadeVeiculo(placa == null)) {
+        } else if (ControladorPrincipal.getINSTANCE().verificaDisponibilidadeVeiculo(placa) == null)) {
             geraAcesso(matricula, placa, Motivo.VeiculoLiberado.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoLiberado.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-            setaVeiulo(placa); // altera Status do veículo para ocupado
+            setaVeiculo(placa); // altera Status do veículo para ocupado
         }
 
     }
