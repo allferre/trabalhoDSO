@@ -1,45 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.ufsc.ine5605.sisclaviculario.tela;
-
-/**
- *
- * @author Allan
-
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.util.Scanner;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorRelatorioAcesso;
+import br.ufsc.ine5605.sisclaviculario.entidade.RelatorioAcesso;
 
-/**
- *
- * @author Graciela Banegas
+//@author Graciela Banegas
  
-public class TelaRelatorioAcesso {
+public class TelaRelatorioAcesso extends TelasCabecalho{
   
     private Scanner teclado;
-    private ControladorRelatorioAcesso ctrlR;
+    private static TelaRelatorioAcesso INSTANCE;
 
-    public TelaRelatorioAcesso(ControladorRelatorioAcesso ctrlR) {
-       this.ctrlR = ctrlR;
-       teclado = new Scanner(System.in);
+    public TelaRelatorioAcesso() {
+     this.teclado = new Scanner(System.in);
     }
     
+     public static TelaRelatorioAcesso getINSTANCE() {
+        if (INSTANCE == null) {
+            return INSTANCE = new TelaRelatorioAcesso();
+        }
+        return INSTANCE;
+    }
+
     public void exibeMenuRelatorio() {
         int opcao = 0;
-
         do {
-            ctrlR.cabecalhoTelaRelatorioAcesso();
+            cabecalhoTelaRelatorioAcesso();
             opcao = teclado.nextInt();
-
+            
             switch (opcao) {
                 case 1:
                     listaTodosAcessos();
@@ -77,21 +65,20 @@ public class TelaRelatorioAcesso {
 
     private void listaTodosAcessos() {
 
-        for (int i = 0; i < ctrlR.pedirListaEmprestimos().size(); i++) {
-           // Funcionario funcionario = ctrlR.getListaFuncionarios().get(i);
+        for (int i = 0; i < ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso.size(); i++) {
+            RelatorioAcesso relatorioAcesso = ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso().get(i); 
         }
 
-        for (Funcionario funcionario : ctrlF.getListaFuncionarios()) {
+        for (RelatorioAcesso relatorioAcesso : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()) {
             System.out.println("-------------------------------------------------------");
-            System.out.println("Dados de  " + funcionario.getNome());
-            System.out.println("Número de Matrícula: " + funcionario.getNumMatricula());
-            System.out.println("Data de nascimento: " + funcionario.getDataNascimento());
-            System.out.println("Telefone: " + funcionario.getTelefone());
-            System.out.println("Cargo do funcionário: " + funcionario.getCargo());
+            System.out.println("Número de Matrícula: " + relatorioAcesso.getMatriculaAcesso());
+            System.out.println("Placa do Veículo: " + relatorioAcesso.getPlacaAcesso());
+            System.out.println("Status de Acesso: " + relatorioAcesso.getMensagemAcesso());
+            System.out.println("Data da Tentativa de Acesso: " + relatorioAcesso.getDataAcesso() );
             System.out.println("-------------------------------------------------------");
         }
-    }   
     }
+     
 
     private void listaAcessosNegados() {
        
@@ -117,5 +104,4 @@ public class TelaRelatorioAcesso {
 }
 
 
->>>>>>> origin/master
-*/
+
