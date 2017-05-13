@@ -95,23 +95,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho{
         }
     }
       
-    //if (relatorioAcessoNegado.getMensagemAcesso.equals(Motivo.AcessoBloqueado.mensagem) ){
-        if (Motivo.AcessoBloqueado.equals(relatorioAcessoNegado.getMensagemAcesso())) ){
-        } else {
-            
-        }
-        for (Veiculo veiculoExcluir : listaVeiculos) {
-            if (veiculoExcluir.getPlaca().equals(placaParaExcluir)) {
-                listaVeiculos.remove(veiculoExcluir);
-                conseguiuExcluir = true;
-                break;
-            }
-        
-        
-        
-        
-        
-        
         
     
         for (RelatorioAcesso relatorioAcessonegado : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()){
