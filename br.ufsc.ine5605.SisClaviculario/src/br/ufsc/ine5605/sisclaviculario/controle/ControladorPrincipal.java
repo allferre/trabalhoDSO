@@ -3,6 +3,7 @@ package br.ufsc.ine5605.sisclaviculario.controle;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorEmprestimo;
 import br.ufsc.ine5605.sisclaviculario.tela.TelaPrincipal;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorVeiculo;
+import br.ufsc.ine5605.sisclaviculario.entidade.Emprestimo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
 import br.ufsc.ine5605.sisclaviculario.tela.TelasCabecalho;
@@ -20,7 +21,11 @@ public class ControladorPrincipal {
     private ControladorVeiculo ctrlV;
     private ControladorFuncionario ctrlF;
     private TelasCabecalho telasCabecalho;
+<<<<<<< HEAD
     public static ControladorPrincipal INSTANCE;
+=======
+    private ControladorRelatorioAcesso ctrlR;
+>>>>>>> origin/master
 
     private ControladorPrincipal() {
         this.telaPrincipal = new TelaPrincipal(this);
@@ -29,7 +34,12 @@ public class ControladorPrincipal {
         this.ctrlV = ControladorVeiculo.INSTANCE;
         this.ctrlV.setControladorP(this);
         this.ctrlF = ControladorFuncionario.INSTANCE;
+<<<<<<< HEAD
 //        this.ctrlF.setControladorP(this);
+=======
+        this.ctrlF.setControladorP(this);
+        this.ctrlR = ControladorRelatorioAcesso.INSTANCE;
+>>>>>>> origin/master
         this.telasCabecalho = new TelasCabecalho();
 
     }
@@ -81,6 +91,7 @@ public class ControladorPrincipal {
         ctrlV.incluirVeiculo(veiculo1, veiculo2, veiculo3, veiculo4);
     }
 
+<<<<<<< HEAD
     public Funcionario verificaExisteMatricula(int matricula) {
         return ControladorFuncionario.getINSTANCE().procuraFuncPelaMatricula(matricula);        
     }
@@ -103,6 +114,17 @@ public class ControladorPrincipal {
 
     public Veiculo verificaDisponibilidadeVeiculo(String placa) {
          return ControladorVeiculo.getINSTANCE().procuraDisponibilidadeVeiculo(placa);
+=======
+    public void iniciarRelatorio() {
+    
+        ctrlR.exibeTelaRelatorioAcesso();
+        
+    }
+
+    public ArrayList<Emprestimo> pedirListaEmprestimos() {
+        return ctrlE.getListaEmprestimos();
+        
+>>>>>>> origin/master
     }
 
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Allan
+ * @author Allan e Graciela
  */
 public class TelasCabecalho {
     
@@ -84,7 +84,7 @@ public class TelasCabecalho {
             System.out.println("|    (3) - Marca                      |");
             System.out.println("|    (4) - Ano                        |");
             System.out.println("|    (5) - Quilometragem              |");
-            System.out.println("|_____________________________________| ");      
+            System.out.println("|_____________________________________|");      
     }
     
     public void cadastradoSucesso(){
@@ -106,5 +106,31 @@ public class TelasCabecalho {
             System.out.println("|__________________________________|");
     }
     
+    public void cabecalhoTelaRelatorioAcesso(){
+     
+            System.out.println(" _______________________________________________________");
+            System.out.println("|               Imprimir Relatório                     |");
+            System.out.println("|                   de Acessos                         |");
+            System.out.println("|------------------------------------------------------|");
+            System.out.println("|  Escolha uma opção:                                  |");
+            System.out.println("|    1 - Filtrar lista de todos os acessos             |");
+            System.out.println("|    2 - Filtrar lista de todos os acessos negados     |");
+            System.out.println("|    3 - Filtrar lista de todos os acessos permitidos  |");
+            System.out.println("|    4 - Filtrar por motivo de negação                 |");
+            System.out.println("|    5 - Filtrar por número de matricula               |");
+            System.out.println("|    6 - Filtrar por placa de veículo                  |");
+            System.out.println("|______________________________________________________|");
+    }
+    
+   public void cabecalhoMotivoNegacao(){
+            System.out.println(" ____________________________________________________");
+            System.out.println("|                                                   |");
+            System.out.println("| Escolha uma das opções para continuar com a busca |");
+            System.out.println("|                                                   |");
+            System.out.println("|    (1) - Matricula inexistente                    |");
+            System.out.println("|    (2) - Usuário não possui acesso ao veículo     |");
+            System.out.println("|    (3) - Veículo indisponível (em uso)            |");
+            System.out.println("|    (4) - Acesso bloqueado                         |");
+            System.out.println("|___________________________________________________|");
+   } 
 }
-
