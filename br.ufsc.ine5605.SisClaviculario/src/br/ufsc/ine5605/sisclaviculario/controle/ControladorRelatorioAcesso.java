@@ -71,9 +71,12 @@ public class ControladorRelatorioAcesso {
         return null;
     }
 
-    public void incluirNovoAcesso(RelatorioAcesso relatorioAcesso1, RelatorioAcesso relatorioAcesso2) {
+    public void incluirNovoAcesso(RelatorioAcesso relatorioAcesso1, RelatorioAcesso relatorioAcesso2, RelatorioAcesso relatorioAcesso3,RelatorioAcesso relatorioAcesso4, RelatorioAcesso relatorioAcesso5) {
        listaRelatoriosAcesso.add(relatorioAcesso1);
        listaRelatoriosAcesso.add(relatorioAcesso2);
+       listaRelatoriosAcesso.add(relatorioAcesso3);
+       listaRelatoriosAcesso.add(relatorioAcesso4);
+       listaRelatoriosAcesso.add(relatorioAcesso5);
     }
 
 }
