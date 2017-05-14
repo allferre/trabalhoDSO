@@ -14,9 +14,9 @@ public class TelaFuncionario extends TelasCabecalho {
     private Scanner teclado1;
     private CargoFuncionario cargo;
     private static TelaFuncionario INSTANCE;
+    private TelaFuncionario telaFuncionario;
 
     private TelaFuncionario() {
-
         teclado1 = new Scanner(System.in);
     }
 
@@ -26,7 +26,7 @@ public class TelaFuncionario extends TelasCabecalho {
             return INSTANCE = new TelaFuncionario();
         }
         return INSTANCE;
-    }
+    } 
 
     public void telaFuncionario() {
 

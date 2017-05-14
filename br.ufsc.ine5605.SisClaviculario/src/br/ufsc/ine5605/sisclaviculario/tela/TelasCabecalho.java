@@ -10,9 +10,12 @@ public class TelasCabecalho {
     
     private Scanner teclado;
     private static TelasCabecalho INSTANCE; 
+    private TelasCabecalho telasCabecalho;
     
-    private void TelasCabecalho(){
+    public TelasCabecalho(){
         this.teclado = new Scanner(System.in);
+       
+        
     }
     
     public static TelasCabecalho getINSTANCE(){
@@ -20,7 +23,7 @@ public class TelasCabecalho {
             return INSTANCE = new TelasCabecalho();
         }
         return INSTANCE;
-    }
+    } 
     
     public void cabecalhoTelaPrincipal(){              
             System.out.println(" _____________________________________________ ");

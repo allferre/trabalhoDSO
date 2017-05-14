@@ -20,7 +20,7 @@ public class TelaEmprestimo extends TelasCabecalho {
     private Date dataDoEvento;
     private static TelaEmprestimo INSTANCE;
 
-    public TelaEmprestimo() {
+    private TelaEmprestimo() {
         teclado = new Scanner(System.in);
         this.numeroMatricula = numeroMatricula;
         this.motivo = motivo;
@@ -34,7 +34,7 @@ public class TelaEmprestimo extends TelasCabecalho {
             return INSTANCE = new TelaEmprestimo();
         }
         return INSTANCE;
-    }
+    } 
 
     public void exibeMenuEmprestimo() {
         int opcao = 0;
@@ -63,26 +63,6 @@ public class TelaEmprestimo extends TelasCabecalho {
         } while (opcao != 0);
     }
 
-
-    /* public void exibeListaEprestimos() {
-
-        System.out.println(" -------------------------------------------------------");
-        System.out.println("|                 Lista de Empréstimos                  |");
-        System.out.println(" -------------------------------------------------------");
-
-        for (int i = 0; i < ControladorEmprestimo.getINSTANCE().getListaEmprestimos().size(); i++) {
-            Emprestimo emprestimo = ControladorEmprestimo.getINSTANCE().getListaEmprestimos().get(i);
-        }
-
-        for (Emprestimo emprestimo : ControladorEmprestimo.getINSTANCE().getListaEmprestimos()) {
-            System.out.println("-------------------------------------------------------");
-            System.out.println("Placa:  " + emprestimo.getPlacaUsada());
-            System.out.println("Número de Matrícula: " + emprestimo.getNumMatricula());
-            System.out.println("Data do empréstimo: " + emprestimo.getData());
-            System.out.println("Motivo: " + emprestimo.getMotivo());
-            System.out.println("-------------------------------------------------------");
-        }
-    }*/
     public void mensagemDoEvento(String tipo) {
         System.out.println(tipo);
         System.out.println("-----------------------------------------------");

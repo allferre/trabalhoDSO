@@ -58,7 +58,7 @@ public class ControladorFuncionario {
     }
 
     public void cabecalhoAlteraFuncionario() {
-        TelasCabecalho.getINSTANCE().cabecalhoAlteraFuncionario();
+       TelasCabecalho.getINSTANCE().cabecalhoAlteraFuncionario();
     }
 
     public void alteraFuncionarioPelaMatricula(Funcionario funcionarioAlterar) {
@@ -106,20 +106,5 @@ public class ControladorFuncionario {
                 break;
             }
         }
-    }
-
-    public void tratandoExcessoes() {
-
-        try {
-
-            TelaFuncionario.getINSTANCE().cadastrarFuncionario();
-
-        } catch (InputMismatchException erro) {
-            System.err.println("Não é permitido inserir letras, informe apenas números inteiros!" + erro);
-
-            //} finally {
-            // TelaFuncionario.getINSTANCE().cadastrarFuncionario();
-        }
-
     }
 }

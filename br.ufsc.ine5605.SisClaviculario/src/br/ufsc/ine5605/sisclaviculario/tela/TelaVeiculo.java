@@ -9,24 +9,26 @@ import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.CargoVeiculo;
  *
  * @author Allan
  */
-public class TelaVeiculo extends TelasCabecalho {
+public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
 
     private Scanner teclado;
     private CargoVeiculo cargo;
     private boolean emprestado;
     private static TelaVeiculo INSTANCE;
+    private TelaVeiculo telaVeiculo;
 
     private TelaVeiculo() {
         teclado = new Scanner(System.in);
     }
-
+    
     public static TelaVeiculo getINSTANCE() {
         if (INSTANCE == null) {
             return INSTANCE = new TelaVeiculo();
         }
         return INSTANCE;
-    }
+    } 
 
+    @Override
     public void exibeTelaVeiculo() {
 
         int opcao = 0;
@@ -48,7 +50,7 @@ public class TelaVeiculo extends TelasCabecalho {
                     exibeListaVeiculos();
                     break;
                 case 5:
-                    ControladorVeiculo.getINSTANCE().voltaTelaInicial();
+                    voltaTelaInicial();
                     break;
                 default:
                     System.out.println(" *** Insira apenas o número das opções do Menu *** ");
@@ -59,6 +61,7 @@ public class TelaVeiculo extends TelasCabecalho {
 
     }
 
+    @Override
     public void cadastrarVeiculo() {
 
         int opcao = 0;
@@ -109,6 +112,8 @@ public class TelaVeiculo extends TelasCabecalho {
 
     }
 
+   
+    @Override
     public void excluirVeiculo() {
 
         String placaParaExcluir = pedeNumPlaca();
@@ -120,6 +125,7 @@ public class TelaVeiculo extends TelasCabecalho {
         }
     }
 
+    @Override
     public void exibeListaVeiculos() {
 
         for (int i = 0; i < ControladorVeiculo.getINSTANCE().getListaVeiculos().size(); i++) {
@@ -137,12 +143,14 @@ public class TelaVeiculo extends TelasCabecalho {
         }
     }
 
+    @Override
     public String pedeNumPlaca() {
         System.out.println("Digite o número da placa do veículo: ");
         String placa = teclado.next();
         return placa;
     }
 
+    @Override
     public void alterarVeiculo() {
         String placa = pedeNumPlaca();
 
@@ -222,5 +230,10 @@ public class TelaVeiculo extends TelasCabecalho {
                     System.out.println(" *** Insira apenas uma das opções: (1),(2),(3),(4) ou (5) *** ");
             }
         }
+    }
+
+    @Override
+    public void voltaTelaInicial() {
+        ControladorVeiculo.getINSTANCE(). voltaTelaInicial();
     }
 }

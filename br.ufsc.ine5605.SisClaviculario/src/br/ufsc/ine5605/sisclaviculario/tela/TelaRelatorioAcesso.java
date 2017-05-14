@@ -11,7 +11,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
     private Scanner teclado;
     private static TelaRelatorioAcesso INSTANCE;
 
-    public TelaRelatorioAcesso() {
+    private TelaRelatorioAcesso() {
         this.teclado = new Scanner(System.in);
     }
 
@@ -20,7 +20,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             return INSTANCE = new TelaRelatorioAcesso();
         }
         return INSTANCE;
-    }
+    } 
 
     public void exibeMenuRelatorio() {
         int opcao = 0;

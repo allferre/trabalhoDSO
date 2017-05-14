@@ -21,13 +21,12 @@ public class ControladorEmprestimo {
     public Date dataDoEvento;
     private static ControladorEmprestimo INSTANCE;
     private boolean veiculoOcupado;
-    private int contadorAcessoNegado;
 
     private ControladorEmprestimo() {
         this.teclado = new Scanner(System.in);
         this.dataDoEvento = new Date();
         this.veiculoOcupado = false;
-        this.contadorAcessoNegado = 0;
+        
 
     }
 
@@ -64,6 +63,7 @@ public class ControladorEmprestimo {
     }
 
     public void solicitarVeiculo() {
+        //int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
         Funcionario funcionario = ControladorPrincipal.getINSTANCE().verificaExisteMatricula(matricula); // verifica se a matrícula existe
         String placa = TelaEmprestimo.getINSTANCE().recebePlaca();
@@ -105,9 +105,9 @@ public class ControladorEmprestimo {
             geraAcesso(matricula, placa, Motivo.VeiculoIndisponível.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoIndisponível.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null && contadorAcessoNegado(placa) <= 3) { // verifica se o funcionário tem acesso aquele veículo
+        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null ) { // verifica se o funcionário tem acesso aquele veículo
             geraAcesso(matricula, placa, Motivo.AcessoNaoPermitido.mensagem, dataDoEvento);
-            contadorAcessoNegado++;
+            //contadorAcessoNegado++;  ----------------------- Contador de acesso;
             String motivo = Motivo.AcessoNaoPermitido.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
         } else {
@@ -153,8 +153,6 @@ public class ControladorEmprestimo {
         }
     }
 
-    public int contadorAcessoNegado(String placa) {
-        return 0;
-    }
+
 
 }

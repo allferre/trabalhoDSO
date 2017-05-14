@@ -12,17 +12,16 @@ public class TelaPrincipal extends TelasCabecalho {
     private Scanner teclado;
     private static TelaPrincipal INSTANCE;
 
-    private TelaPrincipal() {
+    public TelaPrincipal() {
         this.teclado = new Scanner(System.in);
     }
-    
-     public static TelaPrincipal getINSTANCE() {
+
+    public static TelaPrincipal getINSTANCE() {
         if (INSTANCE == null) {
             return INSTANCE = new TelaPrincipal();
         }
         return INSTANCE;
-    }
-
+    } 
 
     public void exibeMenuInicial() {
         int opcao = 0;
@@ -32,16 +31,16 @@ public class TelaPrincipal extends TelasCabecalho {
 
             switch (opcao) {
                 case 1:
-                    telaFuncionario();
+                    ControladorPrincipal.getINSTANCE().iniciarCadastroFuncionario();
                     break;
                 case 2:
-                    telaVeiculo();
+                    ControladorPrincipal.getINSTANCE().iniciarCadastroVeiculo();
                     break;
                 case 3:
-                    telaEmprestimo();
+                    ControladorPrincipal.getINSTANCE().iniciarEmprestimo();
                     break;
                 case 4:
-                    telaRelatorioAcessos();
+                    ControladorPrincipal.getINSTANCE().iniciarRelatorio();
                     break;
                 default:
                     System.out.println(" *** Insira apenas o número das opções do Menu *** ");
@@ -49,21 +48,4 @@ public class TelaPrincipal extends TelasCabecalho {
             }
         } while (opcao != 0);
     }
-
-    public void telaFuncionario() {
-        ControladorPrincipal.getINSTANCE().iniciarCadastroFuncionario();
-    }
-
-    public void telaVeiculo() {
-        ControladorPrincipal.getINSTANCE().iniciarCadastroVeiculo();
-    }
-
-    public void telaEmprestimo() {
-        ControladorPrincipal.getINSTANCE().iniciarEmprestimo();
-    }
-
-    public void telaRelatorioAcessos(){
-        ControladorPrincipal.getINSTANCE().iniciarRelatorio();
-    }
 }
-

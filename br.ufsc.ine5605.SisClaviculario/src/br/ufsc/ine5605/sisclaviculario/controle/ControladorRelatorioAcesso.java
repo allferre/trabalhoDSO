@@ -10,12 +10,10 @@ import java.util.Date;
 public class ControladorRelatorioAcesso {
 
     private static ControladorRelatorioAcesso INSTANCE;
-
     private TelasCabecalho telasCabecalho;
     private Scanner teclado;
-
     public ArrayList<RelatorioAcesso> listaRelatoriosAcesso;
-
+    
     private ControladorRelatorioAcesso() {
         this.listaRelatoriosAcesso = new ArrayList<>();
 
@@ -28,7 +26,7 @@ public class ControladorRelatorioAcesso {
         return INSTANCE;
     }
 
-    public static void iniciaTelaRelatorioAcesso() {
+    public void iniciaTelaRelatorioAcesso() {
         TelaRelatorioAcesso.getINSTANCE().exibeMenuRelatorio();
     }
 
