@@ -37,7 +37,7 @@ public class TelaEmprestimo extends TelasCabecalho {
         return INSTANCE;
     }
 
-    public void exibeMenuEmprestimo() {
+    /*public void exibeMenuEmprestimo() {
         int opcao = 0;
 
         do {
@@ -62,7 +62,7 @@ public class TelaEmprestimo extends TelasCabecalho {
             }
 
         } while (opcao != 0);
-    }
+    }*/
 
 
    /* public void exibeListaEprestimos() {
