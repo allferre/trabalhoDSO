@@ -151,7 +151,7 @@ public class ControladorEmprestimo {
         Date dataAcesso = dataDoEvento;
         ControladorRelatorioAcesso.getINSTANCE().adicionaNovoAcesso(matriculaAcesso, placaAcesso, mensagemAcesso, dataAcesso);
     }
-
+/*
     public void devolverVeiculo() {
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
         // método para verificar se essa matrícula emprestou um veículo
@@ -174,7 +174,7 @@ public class ControladorEmprestimo {
             ControladorPrincipal.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
             
         }
-    }
+    }*/
 
     public int contadorAcessoNegado(String placa) {
         return 0;
