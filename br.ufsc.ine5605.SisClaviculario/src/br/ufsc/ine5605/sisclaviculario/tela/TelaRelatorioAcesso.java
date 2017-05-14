@@ -83,7 +83,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
 
             }
         }
-<<<<<<< HEAD
+
     }
       
         for (RelatorioAcesso relatorioAcesso : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()){
@@ -93,7 +93,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             System.out.println("Placa do Veículo: " + relatorioAcesso.getPlacaAcesso());
             System.out.println("Status de Acesso: " + relatorioAcesso.getMensagemAcesso());
             System.out.println("Data da Tentativa de Acesso: " + relatorioAcesso.getDataAcesso() );
-=======
 
         for (RelatorioAcesso relatorioAcessoNegado : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()) {
 
@@ -102,15 +101,12 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             System.out.println("Placa do Veículo: " + relatorioAcessoNegado.getPlacaAcesso());
             System.out.println("Status de Acesso: " + relatorioAcessoNegado.getMensagemAcesso());
             System.out.println("Data da Tentativa de Acesso: " + relatorioAcessoNegado.getDataAcesso());
->>>>>>> origin/master
             System.out.println("-------------------------------------------------------");
         }
     }
 
     private void listaAcessosPermitidos() {
-<<<<<<< HEAD
     
-=======
 
         for (RelatorioAcesso relatorioAcessoPermitido : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
             if (relatorioAcessoPermitido.getMensagemAcesso().equals(Motivo.VeiculoLiberado.mensagem)) {
@@ -127,7 +123,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             System.out.println("Data da Tentativa de Acesso: " + relatorioAcessoPermitido.getDataAcesso());
             System.out.println("-------------------------------------------------------");
         }
->>>>>>> origin/master
     }
 
     private void filtrarPorNumMatricula() {
@@ -175,9 +170,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
     }
 
     private void filtrarPorMotivoNegacao() {
-<<<<<<< HEAD
     
-=======
 
         int opcao = 0;
         do {
@@ -206,7 +199,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
 
         } while (opcao != 0);
 
->>>>>>> origin/master
     }
 
     private void listaMatriculasInexistentes() {

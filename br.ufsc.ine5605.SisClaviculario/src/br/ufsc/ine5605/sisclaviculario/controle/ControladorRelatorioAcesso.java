@@ -2,7 +2,6 @@
 package br.ufsc.ine5605.sisclaviculario.controle;
 import br.ufsc.ine5605.sisclaviculario.entidade.RelatorioAcesso;
 import br.ufsc.ine5605.sisclaviculario.tela.TelaRelatorioAcesso;
-import br.ufsc.ine5605.sisclaviculario.controle.ControladorPrincipal;
 import br.ufsc.ine5605.sisclaviculario.tela.TelasCabecalho;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -13,9 +12,7 @@ public class ControladorRelatorioAcesso {
     private static ControladorRelatorioAcesso INSTANCE;
 
 
-    static void iniciaTelaRelatorioAcesso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     private TelasCabecalho telasCabecalho;
     private Scanner teclado;
     
@@ -32,6 +29,10 @@ public class ControladorRelatorioAcesso {
             return INSTANCE = new ControladorRelatorioAcesso();
         }
         return INSTANCE;
+    }
+    
+     public static void iniciaTelaRelatorioAcesso() {
+        
     }
 
     public void adicionaNovoAcesso(int matriculaAcesso, String placaAcesso, String mensagemAcesso, Date dataAcesso) {
@@ -54,6 +55,8 @@ public class ControladorRelatorioAcesso {
     public void cabecalhoTelaRelatorioAcesso() {
         telasCabecalho.cabecalhoTelaRelatorioAcesso();
     }
+
+    
    }
        
 
