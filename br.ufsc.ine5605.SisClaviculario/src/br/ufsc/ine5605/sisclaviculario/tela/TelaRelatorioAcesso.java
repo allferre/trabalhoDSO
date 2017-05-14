@@ -77,7 +77,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
 
         for (int i = 0; i < ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso.size(); i++) {
             RelatorioAcesso relatorioAcessoNegados = ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso().get(i);
-            if (relatorioAcessoNegados.getMensagemAcesso().equals(Motivo.AcessoBloqueado.mensagem) && relatorioAcessoNegados.getMensagemAcesso().equals(Motivo.AcessoNaoPermitido.mensagem) && relatorioAcessoNegados.getMensagemAcesso().equals(Motivo.VeiculoIndisponível.mensagem) && relatorioAcessoNegados.getMensagemAcesso().equals(Motivo.MatriculaNaoExiste)) {
+            if (!relatorioAcessoNegados.getMensagemAcesso().equals(Motivo.VeiculoLiberado.mensagem)) {
 
                 System.out.println("-------------------------------------------------------");
                 System.out.println("Número de Matrícula: " + relatorioAcessoNegados.getMatriculaAcesso());
