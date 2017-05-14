@@ -35,10 +35,12 @@ public class SisClaviculario {
         RelatorioAcesso relatorioAcesso3 = new RelatorioAcesso(444,"abc123",Motivo.MatriculaNaoExiste.mensagem,null);
         RelatorioAcesso relatorioAcesso4 = new RelatorioAcesso(456,"abc456",Motivo.VeiculoIndisponível.mensagem,null);
         RelatorioAcesso relatorioAcesso5 = new RelatorioAcesso(456,"abc456",Motivo.AcessoBloqueado.mensagem,null);
+        RelatorioAcesso relatorioAcesso6 = new RelatorioAcesso(123,"abc456",Motivo.VeiculoDevolvido.mensagem,null);
+        RelatorioAcesso relatorioAcesso7 = new RelatorioAcesso(789,"abc456",Motivo.VeiculoDevolvido.mensagem,null);
         
    ControladorPrincipal.getINSTANCE().incluirFuncionario(funcionario1, funcionario2, funcionario3, funcionario4);
    ControladorPrincipal.getINSTANCE().incluirVeiculo(veiculo1, veiculo2, veiculo3, veiculo4);
-   ControladorPrincipal.getINSTANCE().incluirEmprestimo(relatorioAcesso1, relatorioAcesso2, relatorioAcesso3, relatorioAcesso4,relatorioAcesso5);
+   ControladorPrincipal.getINSTANCE().incluirEmprestimo(relatorioAcesso1, relatorioAcesso2, relatorioAcesso3, relatorioAcesso4,relatorioAcesso5, relatorioAcesso6, relatorioAcesso7);
    
    
    ControladorPrincipal.getINSTANCE().inicia();

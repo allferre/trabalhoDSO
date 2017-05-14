@@ -122,9 +122,10 @@ public class TelasCabecalho {
             System.out.println("|    2 - Filtrar lista de todos os acessos negados     |");
             System.out.println("|    3 - Filtrar lista de todos os acessos permitidos  |");
             System.out.println("|    4 - Filtrar por motivo de negação                 |");
-            System.out.println("|    5 - Filtrar por número de matricula               |");
-            System.out.println("|    6 - Filtrar por placa de veículo                  |");
-            System.out.println("|    7 - Voltar ao menu inicial                        |");
+            System.out.println("|    5 - Filtrar lista de devoluções de veículos       |");
+            System.out.println("|    6 - Filtrar por número de matricula               |");
+            System.out.println("|    7 - Filtrar por placa de veículo                  |");
+            System.out.println("|    8 - Voltar ao menu inicial                        |");
             System.out.println("|______________________________________________________|");
     }
     
