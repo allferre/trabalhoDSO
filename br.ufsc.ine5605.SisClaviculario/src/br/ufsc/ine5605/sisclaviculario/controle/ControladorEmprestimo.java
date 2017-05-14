@@ -129,7 +129,11 @@ public class ControladorEmprestimo {
         ControladorRelatorioAcesso.getINSTANCE().adicionaNovoAcesso(matriculaAcesso, placaAcesso, mensagemAcesso, dataAcesso);
     }
 
-  public void devolverVeiculo() {
+
+ 
+
+   public void devolverVeiculo() {
+
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
          RelatorioAcesso matriculaRelatorioAcesso = ControladorRelatorioAcesso.getINSTANCE().verificaMatriculaAcesso(matricula); // verifica se essa matrícula possui empréstimos                                                                     // método para verificar se essa matrícula emprestou um veículo
         String placa = TelaEmprestimo.getINSTANCE().recebePlaca();
