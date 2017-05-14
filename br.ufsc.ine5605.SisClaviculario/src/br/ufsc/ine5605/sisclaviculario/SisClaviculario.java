@@ -27,7 +27,7 @@ public class SisClaviculario {
         Veiculo veiculo4 = new Veiculo("abc500","A6","Audi",2017,500,CargoVeiculo.DIRETOR, true); // veículo indisponível
     
         RelatorioAcesso relatorioAcesso1 = new RelatorioAcesso(123,"abc456",Motivo.VeiculoLiberado.mensagem,null); 
-        RelatorioAcesso relatorioAcesso2 = new RelatorioAcesso(456,"abc500",Motivo.VeiculoLiberado.mensagem,null); 
+        RelatorioAcesso relatorioAcesso2 = new RelatorioAcesso(789,"abc500",Motivo.AcessoNaoPermitido.mensagem,null);
         
    ControladorPrincipal.getINSTANCE().incluirFuncionario(funcionario1, funcionario2, funcionario3, funcionario4);
    ControladorPrincipal.getINSTANCE().incluirVeiculo(veiculo1, veiculo2, veiculo3, veiculo4);
