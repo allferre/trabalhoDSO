@@ -19,25 +19,24 @@ public class TelaEmprestimo extends TelasCabecalho {
     private String motivo;
     private Date dataDoEvento;
     private static TelaEmprestimo INSTANCE;
-    
 
-    public TelaEmprestimo(){ 
+    public TelaEmprestimo() {
         teclado = new Scanner(System.in);
         this.numeroMatricula = numeroMatricula;
         this.motivo = motivo;
         this.dataDoEvento = dataDoEvento;
-       
+
     }
-    
-     public static TelaEmprestimo getINSTANCE(){
-    
-        if(INSTANCE == null){
+
+    public static TelaEmprestimo getINSTANCE() {
+
+        if (INSTANCE == null) {
             return INSTANCE = new TelaEmprestimo();
         }
         return INSTANCE;
     }
 
-    /*public void exibeMenuEmprestimo() {
+    public void exibeMenuEmprestimo() {
         int opcao = 0;
 
         do {
@@ -52,7 +51,7 @@ public class TelaEmprestimo extends TelasCabecalho {
                     ControladorEmprestimo.getINSTANCE().devolverVeiculo();
                     break;
                 case 3:
-                   // exibeListaEprestimos();
+                    // exibeListaEprestimos();
                     break;
                 case 4:
                     ControladorEmprestimo.getINSTANCE().voltarTelaInicial();
@@ -62,10 +61,10 @@ public class TelaEmprestimo extends TelasCabecalho {
             }
 
         } while (opcao != 0);
-    }*/
+    }
 
 
-   /* public void exibeListaEprestimos() {
+    /* public void exibeListaEprestimos() {
 
         System.out.println(" -------------------------------------------------------");
         System.out.println("|                 Lista de Empréstimos                  |");
@@ -84,7 +83,6 @@ public class TelaEmprestimo extends TelasCabecalho {
             System.out.println("-------------------------------------------------------");
         }
     }*/
-
     public void mensagemDoEvento(String tipo) {
         System.out.println(tipo);
         System.out.println("-----------------------------------------------");
@@ -98,7 +96,6 @@ public class TelaEmprestimo extends TelasCabecalho {
 
     public void mensagemDeErro(int i) {
         switch (i) {
-
             case 1:
                 System.out.println("O valor digitado é inválido!");
         }
@@ -110,9 +107,8 @@ public class TelaEmprestimo extends TelasCabecalho {
         teclado.nextLine();
         return placa;
     }
-    
-        public int recebeInteiro() {
 
+    public int recebeInteiro() {
         try {
             return teclado.nextInt();
         } catch (InputMismatchException e) {
@@ -133,5 +129,4 @@ public class TelaEmprestimo extends TelasCabecalho {
         int km = teclado.nextInt();
         return km;
     }
-
 }

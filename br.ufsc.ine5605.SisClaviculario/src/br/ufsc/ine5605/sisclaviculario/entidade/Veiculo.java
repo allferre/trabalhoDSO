@@ -14,10 +14,8 @@ public class Veiculo {
         public String mensagem;
 
         CargoVeiculo(String mensagem) {
-
             this.mensagem = mensagem;
         }
-
     }
 
     private String placa;

@@ -55,7 +55,6 @@ public class TelaFuncionario extends TelasCabecalho {
                     System.out.println(" *** Insira apenas o número das opções do Menu *** ");
                     System.out.println("");
             }
-
         } while (opcao != 0);
 
     }
@@ -200,5 +199,4 @@ public class TelaFuncionario extends TelasCabecalho {
     public void matriculaNaoExiste() {
         System.out.println(" ***Matrícula não consta no banco de dados*** ");
     }
-
 }

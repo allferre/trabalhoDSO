@@ -1,9 +1,5 @@
 package br.ufsc.ine5605.sisclaviculario.entidade;
 
-//import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.Cargo;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author Allan
@@ -27,10 +23,8 @@ private int numMatricula;
     private long telefone;
     private CargoFuncionario cargo;
     private boolean acessoLiberado;
-    private List<Veiculo> veiculosPermitidos;
-    
 
-    public Funcionario(int numMatricula, String nome, String dataNascimento, long telefone, CargoFuncionario cargo) { // ArrayList veiculo) {
+    public Funcionario(int numMatricula, String nome, String dataNascimento, long telefone, CargoFuncionario cargo) { 
         this.numMatricula = numMatricula;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -87,14 +81,4 @@ private int numMatricula;
     public void setAcessoLiberado(boolean acessoLiberado) {
         this.acessoLiberado = acessoLiberado;
     }
-    
-        
-     public List<Veiculo> getVeiculosPermitidos() {
-        return veiculosPermitidos;
-    }
-
-    public void setVeiculosPermitidos(List<Veiculo> veiculosPermitidos) {
-        this.veiculosPermitidos = veiculosPermitidos;
-    }
-
 }

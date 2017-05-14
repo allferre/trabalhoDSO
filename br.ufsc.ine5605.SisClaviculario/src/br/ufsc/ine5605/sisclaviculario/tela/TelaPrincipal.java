@@ -1,7 +1,6 @@
 package br.ufsc.ine5605.sisclaviculario.tela;
 
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorPrincipal;
-
 import java.util.Scanner;
 
 /**
@@ -26,9 +25,7 @@ public class TelaPrincipal extends TelasCabecalho {
 
 
     public void exibeMenuInicial() {
-
         int opcao = 0;
-
         do {
             ControladorPrincipal.getINSTANCE().cabecalhoTelaPrincipal();
             opcao = teclado.nextInt();
@@ -50,9 +47,7 @@ public class TelaPrincipal extends TelasCabecalho {
                     System.out.println(" *** Insira apenas o número das opções do Menu *** ");
                     System.out.println("");
             }
-
         } while (opcao != 0);
-
     }
 
     public void telaFuncionario() {
@@ -70,7 +65,5 @@ public class TelaPrincipal extends TelasCabecalho {
     public void telaRelatorioAcessos(){
         ControladorPrincipal.getINSTANCE().iniciarRelatorio();
     }
-
- 
 }
 

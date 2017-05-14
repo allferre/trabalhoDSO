@@ -221,9 +221,6 @@ public class TelaVeiculo extends TelasCabecalho {
                 default:
                     System.out.println(" *** Insira apenas uma das opções: (1),(2),(3),(4) ou (5) *** ");
             }
-
         }
-
     }
-
 }

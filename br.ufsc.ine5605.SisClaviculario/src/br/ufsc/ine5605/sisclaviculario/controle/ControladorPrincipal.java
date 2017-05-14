@@ -12,17 +12,15 @@ import java.util.ArrayList;
  */
 public class ControladorPrincipal {
 
-
     private static ControladorPrincipal INSTANCE;
-
 
     private ControladorPrincipal() {
 
     }
-    
-       public static ControladorPrincipal getINSTANCE(){
-        if(INSTANCE == null){
-            return INSTANCE= new ControladorPrincipal();
+
+    public static ControladorPrincipal getINSTANCE() {
+        if (INSTANCE == null) {
+            return INSTANCE = new ControladorPrincipal();
         }
         return INSTANCE;
     }
@@ -32,22 +30,22 @@ public class ControladorPrincipal {
     }
 
     public void iniciarEmprestimo() {
-       ControladorEmprestimo.getINSTANCE().exibeTelaEmprestimo();
+        ControladorEmprestimo.getINSTANCE().exibeTelaEmprestimo();
     }
 
     public void iniciarCadastroVeiculo() {
         ControladorVeiculo.getINSTANCE().exibeTelaVeiculo();
     }
-    
-    public void iniciarCadastroFuncionario(){
+
+    public void iniciarCadastroFuncionario() {
         ControladorFuncionario.getINSTANCE().exibeTelaFuncionario();
     }
-    
-    public void cabecalhoTelaPrincipal(){
-         TelasCabecalho.getINSTANCE().cabecalhoTelaPrincipal();       
+
+    public void cabecalhoTelaPrincipal() {
+        TelasCabecalho.getINSTANCE().cabecalhoTelaPrincipal();
     }
 
-    public  ArrayList<Funcionario> pedirListaFuncionarios() {
+    public ArrayList<Funcionario> pedirListaFuncionarios() {
         return ControladorFuncionario.getINSTANCE().getListaFuncionarios();
     }
 
@@ -63,16 +61,15 @@ public class ControladorPrincipal {
         ControladorVeiculo.getINSTANCE().incluirVeiculo(veiculo1, veiculo2, veiculo3, veiculo4);
     }
 
-
     public Funcionario verificaExisteMatricula(int matricula) {
-        return ControladorFuncionario.getINSTANCE().procuraFuncPelaMatricula(matricula);        
+        return ControladorFuncionario.getINSTANCE().procuraFuncPelaMatricula(matricula);
     }
-    
-     public ArrayList<Veiculo> getListaDeVeiculos() {
+
+    public ArrayList<Veiculo> getListaDeVeiculos() {
         return ControladorVeiculo.getINSTANCE().getListaVeiculos();
     }
 
-   public void alteraAcesso(int matricula, boolean acessoLiberado){
+    public void alteraAcesso(int matricula, boolean acessoLiberado) {
         ControladorFuncionario.getINSTANCE().marcaAcesso(matricula, acessoLiberado);
     }
 
@@ -81,18 +78,14 @@ public class ControladorPrincipal {
     }
 
     public Veiculo verificaDisponibilidadeVeiculo(String placa) {
-         return ControladorVeiculo.getINSTANCE().procuraDisponibilidadeVeiculo(placa);
+        return ControladorVeiculo.getINSTANCE().procuraDisponibilidadeVeiculo(placa);
     }
 
     public void iniciarRelatorio() {
-    
-        ControladorRelatorioAcesso.iniciaTelaRelatorioAcesso();
-        
-    }
 
-   /* public ArrayList<Emprestimo> pedirListaEmprestimos() {
-        return ControladorEmprestimo.getINSTANCE().getListaEmprestimos();
-    } */
+        ControladorRelatorioAcesso.iniciaTelaRelatorioAcesso();
+
+    }
 
     public void setaVeiculoOcupado(String placa, boolean veiculoOcupado) {
         ControladorVeiculo.getINSTANCE().setaVeiculoOcupado(placa, veiculoOcupado);
@@ -107,12 +100,7 @@ public class ControladorPrincipal {
     }
 
     public void setaDisponibilidade(boolean setaDevolvido, String placa) {
-         ControladorVeiculo.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
+        ControladorVeiculo.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
     }
 
- 
-
-  
-
 }
-

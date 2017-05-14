@@ -12,7 +12,6 @@ import java.util.Scanner;
  */
 public class ControladorFuncionario {
 
-   
     private ArrayList<Funcionario> listaFuncionarios;
     private Scanner teclado;
     private static ControladorFuncionario INSTANCE;
@@ -76,16 +75,6 @@ public class ControladorFuncionario {
         listaFuncionarios.add(funcionario4);
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     Funcionario procuraFuncPelaMatricula(int matricula) {
         for (Funcionario funcionarioEncontrar : listaFuncionarios) {
             if (funcionarioEncontrar.getNumMatricula() == matricula) {
@@ -116,6 +105,5 @@ public class ControladorFuncionario {
             }
         }
     }
-
 
 }

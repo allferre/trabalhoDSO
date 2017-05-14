@@ -16,25 +16,17 @@ import java.util.Date;
  */
 public class ControladorEmprestimo {
 
-    //private ArrayList<Emprestimo> listaEmprestimos;
     private Scanner teclado;
     private Date dataDoEvento;
     private static ControladorEmprestimo INSTANCE;
-    //private int guardaMatricula;
-    //private int contadorDeAcessos;
-    //private ArrayList<Emprestimo> eventosEmprestimo;
     private boolean veiculoOcupado;
     private int contadorAcessoNegado;
 
   
     
     private ControladorEmprestimo() {
-        //this.listaEmprestimos = new ArrayList<>();
-        //this.eventosEmprestimo = new ArrayList<>();
         this.teclado = new Scanner(System.in);
         this.dataDoEvento = dataDoEvento;
-       // this.guardaMatricula = 0;
-        //this.contadorDeAcessos = 0;
         this.veiculoOcupado = false;
         this.contadorAcessoNegado = 0;
 
@@ -71,18 +63,6 @@ public class ControladorEmprestimo {
     public ArrayList<Veiculo> solicitarListaVeiculos() {
         return ControladorPrincipal.getINSTANCE().pedirListaVeiculos();
     }
-
-    /*public void incluirEmprestimo(Emprestimo emprestimo) {
-        listaEmprestimos.add(emprestimo);
-    }
-
-    public ArrayList<Emprestimo> getListaEmprestimos() {
-        return listaEmprestimos;
-    }
-
-    public void setListaEmprestimos(ArrayList<Emprestimo> listaEmprestimos) {
-        this.listaEmprestimos = listaEmprestimos;
-    } */
 
     public void solicitarVeiculo() {
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
@@ -146,7 +126,7 @@ public class ControladorEmprestimo {
         Date dataAcesso = dataDoEvento;
         ControladorRelatorioAcesso.getINSTANCE().adicionaNovoAcesso(matriculaAcesso, placaAcesso, mensagemAcesso, dataAcesso);
     }
-/*
+
     public void devolverVeiculo() {
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
         // método para verificar se essa matrícula emprestou um veículo
@@ -169,7 +149,7 @@ public class ControladorEmprestimo {
             ControladorPrincipal.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
             
         }
-    }*/
+    }
 
     public int contadorAcessoNegado(String placa) {
         return 0;

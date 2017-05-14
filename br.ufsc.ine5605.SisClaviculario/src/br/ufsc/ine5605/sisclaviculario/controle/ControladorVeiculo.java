@@ -134,6 +134,4 @@ public class ControladorVeiculo {
         Veiculo veiculo = new Veiculo(placa, modelo, marca, ano, quilometragem, cargo, emprestado);
         listaVeiculos.add(veiculo);
     }
-    
-    
 }
