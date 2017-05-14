@@ -23,8 +23,6 @@ public class ControladorEmprestimo {
     private boolean veiculoOcupado;
     private int contadorAcessoNegado;
 
-  
-    
     private ControladorEmprestimo() {
         this.teclado = new Scanner(System.in);
         this.dataDoEvento = new Date();
@@ -103,11 +101,11 @@ public class ControladorEmprestimo {
     public void solicitarVeiculoFuncionario(int matricula, String placa) {
 
         if (ControladorPrincipal.getINSTANCE().verificaDisponibilidadeVeiculo(placa) != null) { // verifica se o veículo está dispoível para o funcionário
-            
+
             geraAcesso(matricula, placa, Motivo.VeiculoIndisponível.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoIndisponível.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null && contadorAcessoNegado(placa) <=3) { // verifica se o funcionário tem acesso aquele veículo
+        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null && contadorAcessoNegado(placa) <= 3) { // verifica se o funcionário tem acesso aquele veículo
             geraAcesso(matricula, placa, Motivo.AcessoNaoPermitido.mensagem, dataDoEvento);
             contadorAcessoNegado++;
             String motivo = Motivo.AcessoNaoPermitido.mensagem;
@@ -129,16 +127,13 @@ public class ControladorEmprestimo {
         ControladorRelatorioAcesso.getINSTANCE().adicionaNovoAcesso(matriculaAcesso, placaAcesso, mensagemAcesso, dataAcesso);
     }
 
-
- 
-
-   public void devolverVeiculo() {
+    public void devolverVeiculo() {
 
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
-         RelatorioAcesso matriculaRelatorioAcesso = ControladorRelatorioAcesso.getINSTANCE().verificaMatriculaAcesso(matricula); // verifica se essa matrícula possui empréstimos                                                                     // método para verificar se essa matrícula emprestou um veículo
+        RelatorioAcesso matriculaRelatorioAcesso = ControladorRelatorioAcesso.getINSTANCE().verificaMatriculaAcesso(matricula); // verifica se essa matrícula possui empréstimos                                                                     // método para verificar se essa matrícula emprestou um veículo
         String placa = TelaEmprestimo.getINSTANCE().recebePlaca();
-         RelatorioAcesso veiculoRelatorioAcesso = ControladorRelatorioAcesso.getINSTANCE().verificaVeiculoAcesso(placa);
-        
+        RelatorioAcesso veiculoRelatorioAcesso = ControladorRelatorioAcesso.getINSTANCE().verificaVeiculoAcesso(placa);
+
         if (matriculaRelatorioAcesso == null) {
             geraAcesso(matricula, "", Motivo.FuncionarioSemVeiculo.mensagem, dataDoEvento);
             String motivo = Motivo.FuncionarioSemVeiculo.mensagem;
@@ -153,8 +148,10 @@ public class ControladorEmprestimo {
             boolean setaDevolvido = false;
             ControladorPrincipal.getINSTANCE().setaNovaKm(km, placa);
             ControladorPrincipal.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
+            String motivo = Motivo.VeiculoDevolvido.mensagem;
+            TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
         }
-    } 
+    }
 
     public int contadorAcessoNegado(String placa) {
         return 0;

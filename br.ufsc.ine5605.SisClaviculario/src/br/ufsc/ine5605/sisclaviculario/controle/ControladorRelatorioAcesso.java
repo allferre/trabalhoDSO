@@ -71,14 +71,15 @@ public class ControladorRelatorioAcesso {
         return null;
     }
 
-    public void incluirNovoAcesso(RelatorioAcesso relatorioAcesso1, RelatorioAcesso relatorioAcesso2, RelatorioAcesso relatorioAcesso3,RelatorioAcesso relatorioAcesso4, RelatorioAcesso relatorioAcesso5, RelatorioAcesso relatorioAcesso6,RelatorioAcesso relatorioAcesso7) {
-       listaRelatoriosAcesso.add(relatorioAcesso1);
-       listaRelatoriosAcesso.add(relatorioAcesso2);
-       listaRelatoriosAcesso.add(relatorioAcesso3);
-       listaRelatoriosAcesso.add(relatorioAcesso4);
-       listaRelatoriosAcesso.add(relatorioAcesso5);
-       listaRelatoriosAcesso.add(relatorioAcesso6);
-       listaRelatoriosAcesso.add(relatorioAcesso7);
+    public void incluirNovoAcesso(RelatorioAcesso relatorioAcesso1, RelatorioAcesso relatorioAcesso2, RelatorioAcesso relatorioAcesso3, RelatorioAcesso relatorioAcesso4, RelatorioAcesso relatorioAcesso5, RelatorioAcesso relatorioAcesso6, RelatorioAcesso relatorioAcesso7, RelatorioAcesso  relatorioAcesso8) {
+        listaRelatoriosAcesso.add(relatorioAcesso1);
+        listaRelatoriosAcesso.add(relatorioAcesso2);
+        listaRelatoriosAcesso.add(relatorioAcesso3);
+        listaRelatoriosAcesso.add(relatorioAcesso4);
+        listaRelatoriosAcesso.add(relatorioAcesso5);
+        listaRelatoriosAcesso.add(relatorioAcesso6);
+        listaRelatoriosAcesso.add(relatorioAcesso7);
+        listaRelatoriosAcesso.add(relatorioAcesso8);
     }
 
 }
