@@ -129,7 +129,7 @@ public class ControladorEmprestimo {
         ControladorRelatorioAcesso.getINSTANCE().adicionaNovoAcesso(matriculaAcesso, placaAcesso, mensagemAcesso, dataAcesso);
     }
 
-   public void devolverVeiculo() {
+  public void devolverVeiculo() {
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
          RelatorioAcesso matriculaRelatorioAcesso = ControladorRelatorioAcesso.getINSTANCE().verificaMatriculaAcesso(matricula); // verifica se essa matrícula possui empréstimos                                                                     // método para verificar se essa matrícula emprestou um veículo
         String placa = TelaEmprestimo.getINSTANCE().recebePlaca();
@@ -139,7 +139,7 @@ public class ControladorEmprestimo {
             geraAcesso(matricula, "", Motivo.FuncionarioSemVeiculo.mensagem, dataDoEvento);
             String motivo = Motivo.FuncionarioSemVeiculo.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else if (veiculo == null) {
+        } else if (veiculoRelatorioAcesso == null) {
             geraAcesso(matricula, placa, Motivo.VeiculoSemEmprestimo.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoSemEmprestimo.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
@@ -149,7 +149,6 @@ public class ControladorEmprestimo {
             boolean setaDevolvido = false;
             ControladorPrincipal.getINSTANCE().setaNovaKm(km, placa);
             ControladorPrincipal.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
-            
         }
     } 
 

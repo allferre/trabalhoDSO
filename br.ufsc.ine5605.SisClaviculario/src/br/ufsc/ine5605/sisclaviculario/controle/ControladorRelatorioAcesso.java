@@ -1,6 +1,5 @@
 package br.ufsc.ine5605.sisclaviculario.controle;
 
-import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.RelatorioAcesso;
 import br.ufsc.ine5605.sisclaviculario.tela.TelaRelatorioAcesso;
 import br.ufsc.ine5605.sisclaviculario.tela.TelasCabecalho;
@@ -58,6 +57,15 @@ public class ControladorRelatorioAcesso {
         for (RelatorioAcesso matriculaEncontrar : listaRelatoriosAcesso) {
             if (matriculaEncontrar.getMatriculaAcesso() == matricula) {
                 return matriculaEncontrar;
+            }
+        }
+        return null;
+    }
+
+    public RelatorioAcesso verificaVeiculoAcesso(String placa) {
+        for (RelatorioAcesso veiculoEncontrar : listaRelatoriosAcesso) {
+            if (placa.equals(veiculoEncontrar.getPlacaAcesso())) {
+                return veiculoEncontrar;
             }
         }
         return null;
