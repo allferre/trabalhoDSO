@@ -11,13 +11,13 @@ import java.util.Scanner;
  */
 public class TelaFuncionario extends TelasCabecalho {
 
-    private Scanner teclado;
+    private Scanner teclado1;
     private CargoFuncionario cargo;
     private static TelaFuncionario INSTANCE;
 
     private TelaFuncionario() {
 
-        teclado = new Scanner(System.in);
+        teclado1 = new Scanner(System.in);
     }
 
     public static TelaFuncionario getINSTANCE() {
@@ -33,7 +33,7 @@ public class TelaFuncionario extends TelasCabecalho {
         int opcao = 0;
         do {
             cabecalhoTelaFuncionario();
-            opcao = teclado.nextInt();
+            opcao = teclado1.nextInt();
 
             switch (opcao) {
                 case 1:
@@ -64,24 +64,26 @@ public class TelaFuncionario extends TelasCabecalho {
         int opcao = 0;
 
         System.out.println("Digite o numMatricula do Funcionario: ");
-        int numMatricula = teclado.nextInt();
-        teclado.nextLine();
+       
+        int numMatricula = teclado1.nextInt();
+        teclado1.nextLine();
+         //ControladorFuncionario.getINSTANCE().tratandoExcessoes();
 
         System.out.println("Digite o nome do Funcionario: ");
-        String nome = teclado.nextLine();
+        String nome = teclado1.nextLine();
 
         System.out.println("Digite a data de nascimento do Funcionario: ");
-        String dataNascimento = teclado.next();
-        teclado.nextLine();
+        String dataNascimento = teclado1.next();
+        teclado1.nextLine();
 
         System.out.println("Digite o telefone do Funcionario: ");
-        long telefone = teclado.nextLong();
-        teclado.nextLine();
+        long telefone = teclado1.nextLong();
+        teclado1.nextLine();
 
         System.out.println("Defina o cargo do Funcionário: ");
         System.out.println(" Digite (1) para Diretor e (2) para Funcionário: ");
-        opcao = teclado.nextInt();
-        teclado.nextLine();
+        opcao = teclado1.nextInt();
+        teclado1.nextLine();
         switch (opcao) {
             case 1:
                 cargo = CargoFuncionario.DIRETOR;
@@ -115,42 +117,42 @@ public class TelaFuncionario extends TelasCabecalho {
 
         if (f != null && found) {
             cabecalhoAlteraFuncionario();
-            int aux = teclado.nextInt();
+            int aux = teclado1.nextInt();
             switch (aux) {
                 case 1:
                     System.out.println("Digite o novo número de matrícula: ");
-                    int numMatricula = teclado.nextInt();
-                    teclado.next();
+                    int numMatricula = teclado1.nextInt();
+                    teclado1.next();
                     f.setNumMatricula(numMatricula);
 
                     break;
                 case 2:
                     System.out.println("Digite o novo nome: ");
-                    String Novonome = teclado.nextLine();
-                    teclado.nextLine();
+                    String Novonome = teclado1.nextLine();
+                    teclado1.nextLine();
                     System.out.println(Novonome);
                     f.setNome(Novonome);
 
                     break;
                 case 3:
                     System.out.println("Digite a nova data de nascimento: ");
-                    String dataNascimento = teclado.nextLine();
-                    teclado.next();
+                    String dataNascimento = teclado1.nextLine();
+                    teclado1.next();
                     f.setDataNascimento(dataNascimento);
 
                     break;
                 case 4:
                     System.out.println("Digite o novo telefone: ");
-                    long telefone = teclado.nextLong();
-                    teclado.next();
+                    long telefone = teclado1.nextLong();
+                    teclado1.next();
                     f.setTelefone(telefone);
 
                     break;
                 case 5:
                     System.out.println("Escolha o novo cargo:  ");
                     System.out.println(" Digite (1) para Diretor e (2) para Funcionário: ");
-                    int aux1 = teclado.nextInt();
-                    teclado.next();
+                    int aux1 = teclado1.nextInt();
+                    teclado1.next();
                     switch (aux1) {
                         case 1:
                             f.setCargo(CargoFuncionario.DIRETOR);
@@ -188,7 +190,7 @@ public class TelaFuncionario extends TelasCabecalho {
 
     public int pedeNumMatricula() {
         System.out.println("Digite o número de matrícula do funcionário: ");
-        int numMatricula = teclado.nextInt();
+        int numMatricula = teclado1.nextInt();
         return numMatricula;
     }
 
