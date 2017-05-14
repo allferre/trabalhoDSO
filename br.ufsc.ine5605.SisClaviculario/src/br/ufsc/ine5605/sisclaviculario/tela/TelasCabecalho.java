@@ -124,6 +124,7 @@ public class TelasCabecalho {
             System.out.println("|    4 - Filtrar por motivo de negação                 |");
             System.out.println("|    5 - Filtrar por número de matricula               |");
             System.out.println("|    6 - Filtrar por placa de veículo                  |");
+            System.out.println("|    7 - Voltar ao menu inicial                        |");
             System.out.println("|______________________________________________________|");
     }
     
@@ -136,6 +137,7 @@ public class TelasCabecalho {
             System.out.println("|    (2) - Usuário não possui acesso ao veículo     |");
             System.out.println("|    (3) - Veículo indisponível (em uso)            |");
             System.out.println("|    (4) - Acesso bloqueado                         |");
+            System.out.println("|    (5) - Voltar ao menu inicial                   |");
             System.out.println("|___________________________________________________|");
    } 
 }

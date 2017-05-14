@@ -42,15 +42,12 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
                     filtrarPorMotivoNegacao();
                     break;
                 case 5:
-                    filtrarPorMotivoNegacao();
-                    break;
-                case 6:
                     filtrarPorNumMatricula();
                     break;
-                case 7:
+                case 6:
                     filtrarPorPlaca();
                     break;
-                case 8:
+                case 7:
                     ControladorRelatorioAcesso.getINSTANCE().voltarTelaInicial();
                     break;
                 default:
