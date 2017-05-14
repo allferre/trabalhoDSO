@@ -113,18 +113,16 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
         for (RelatorioAcesso relatorioPorMatriculas : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
             if (relatorioPorMatriculas.getMatriculaAcesso() == numMatricula) {
 
-                for (RelatorioAcesso relatorioPorMatricula : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()) {
-
                     System.out.println("-------------------------------------------------------");
-                    System.out.println("Número de Matrícula: " + relatorioPorMatricula.getMatriculaAcesso());
-                    System.out.println("Placa do Veículo: " + relatorioPorMatricula.getPlacaAcesso());
-                    System.out.println("Status de Acesso: " + relatorioPorMatricula.getMensagemAcesso());
-                    System.out.println("Data da Tentativa de Acesso: " + relatorioPorMatricula.getDataAcesso());
+                    System.out.println("Número de Matrícula: " + relatorioPorMatriculas.getMatriculaAcesso());
+                    System.out.println("Placa do Veículo: " + relatorioPorMatriculas.getPlacaAcesso());
+                    System.out.println("Status de Acesso: " + relatorioPorMatriculas.getMensagemAcesso());
+                    System.out.println("Data da Tentativa de Acesso: " + relatorioPorMatriculas.getDataAcesso());
                     System.out.println("-------------------------------------------------------");
                 }
             }
         }
-    }
+    
 
     private void filtrarPorPlaca() {
 
@@ -134,18 +132,16 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
         for (RelatorioAcesso relatorioPorPlacas : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
             if (relatorioPorPlacas.getPlacaAcesso().equals(placaCarro)) {
 
-                for (RelatorioAcesso relatorioPorPlaca : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()) {
-
                     System.out.println("-------------------------------------------------------");
-                    System.out.println("Número de Matrícula: " + relatorioPorPlaca.getMatriculaAcesso());
-                    System.out.println("Placa do Veículo: " + relatorioPorPlaca.getPlacaAcesso());
-                    System.out.println("Status de Acesso: " + relatorioPorPlaca.getMensagemAcesso());
-                    System.out.println("Data da Tentativa de Acesso: " + relatorioPorPlaca.getDataAcesso());
+                    System.out.println("Número de Matrícula: " + relatorioPorPlacas.getMatriculaAcesso());
+                    System.out.println("Placa do Veículo: " + relatorioPorPlacas.getPlacaAcesso());
+                    System.out.println("Status de Acesso: " + relatorioPorPlacas.getMensagemAcesso());
+                    System.out.println("Data da Tentativa de Acesso: " + relatorioPorPlacas.getDataAcesso());
                     System.out.println("-------------------------------------------------------");
                 }
             }
         }
-    }
+    
 
     private void filtrarPorMotivoNegacao() {
 
