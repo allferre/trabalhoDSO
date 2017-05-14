@@ -1,8 +1,10 @@
 package br.ufsc.ine5605.sisclaviculario;
 
+import Enum.Motivo;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorPrincipal;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario.CargoFuncionario;
+import br.ufsc.ine5605.sisclaviculario.entidade.RelatorioAcesso;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo.CargoVeiculo;
 
@@ -24,8 +26,12 @@ public class SisClaviculario {
         Veiculo veiculo3 = new Veiculo("abc789","fiesta","ford",2015,5000,CargoVeiculo.FUNCIONARIO, true); // veículo indisponível
         Veiculo veiculo4 = new Veiculo("abc500","A6","Audi",2017,500,CargoVeiculo.DIRETOR, true); // veículo indisponível
     
+        RelatorioAcesso relatorioAcesso1 = new RelatorioAcesso(123,"abc456",Motivo.VeiculoLiberado.mensagem,null); 
+        RelatorioAcesso relatorioAcesso2 = new RelatorioAcesso(456,"abc500",Motivo.VeiculoLiberado.mensagem,null); 
+        
    ControladorPrincipal.getINSTANCE().incluirFuncionario(funcionario1, funcionario2, funcionario3, funcionario4);
    ControladorPrincipal.getINSTANCE().incluirVeiculo(veiculo1, veiculo2, veiculo3, veiculo4);
+   ControladorPrincipal.getINSTANCE().incluirEmprestimo(relatorioAcesso1, relatorioAcesso2);
    
    ControladorPrincipal.getINSTANCE().inicia();
  

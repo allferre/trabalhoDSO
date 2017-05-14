@@ -2,6 +2,7 @@ package br.ufsc.ine5605.sisclaviculario.controle;
 
 import br.ufsc.ine5605.sisclaviculario.tela.TelaPrincipal;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
+import br.ufsc.ine5605.sisclaviculario.entidade.RelatorioAcesso;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
 import br.ufsc.ine5605.sisclaviculario.tela.TelasCabecalho;
 import java.util.ArrayList;
@@ -101,6 +102,10 @@ public class ControladorPrincipal {
 
     public void setaDisponibilidade(boolean setaDevolvido, String placa) {
         ControladorVeiculo.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
+    }
+
+    public void incluirEmprestimo(RelatorioAcesso relatorioAcesso1, RelatorioAcesso relatorioAcesso2) {
+        ControladorRelatorioAcesso.getINSTANCE().incluirNovoAcesso(relatorioAcesso1, relatorioAcesso2);
     }
 
 }
