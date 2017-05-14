@@ -84,16 +84,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             }
         }
 
-    }
-      
-        for (RelatorioAcesso relatorioAcesso : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()){
-         
-            System.out.println("-------------------------------------------------------");
-            System.out.println("Número de Matrícula: " + relatorioAcesso.getMatriculaAcesso());
-            System.out.println("Placa do Veículo: " + relatorioAcesso.getPlacaAcesso());
-            System.out.println("Status de Acesso: " + relatorioAcesso.getMensagemAcesso());
-            System.out.println("Data da Tentativa de Acesso: " + relatorioAcesso.getDataAcesso() );
-
         for (RelatorioAcesso relatorioAcessoNegado : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()) {
 
             System.out.println("-------------------------------------------------------");
