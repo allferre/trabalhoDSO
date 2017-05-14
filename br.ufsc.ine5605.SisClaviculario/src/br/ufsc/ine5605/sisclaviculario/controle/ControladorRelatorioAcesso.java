@@ -32,7 +32,7 @@ public class ControladorRelatorioAcesso {
     }
     
      public static void iniciaTelaRelatorioAcesso() {
-        
+        TelaRelatorioAcesso.getINSTANCE().exibeMenuRelatorio();
     }
 
     public void adicionaNovoAcesso(int matriculaAcesso, String placaAcesso, String mensagemAcesso, Date dataAcesso) {

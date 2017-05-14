@@ -48,7 +48,7 @@ public class TelaEmprestimo extends TelasCabecalho {
                     ControladorEmprestimo.getINSTANCE().solicitarVeiculo();
                     break;
                 case 2:
-                    ControladorEmprestimo.getINSTANCE().devolverVeiculo();
+                   // ControladorEmprestimo.getINSTANCE().devolverVeiculo();
                     break;
                 case 3:
                     // exibeListaEprestimos();

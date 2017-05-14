@@ -17,7 +17,7 @@ import java.util.Date;
 public class ControladorEmprestimo {
 
     private Scanner teclado;
-    private Date dataDoEvento;
+    public Date dataDoEvento;
     private static ControladorEmprestimo INSTANCE;
     private boolean veiculoOcupado;
     private int contadorAcessoNegado;
@@ -26,7 +26,7 @@ public class ControladorEmprestimo {
     
     private ControladorEmprestimo() {
         this.teclado = new Scanner(System.in);
-        this.dataDoEvento = dataDoEvento;
+        this.dataDoEvento = new Date();
         this.veiculoOcupado = false;
         this.contadorAcessoNegado = 0;
 
@@ -102,6 +102,7 @@ public class ControladorEmprestimo {
     public void solicitarVeiculoFuncionario(int matricula, String placa) {
 
         if (ControladorPrincipal.getINSTANCE().verificaDisponibilidadeVeiculo(placa) != null) { // verifica se o veículo está dispoível para o funcionário
+            
             geraAcesso(matricula, placa, Motivo.VeiculoIndisponível.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoIndisponível.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
@@ -127,7 +128,7 @@ public class ControladorEmprestimo {
         ControladorRelatorioAcesso.getINSTANCE().adicionaNovoAcesso(matriculaAcesso, placaAcesso, mensagemAcesso, dataAcesso);
     }
 
-    public void devolverVeiculo() {
+  /*  public void devolverVeiculo() {
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
         // método para verificar se essa matrícula emprestou um veículo
         String placa = TelaEmprestimo.getINSTANCE().recebePlaca();
@@ -149,7 +150,7 @@ public class ControladorEmprestimo {
             ControladorPrincipal.getINSTANCE().setaDisponibilidade(setaDevolvido, placa);
             
         }
-    }
+    } */
 
     public int contadorAcessoNegado(String placa) {
         return 0;
