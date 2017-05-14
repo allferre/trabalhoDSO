@@ -83,18 +83,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
 
             }
         }
-<<<<<<< HEAD
-    }
-      
-        for (RelatorioAcesso relatorioAcesso : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()){
-         
-            System.out.println("-------------------------------------------------------");
-            System.out.println("Número de Matrícula: " + relatorioAcesso.getMatriculaAcesso());
-            System.out.println("Placa do Veículo: " + relatorioAcesso.getPlacaAcesso());
-            System.out.println("Status de Acesso: " + relatorioAcesso.getMensagemAcesso());
-            System.out.println("Data da Tentativa de Acesso: " + relatorioAcesso.getDataAcesso() );
-=======
-
         for (RelatorioAcesso relatorioAcessoNegado : ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso()) {
 
             System.out.println("-------------------------------------------------------");
@@ -102,15 +90,11 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             System.out.println("Placa do Veículo: " + relatorioAcessoNegado.getPlacaAcesso());
             System.out.println("Status de Acesso: " + relatorioAcessoNegado.getMensagemAcesso());
             System.out.println("Data da Tentativa de Acesso: " + relatorioAcessoNegado.getDataAcesso());
->>>>>>> origin/master
             System.out.println("-------------------------------------------------------");
         }
     }
 
     private void listaAcessosPermitidos() {
-<<<<<<< HEAD
-    
-=======
 
         for (RelatorioAcesso relatorioAcessoPermitido : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
             if (relatorioAcessoPermitido.getMensagemAcesso().equals(Motivo.VeiculoLiberado.mensagem)) {
@@ -127,7 +111,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             System.out.println("Data da Tentativa de Acesso: " + relatorioAcessoPermitido.getDataAcesso());
             System.out.println("-------------------------------------------------------");
         }
->>>>>>> origin/master
     }
 
     private void filtrarPorNumMatricula() {
@@ -175,11 +158,8 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
     }
 
     private void filtrarPorMotivoNegacao() {
-<<<<<<< HEAD
     
-=======
-
-        int opcao = 0;
+      int opcao = 0;
         do {
             cabecalhoMotivoNegacao();
             opcao = teclado.nextInt();
@@ -205,8 +185,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             }
 
         } while (opcao != 0);
-
->>>>>>> origin/master
     }
 
     private void listaMatriculasInexistentes() {
@@ -246,7 +224,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             System.out.println("-------------------------------------------------------");
         }
 
-
     }
 
     private void listaVeiculoIndisponivel() {
@@ -270,8 +247,8 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
     }
 
     private void listaAcessoBloqueado() {
-        
-            for (RelatorioAcesso relatorioAcessoBloqueado : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
+
+        for (RelatorioAcesso relatorioAcessoBloqueado : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
             if (relatorioAcessoBloqueado.getMensagemAcesso().equals(Motivo.AcessoBloqueado.mensagem)) {
 
             }
@@ -285,7 +262,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             System.out.println("Status de Acesso: " + relatorioAcessoBloqueado.getMensagemAcesso());
             System.out.println("Data da Tentativa de Acesso: " + relatorioAcessoBloqueado.getDataAcesso());
             System.out.println("-------------------------------------------------------");
-    }
+        }
 
     }
 }
