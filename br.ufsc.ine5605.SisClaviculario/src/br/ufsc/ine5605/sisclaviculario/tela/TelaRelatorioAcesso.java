@@ -175,7 +175,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
                 case 4:
                     listaAcessoBloqueado();
                     break;
-                case 8:
+                case 5:
                     ControladorRelatorioAcesso.getINSTANCE().voltarTelaInicial();
                     break;
                 default:
