@@ -174,30 +174,35 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
                     String novaPlaca = teclado.next();
                     teclado.next();
                     v.setPlaca(placa);
+                    alteradoSucesso();
                     break;
                 case 2:
                     System.out.println("Digite o novo modelo: ");
                     String novaModelo = teclado.next();
-                    teclado.next();
+                    teclado.nextLine();
                     v.setModelo(novaModelo);
+                    alteradoSucesso();
                     break;
                 case 3:
                     System.out.println("Digite a nova marca: ");
                     String novaMarca = teclado.next();
                     teclado.next();
                     v.setMarca(placa);
+                    alteradoSucesso();
                     break;
                 case 4:
                     System.out.println("Digite o novo ano: ");
                     int novaAno = teclado.nextInt();
                     teclado.next();
                     v.setAno(aux);
+                    alteradoSucesso();
                     break;
                 case 5:
                     System.out.println("Digite a nova quilometragem: ");
                     int novaQuilometragem = teclado.nextInt();
                     teclado.next();
                     v.setQuilometragem(novaQuilometragem);
+                    alteradoSucesso();
                     break;
                 case 6:
                     System.out.println("Escolha o novo cargo:  ");
@@ -214,8 +219,10 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
                         default:
                             System.out.println(" *** Insira apenas uma das opções: (1) ou (2) *** ");
                             System.out.println("");
-                            break;
+                            
                     }
+                    alteradoSucesso();
+                    break;
                 case 7:
                     System.out.println("Digite a nova disponibilidade do veículo: ");
                     System.out.println("Digite (1) para Disponível e (2) para indisponível): ");
@@ -226,6 +233,7 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
                     } else {
                         v.setEmprestado(true);
                     }
+                alteradoSucesso();
                 default:
                     System.out.println(" *** Insira apenas uma das opções: (1),(2),(3),(4) ou (5) *** ");
             }
@@ -234,6 +242,7 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
 
     @Override
     public void voltaTelaInicial() {
-        ControladorVeiculo.getINSTANCE(). voltaTelaInicial();
+        ControladorVeiculo.getINSTANCE().voltaTelaInicial();
     }
+
 }

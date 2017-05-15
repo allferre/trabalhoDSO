@@ -124,29 +124,28 @@ public class TelaFuncionario extends TelasCabecalho {
                     int numMatricula = teclado1.nextInt();
                     teclado1.next();
                     f.setNumMatricula(numMatricula);
-
+                    alteradoSucesso();
                     break;
                 case 2:
                     System.out.println("Digite o novo nome: ");
-                    String Novonome = teclado1.nextLine();
+                    String Novonome = teclado1.next();
                     teclado1.nextLine();
-                    System.out.println(Novonome);
                     f.setNome(Novonome);
-
+                    alteradoSucesso();
                     break;
                 case 3:
                     System.out.println("Digite a nova data de nascimento: ");
                     String dataNascimento = teclado1.nextLine();
                     teclado1.next();
                     f.setDataNascimento(dataNascimento);
-
+                    alteradoSucesso();
                     break;
                 case 4:
                     System.out.println("Digite o novo telefone: ");
                     long telefone = teclado1.nextLong();
                     teclado1.next();
                     f.setTelefone(telefone);
-
+                    alteradoSucesso();
                     break;
                 case 5:
                     System.out.println("Escolha o novo cargo:  ");
@@ -200,5 +199,9 @@ public class TelaFuncionario extends TelasCabecalho {
 
     public void matriculaNaoExiste() {
         System.out.println(" ***Matrícula não consta no banco de dados*** ");
+    }
+    
+    public void alteradoSucesso() {
+        System.out.println(" ***Funcionário alterado com sucesso*** ");
     }
 }

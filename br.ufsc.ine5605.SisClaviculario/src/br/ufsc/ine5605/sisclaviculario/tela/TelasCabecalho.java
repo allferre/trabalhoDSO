@@ -101,6 +101,12 @@ public class TelasCabecalho {
             System.out.println("|*********************************|");
     }
     
+     public void alteradoSucesso(){
+            System.out.println("|*********************************|");
+            System.out.println("|       Alterado com sucesso!     |");
+            System.out.println("|*********************************|");
+    }
+    
     public void cabecalhoTelaEmprestimo(){
             System.out.println(" __________________________________");
             System.out.println("|      Empréstimo/devolução        |");

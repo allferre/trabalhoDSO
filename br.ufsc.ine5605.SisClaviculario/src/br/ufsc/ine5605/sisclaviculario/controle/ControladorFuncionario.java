@@ -5,7 +5,6 @@ import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.tela.TelasCabecalho;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 /**
  *
