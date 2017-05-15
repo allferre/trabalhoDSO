@@ -137,8 +137,13 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
             System.out.println("Modelo: " + veiculo.getModelo());
             System.out.println("Marca: " + veiculo.getMarca());
             System.out.println("Ano: " + veiculo.getAno());
+            System.out.println("Quilometragem: " + veiculo.getQuilometragem());
             System.out.println("Categoria do usuário: " + veiculo.getCargoVeiculo().mensagem);
-            System.out.println("Disponível: " + veiculo.getEmprestado());
+            if (veiculo.getEmprestado() == true){
+                System.out.println("Disponível: Não ");
+            } else {
+                System.out.println("Disponível: Sim ");
+            }
             System.out.println("-------------------------------------------------------");
         }
     }

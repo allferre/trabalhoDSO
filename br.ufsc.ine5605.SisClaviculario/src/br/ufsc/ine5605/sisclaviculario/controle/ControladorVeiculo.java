@@ -117,7 +117,8 @@ public class ControladorVeiculo {
     public void setarNovaKm(int km, String placa) {
         for (Veiculo veiculoLocalizar : listaVeiculos) {
             if (placa.equals(veiculoLocalizar.getPlaca())) {
-                veiculoLocalizar.setQuilometragem(km);
+                int kmAntiga = veiculoLocalizar.getQuilometragem() + km;
+                veiculoLocalizar.setQuilometragem(kmAntiga);
             }
         }
     }
