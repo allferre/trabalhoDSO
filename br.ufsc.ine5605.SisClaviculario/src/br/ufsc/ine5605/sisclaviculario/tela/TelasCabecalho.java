@@ -92,6 +92,8 @@ public class TelasCabecalho {
             System.out.println("|    (3) - Marca                      |");
             System.out.println("|    (4) - Ano                        |");
             System.out.println("|    (5) - Quilometragem              |");
+            System.out.println("|    (6) - Novo cargo                 |");
+            System.out.println("|    (5) - Nova disponibilidade       |");
             System.out.println("|_____________________________________|");      
     }
     

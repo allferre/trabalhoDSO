@@ -4,6 +4,7 @@ import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorFuncionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario.CargoFuncionario;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -26,7 +27,7 @@ public class TelaFuncionario extends TelasCabecalho {
             return INSTANCE = new TelaFuncionario();
         }
         return INSTANCE;
-    } 
+    }
 
     public void telaFuncionario() {
 
@@ -64,10 +65,8 @@ public class TelaFuncionario extends TelasCabecalho {
         int opcao = 0;
 
         System.out.println("Digite o numMatricula do Funcionario: ");
-       
         int numMatricula = teclado1.nextInt();
         teclado1.nextLine();
-         //ControladorFuncionario.getINSTANCE().tratandoExcessoes();
 
         System.out.println("Digite o nome do Funcionario: ");
         String nome = teclado1.nextLine();
@@ -200,7 +199,7 @@ public class TelaFuncionario extends TelasCabecalho {
     public void matriculaNaoExiste() {
         System.out.println(" ***Matrícula não consta no banco de dados*** ");
     }
-    
+
     public void alteradoSucesso() {
         System.out.println(" ***Funcionário alterado com sucesso*** ");
     }

@@ -178,34 +178,34 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
                     System.out.println("Digite a nova placa: ");
                     String novaPlaca = teclado.next();
                     teclado.next();
-                    v.setPlaca(placa);
+                    v.setPlaca(novaPlaca);
                     alteradoSucesso();
                     break;
                 case 2:
                     System.out.println("Digite o novo modelo: ");
-                    String novaModelo = teclado.next();
+                    String novoModelo = teclado.next();
                     teclado.nextLine();
-                    v.setModelo(novaModelo);
+                    v.setModelo(novoModelo);
                     alteradoSucesso();
                     break;
                 case 3:
                     System.out.println("Digite a nova marca: ");
                     String novaMarca = teclado.next();
-                    teclado.next();
-                    v.setMarca(placa);
+                    teclado.nextLine();
+                    v.setMarca(novaMarca);
                     alteradoSucesso();
                     break;
                 case 4:
                     System.out.println("Digite o novo ano: ");
-                    int novaAno = teclado.nextInt();
-                    teclado.next();
-                    v.setAno(aux);
+                    int novoAno = teclado.nextInt();
+                    teclado.nextLine();
+                    v.setAno(novoAno);
                     alteradoSucesso();
                     break;
                 case 5:
                     System.out.println("Digite a nova quilometragem: ");
                     int novaQuilometragem = teclado.nextInt();
-                    teclado.next();
+                    teclado.nextLine();
                     v.setQuilometragem(novaQuilometragem);
                     alteradoSucesso();
                     break;
