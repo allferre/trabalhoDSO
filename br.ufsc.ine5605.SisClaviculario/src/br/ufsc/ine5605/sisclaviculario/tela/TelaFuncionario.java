@@ -4,7 +4,6 @@ import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario;
 import br.ufsc.ine5605.sisclaviculario.controle.ControladorFuncionario;
 import br.ufsc.ine5605.sisclaviculario.entidade.Funcionario.CargoFuncionario;
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 /**
  *

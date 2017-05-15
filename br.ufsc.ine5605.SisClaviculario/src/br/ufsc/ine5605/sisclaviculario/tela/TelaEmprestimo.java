@@ -4,9 +4,6 @@ import br.ufsc.ine5605.sisclaviculario.controle.ControladorEmprestimo;
 import br.ufsc.ine5605.sisclaviculario.entidade.Veiculo;
 import java.util.Scanner;
 import java.util.Date;
-import java.util.InputMismatchException;
-
-//teste git, from neatBeans
 /**
  *
  * @author Allan
