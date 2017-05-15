@@ -57,7 +57,7 @@ public class ControladorFuncionario {
     }
 
     public void cabecalhoAlteraFuncionario() {
-       TelasCabecalho.getINSTANCE().cabecalhoAlteraFuncionario();
+        TelasCabecalho.getINSTANCE().cabecalhoAlteraFuncionario();
     }
 
     public void alteraFuncionarioPelaMatricula(Funcionario funcionarioAlterar) {
@@ -93,17 +93,17 @@ public class ControladorFuncionario {
         listaFuncionarios.add(funcionario);
     }
 
-    public void excluirFuncionario() {
-        int matriculaParaExcluir = TelaFuncionario.getINSTANCE().pedeNumMatricula();
+    public boolean excluirFuncionario(int matriculaParaExcluir) {
+        boolean conseguiuExcluir = false;
         for (Funcionario funcionarioExcluir : listaFuncionarios) {
             if (funcionarioExcluir.getNumMatricula() == matriculaParaExcluir) {
                 listaFuncionarios.remove(funcionarioExcluir);
-                TelaFuncionario.getINSTANCE().excluidoSucesso();
-                break;
-            } else {
-                TelaFuncionario.getINSTANCE().matriculaNaoExiste();
+                conseguiuExcluir = true;
                 break;
             }
         }
+        return conseguiuExcluir;
     }
+
+
 }

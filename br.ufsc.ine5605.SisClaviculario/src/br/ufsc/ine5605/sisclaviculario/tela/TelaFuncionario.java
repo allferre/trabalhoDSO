@@ -41,7 +41,7 @@ public class TelaFuncionario extends TelasCabecalho {
                     cadastrarFuncionario();
                     break;
                 case 2:
-                    ControladorFuncionario.getINSTANCE().excluirFuncionario();
+                    excluirFuncionario();
                     break;
                 case 3:
                     alterarFuncionario();
@@ -121,7 +121,7 @@ public class TelaFuncionario extends TelasCabecalho {
                 case 1:
                     System.out.println("Digite o novo número de matrícula: ");
                     int numMatricula = teclado1.nextInt();
-                    teclado1.next();
+                    teclado1.nextLine();
                     f.setNumMatricula(numMatricula);
                     alteradoSucesso();
                     break;
@@ -134,15 +134,15 @@ public class TelaFuncionario extends TelasCabecalho {
                     break;
                 case 3:
                     System.out.println("Digite a nova data de nascimento: ");
-                    String dataNascimento = teclado1.nextLine();
-                    teclado1.next();
+                    String dataNascimento = teclado1.next();
+                    teclado1.nextLine();
                     f.setDataNascimento(dataNascimento);
                     alteradoSucesso();
                     break;
                 case 4:
                     System.out.println("Digite o novo telefone: ");
                     long telefone = teclado1.nextLong();
-                    teclado1.next();
+                    teclado1.nextLine();
                     f.setTelefone(telefone);
                     alteradoSucesso();
                     break;
@@ -150,13 +150,15 @@ public class TelaFuncionario extends TelasCabecalho {
                     System.out.println("Escolha o novo cargo:  ");
                     System.out.println(" Digite (1) para Diretor e (2) para Funcionário: ");
                     int aux1 = teclado1.nextInt();
-                    teclado1.next();
+                    teclado1.nextLine();
                     switch (aux1) {
                         case 1:
                             f.setCargo(CargoFuncionario.DIRETOR);
+                            alteradoSucesso();
                             break;
                         case 2:
                             f.setCargo(CargoFuncionario.FUNCIONARIO);
+                            alteradoSucesso();
                             break;
                         default:
                             System.out.println(" *** Insira apenas uma das opções: (1) ou (2) *** ");
@@ -165,7 +167,7 @@ public class TelaFuncionario extends TelasCabecalho {
                     }
             }
         } else {
-            System.out.println("Esse número de matrícula não consta no banco de dados");
+            System.out.println(" ***Essa matrícula não consta no banco de dados*** ");
         }
     }
 
@@ -200,7 +202,18 @@ public class TelaFuncionario extends TelasCabecalho {
         System.out.println(" ***Matrícula não consta no banco de dados*** ");
     }
 
-    public void alteradoSucesso() {
-        System.out.println(" ***Funcionário alterado com sucesso*** ");
+    public void excluirFuncionario() {
+        int matriculaParaExcluir = pedeNumMatricula();
+        if (ControladorFuncionario.getINSTANCE().excluirFuncionario(matriculaParaExcluir)) {
+            System.out.println("Funcionario excluido com sucesso! ");
+        } else {
+            System.out.println("Não foi possível excluir o Funcionário! ");
+        }
     }
+    
+    
+    
+    
+    
+    
 }

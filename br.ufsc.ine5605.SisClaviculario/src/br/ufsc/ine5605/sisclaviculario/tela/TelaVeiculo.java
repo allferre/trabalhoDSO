@@ -20,13 +20,13 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
     private TelaVeiculo() {
         teclado = new Scanner(System.in);
     }
-    
+
     public static TelaVeiculo getINSTANCE() {
         if (INSTANCE == null) {
             return INSTANCE = new TelaVeiculo();
         }
         return INSTANCE;
-    } 
+    }
 
     @Override
     public void exibeTelaVeiculo() {
@@ -101,7 +101,15 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
                 System.out.println("Insira apenas uma das opções: (1) ou (2) ");
         }
 
-        emprestado = false;
+        System.out.println("Defina disponibilidade do veículo: ");
+        System.out.println(" Digite (1) para Disponível e (2) para Indiposnível ");
+        int aux = teclado.nextInt();
+        teclado.nextLine();
+        if (aux == 1) {
+            emprestado = false;
+        } else {
+            emprestado = true;
+        }
 
         ControladorVeiculo.getINSTANCE().incluiVeiculo(placa, modelo, marca, ano, quilometragem, cargo, emprestado);
 
@@ -112,7 +120,6 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
 
     }
 
-   
     @Override
     public void excluirVeiculo() {
 
@@ -139,7 +146,7 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
             System.out.println("Ano: " + veiculo.getAno());
             System.out.println("Quilometragem: " + veiculo.getQuilometragem());
             System.out.println("Categoria do usuário: " + veiculo.getCargoVeiculo().mensagem);
-            if (veiculo.getEmprestado() == true){
+            if (veiculo.getEmprestado() == true) {
                 System.out.println("Disponível: Não ");
             } else {
                 System.out.println("Disponível: Sim ");
@@ -158,6 +165,9 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
     @Override
     public void alterarVeiculo() {
         String placa = pedeNumPlaca();
+        if (ControladorVeiculo.getINSTANCE().verificaExistePlaca(placa) == null) {
+            System.out.println(" ***Essa placa não consta no banco de dados*** ");
+        }
 
         boolean found = false;
         Veiculo v = null;
@@ -177,7 +187,7 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
                 case 1:
                     System.out.println("Digite a nova placa: ");
                     String novaPlaca = teclado.next();
-                    teclado.next();
+                    teclado.nextLine();
                     v.setPlaca(novaPlaca);
                     alteradoSucesso();
                     break;
@@ -213,7 +223,7 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
                     System.out.println("Escolha o novo cargo:  ");
                     System.out.println(" Digite (1) para Diretor e (2) para Funcionário: ");
                     int aux1 = teclado.nextInt();
-                    teclado.next();
+                    teclado.nextLine();
                     switch (aux1) {
                         case 1:
                             v.setCargoVeiculo(CargoVeiculo.DIRETOR);
@@ -224,7 +234,7 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
                         default:
                             System.out.println(" *** Insira apenas uma das opções: (1) ou (2) *** ");
                             System.out.println("");
-                            
+
                     }
                     alteradoSucesso();
                     break;
@@ -232,13 +242,14 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
                     System.out.println("Digite a nova disponibilidade do veículo: ");
                     System.out.println("Digite (1) para Disponível e (2) para indisponível): ");
                     int aux2 = teclado.nextInt();
-                    teclado.next();
+                    teclado.nextLine();
                     if (aux2 == 1) {
                         v.setEmprestado(false);
                     } else {
                         v.setEmprestado(true);
                     }
-                alteradoSucesso();
+                    alteradoSucesso();
+                    break;
                 default:
                     System.out.println(" *** Insira apenas uma das opções: (1),(2),(3),(4) ou (5) *** ");
             }
