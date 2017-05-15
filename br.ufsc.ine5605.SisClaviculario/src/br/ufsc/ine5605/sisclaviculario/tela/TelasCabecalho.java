@@ -115,8 +115,7 @@ public class TelasCabecalho {
             System.out.println("|  Escolha uma opção:              |");
             System.out.println("|  1 - Solicitar um veículo        |");
             System.out.println("|  2 - Devolver um veículo         |");
-            System.out.println("|  3 - Exibe lista de Emprestimos  |");
-            System.out.println("|  4 - Voltar ao menu inicial      |");
+            System.out.println("|  3 - Voltar ao menu inicial      |");
             System.out.println("|__________________________________|");
     }
     

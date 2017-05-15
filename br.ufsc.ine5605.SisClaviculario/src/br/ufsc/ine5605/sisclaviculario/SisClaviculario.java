@@ -42,26 +42,6 @@ public class SisClaviculario {
    
    
    ControladorPrincipal.getINSTANCE().inicia();
- 
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
 }

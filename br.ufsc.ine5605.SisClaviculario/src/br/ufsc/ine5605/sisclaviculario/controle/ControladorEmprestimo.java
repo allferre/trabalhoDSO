@@ -26,8 +26,6 @@ public class ControladorEmprestimo {
         this.teclado = new Scanner(System.in);
         this.dataDoEvento = new Date();
         this.veiculoOcupado = false;
-        
-
     }
 
     public static ControladorEmprestimo getINSTANCE() {
@@ -63,7 +61,6 @@ public class ControladorEmprestimo {
     }
 
     public void solicitarVeiculo() {
-        //int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
         int matricula = TelaEmprestimo.getINSTANCE().recebeMatricula();
         Funcionario funcionario = ControladorPrincipal.getINSTANCE().verificaExisteMatricula(matricula); // verifica se a matrícula existe
         String placa = TelaEmprestimo.getINSTANCE().recebePlaca();

@@ -51,9 +51,6 @@ public class TelaEmprestimo extends TelasCabecalho {
                     ControladorEmprestimo.getINSTANCE().devolverVeiculo();
                     break;
                 case 3:
-                    // exibeListaEprestimos();
-                    break;
-                case 4:
                     ControladorEmprestimo.getINSTANCE().voltarTelaInicial();
                     break;
                 default:

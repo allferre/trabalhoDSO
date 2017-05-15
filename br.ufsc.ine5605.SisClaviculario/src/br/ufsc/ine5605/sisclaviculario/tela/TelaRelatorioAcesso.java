@@ -20,7 +20,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
             return INSTANCE = new TelaRelatorioAcesso();
         }
         return INSTANCE;
-    } 
+    }
 
     public void exibeMenuRelatorio() {
         int opcao = 0;
@@ -61,7 +61,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
     }
 
     private void listaTodosAcessos() {
-
         for (int i = 0; i < ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso.size(); i++) {
             RelatorioAcesso relatorioAcesso = ControladorRelatorioAcesso.getINSTANCE().getListaRelatoriosAcesso().get(i);
         }
@@ -90,7 +89,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
                 System.out.println("-------------------------------------------------------");
             }
         }
-
     }
 
     private void listaAcessosPermitidos() {
@@ -116,16 +114,15 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
         for (RelatorioAcesso relatorioPorMatriculas : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
             if (relatorioPorMatriculas.getMatriculaAcesso() == numMatricula) {
 
-                    System.out.println("-------------------------------------------------------");
-                    System.out.println("Número de Matrícula: " + relatorioPorMatriculas.getMatriculaAcesso());
-                    System.out.println("Placa do Veículo: " + relatorioPorMatriculas.getPlacaAcesso());
-                    System.out.println("Status de Acesso: " + relatorioPorMatriculas.getMensagemAcesso());
-                    System.out.println("Data da Tentativa de Acesso: " + relatorioPorMatriculas.getDataAcesso());
-                    System.out.println("-------------------------------------------------------");
-                }
+                System.out.println("-------------------------------------------------------");
+                System.out.println("Número de Matrícula: " + relatorioPorMatriculas.getMatriculaAcesso());
+                System.out.println("Placa do Veículo: " + relatorioPorMatriculas.getPlacaAcesso());
+                System.out.println("Status de Acesso: " + relatorioPorMatriculas.getMensagemAcesso());
+                System.out.println("Data da Tentativa de Acesso: " + relatorioPorMatriculas.getDataAcesso());
+                System.out.println("-------------------------------------------------------");
             }
         }
-    
+    }
 
     private void filtrarPorPlaca() {
 
@@ -135,16 +132,15 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
         for (RelatorioAcesso relatorioPorPlacas : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
             if (relatorioPorPlacas.getPlacaAcesso().equals(placaCarro)) {
 
-                    System.out.println("-------------------------------------------------------");
-                    System.out.println("Número de Matrícula: " + relatorioPorPlacas.getMatriculaAcesso());
-                    System.out.println("Placa do Veículo: " + relatorioPorPlacas.getPlacaAcesso());
-                    System.out.println("Status de Acesso: " + relatorioPorPlacas.getMensagemAcesso());
-                    System.out.println("Data da Tentativa de Acesso: " + relatorioPorPlacas.getDataAcesso());
-                    System.out.println("-------------------------------------------------------");
-                }
+                System.out.println("-------------------------------------------------------");
+                System.out.println("Número de Matrícula: " + relatorioPorPlacas.getMatriculaAcesso());
+                System.out.println("Placa do Veículo: " + relatorioPorPlacas.getPlacaAcesso());
+                System.out.println("Status de Acesso: " + relatorioPorPlacas.getMensagemAcesso());
+                System.out.println("Data da Tentativa de Acesso: " + relatorioPorPlacas.getDataAcesso());
+                System.out.println("-------------------------------------------------------");
             }
         }
-    
+    }
 
     private void filtrarPorMotivoNegacao() {
 
@@ -239,7 +235,7 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
     }
 
     private void filtrarPorVeiculoDevolvido() {
-        
+
         for (RelatorioAcesso relatorioVeiculoDevolvido : ControladorRelatorioAcesso.getINSTANCE().listaRelatoriosAcesso) {
             if (relatorioVeiculoDevolvido.getMensagemAcesso().equals(Motivo.VeiculoDevolvido.mensagem)) {
 
@@ -253,6 +249,4 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
 
         }
     }
-
-    }
-
+}
