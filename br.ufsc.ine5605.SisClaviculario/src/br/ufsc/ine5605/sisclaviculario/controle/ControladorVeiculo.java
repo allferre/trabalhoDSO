@@ -78,17 +78,17 @@ public class ControladorVeiculo {
         for (Veiculo veiculoLocalizar : listaVeiculos) {
             if (veiculoLocalizar.getPlaca().equals(placa)) {
                 return veiculoLocalizar;
-                
+
             }
         }
         return null;
     }
-    
-     public Veiculo verificaExistePlaca(String placa) {
+
+    public Veiculo verificaExistePlaca(String placa) {
         for (Veiculo veiculoLocalizar : listaVeiculos) {
             if (veiculoLocalizar.getPlaca().equals(placa)) {
                 return veiculoLocalizar;
-                
+
             }
         }
         return null;

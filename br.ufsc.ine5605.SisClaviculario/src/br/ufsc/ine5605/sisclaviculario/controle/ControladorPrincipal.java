@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class ControladorPrincipal {
 
     private static ControladorPrincipal INSTANCE;
-    
 
     private ControladorPrincipal() {
 
@@ -106,5 +105,4 @@ public class ControladorPrincipal {
     public void incluirEmprestimo(RelatorioAcesso relatorioAcesso1, RelatorioAcesso relatorioAcesso2, RelatorioAcesso relatorioAcesso3, RelatorioAcesso relatorioAcesso4, RelatorioAcesso relatorioAcesso5) {
         ControladorRelatorioAcesso.getINSTANCE().incluirNovoAcesso(relatorioAcesso1, relatorioAcesso2, relatorioAcesso3, relatorioAcesso4, relatorioAcesso5);
     }
-
 }

@@ -102,7 +102,7 @@ public class ControladorEmprestimo {
             geraAcesso(matricula, placa, Motivo.VeiculoIndisponível.mensagem, dataDoEvento);
             String motivo = Motivo.VeiculoIndisponível.mensagem;
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
-        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null ) { // verifica se o funcionário tem acesso aquele veículo
+        } else if (ControladorPrincipal.getINSTANCE().verificaAcessoVeiculo(placa) == null) { // verifica se o funcionário tem acesso aquele veículo
             geraAcesso(matricula, placa, Motivo.AcessoNaoPermitido.mensagem, dataDoEvento);
             //contadorAcessoNegado++;  ----------------------- Contador de acesso;
             String motivo = Motivo.AcessoNaoPermitido.mensagem;
@@ -149,7 +149,4 @@ public class ControladorEmprestimo {
             TelaEmprestimo.getINSTANCE().exibeMensagem(motivo);
         }
     }
-
-
-
 }

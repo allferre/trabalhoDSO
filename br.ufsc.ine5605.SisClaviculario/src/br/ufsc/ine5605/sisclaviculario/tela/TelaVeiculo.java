@@ -234,7 +234,6 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
                         default:
                             System.out.println(" *** Insira apenas uma das opções: (1) ou (2) *** ");
                             System.out.println("");
-
                     }
                     alteradoSucesso();
                     break;
@@ -260,5 +259,4 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
     public void voltaTelaInicial() {
         ControladorVeiculo.getINSTANCE().voltaTelaInicial();
     }
-
 }

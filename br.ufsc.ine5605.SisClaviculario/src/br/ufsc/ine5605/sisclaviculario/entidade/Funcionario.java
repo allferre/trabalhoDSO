@@ -10,28 +10,28 @@ public class Funcionario {
         DIRETOR("Diretor"),
         FUNCIONARIO("Funcionario");
         public String mensagem;
-    
-    CargoFuncionario(String mensagem) {
 
-        this.mensagem = mensagem;
+        CargoFuncionario(String mensagem) {
+
+            this.mensagem = mensagem;
+        }
     }
-}
 
-private int numMatricula;
+    private int numMatricula;
     private String nome;
     private String dataNascimento;
     private long telefone;
     private CargoFuncionario cargo;
     private boolean acessoLiberado;
 
-    public Funcionario(int numMatricula, String nome, String dataNascimento, long telefone, CargoFuncionario cargo) { 
+    public Funcionario(int numMatricula, String nome, String dataNascimento, long telefone, CargoFuncionario cargo) {
         this.numMatricula = numMatricula;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.telefone = telefone;
         this.cargo = cargo;
         this.acessoLiberado = false;
-        
+
     }
 
     public int getNumMatricula() {
@@ -65,12 +65,12 @@ private int numMatricula;
     public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
-    
-    public CargoFuncionario getCargoFuncionario(){
+
+    public CargoFuncionario getCargoFuncionario() {
         return cargo;
     }
-    
-    public void setCargo(CargoFuncionario cargo){
+
+    public void setCargo(CargoFuncionario cargo) {
         this.cargo = cargo;
     }
 

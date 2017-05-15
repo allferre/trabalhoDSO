@@ -14,8 +14,6 @@ public class TelasCabecalho {
     
     public TelasCabecalho(){
         this.teclado = new Scanner(System.in);
-       
-        
     }
     
     public static TelasCabecalho getINSTANCE(){

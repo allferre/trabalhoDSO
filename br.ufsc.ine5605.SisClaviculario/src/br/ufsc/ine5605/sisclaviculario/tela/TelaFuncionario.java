@@ -210,10 +210,4 @@ public class TelaFuncionario extends TelasCabecalho {
             System.out.println("Não foi possível excluir o Funcionário! ");
         }
     }
-    
-    
-    
-    
-    
-    
 }

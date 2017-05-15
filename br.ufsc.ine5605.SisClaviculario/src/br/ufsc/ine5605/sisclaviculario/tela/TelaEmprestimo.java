@@ -34,7 +34,7 @@ public class TelaEmprestimo extends TelasCabecalho {
             return INSTANCE = new TelaEmprestimo();
         }
         return INSTANCE;
-    } 
+    }
 
     public void exibeMenuEmprestimo() {
         int opcao = 0;
@@ -67,15 +67,10 @@ public class TelaEmprestimo extends TelasCabecalho {
     }
 
     public int recebeMatricula() {
-        System.out.println("Digite a Matrícula: ");
-        return recebeInteiro();
-    }
 
-    public void mensagemDeErro(int i) {
-        switch (i) {
-            case 1:
-                System.out.println("O valor digitado é inválido!");
-        }
+        System.out.println("Digite a Matrícula: ");
+        int matricula = teclado.nextInt();
+        return matricula;
     }
 
     public String recebePlaca() {
@@ -83,16 +78,6 @@ public class TelaEmprestimo extends TelasCabecalho {
         String placa = teclado.next();
         teclado.nextLine();
         return placa;
-    }
-
-    public int recebeInteiro() {
-        try {
-            return teclado.nextInt();
-        } catch (InputMismatchException e) {
-            mensagemDeErro(1);
-            teclado.nextLine();
-            return 0;
-        }
     }
 
     public void exibeMensagem(String motivo) {

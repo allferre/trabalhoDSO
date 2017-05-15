@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.ufsc.ine5605.sisclaviculario.entidade;
+
 import java.util.Date;
 
 /**
@@ -11,13 +12,13 @@ import java.util.Date;
  * @author Allan
  */
 public class RelatorioAcesso {
-    
+
     private int matriculaAcesso;
     private String placaAcesso;
     private String mensagemAcesso;
     private Date dataAcesso;
-    
-    public RelatorioAcesso(int matriculaAcesso, String placaAcesso, String mensagemAcesso, Date dataAcesso){
+
+    public RelatorioAcesso(int matriculaAcesso, String placaAcesso, String mensagemAcesso, Date dataAcesso) {
         this.matriculaAcesso = matriculaAcesso;
         this.placaAcesso = placaAcesso;
         this.mensagemAcesso = mensagemAcesso;
@@ -55,6 +56,4 @@ public class RelatorioAcesso {
     public void setDataAcesso(Date dataAcesso) {
         this.dataAcesso = dataAcesso;
     }
-
-    
 }

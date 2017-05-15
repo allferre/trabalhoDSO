@@ -10,9 +10,9 @@ package Enum;
  * @author Allan
  */
 public enum Motivo {
-    
+
     AcessoBloqueado(" ***Acesso bloqueado*** "),
-    AcessoNaoPermitido(" ****Não possui acesso ao veículo*** "), 
+    AcessoNaoPermitido(" ****Não possui acesso ao veículo*** "),
     FuncionarioComVeiculo(" ***Funcionário com empréstimo em aberto*** "),
     FuncionarioSemVeiculo(" ***Funcionário não possui empréstimos em aberto*** "),
     KilometragemInvalida(" ***O valor digitado para a kilometragem é inválido*** "),
@@ -23,12 +23,12 @@ public enum Motivo {
     VeiculoLiberado(" ***Acesso ao veículo liberado*** "),
     VeiculoNaoExiste(" ***Veículo não Existe*** "),
     VeiculoSemEmprestimo(" ***Veículo não está emprestado*** ");
-    
+
     public String mensagem;
-    
-    Motivo(String mensagem){
-    
+
+    Motivo(String mensagem) {
+
         this.mensagem = mensagem;
     }
-    
+
 }

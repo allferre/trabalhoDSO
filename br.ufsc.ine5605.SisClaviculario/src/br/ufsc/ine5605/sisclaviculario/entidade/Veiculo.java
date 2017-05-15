@@ -6,7 +6,6 @@ package br.ufsc.ine5605.sisclaviculario.entidade;
  */
 public class Veiculo {
 
-
     public enum CargoVeiculo {
 
         DIRETOR("Diretor"),
@@ -92,7 +91,4 @@ public class Veiculo {
     public void setEmprestado(boolean emprestado) {
         this.emprestado = emprestado;
     }
-
- 
-
 }

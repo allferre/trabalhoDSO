@@ -104,6 +104,4 @@ public class ControladorFuncionario {
         }
         return conseguiuExcluir;
     }
-
-
 }

@@ -24,5 +24,4 @@ public interface ITelaVeiculo {
     String pedeNumPlaca();
 
     void exibeTelaVeiculo();
-
 }

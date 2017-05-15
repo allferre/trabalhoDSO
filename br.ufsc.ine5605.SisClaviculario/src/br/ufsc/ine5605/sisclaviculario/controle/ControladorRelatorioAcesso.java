@@ -13,7 +13,7 @@ public class ControladorRelatorioAcesso {
     private TelasCabecalho telasCabecalho;
     private Scanner teclado;
     public ArrayList<RelatorioAcesso> listaRelatoriosAcesso;
-    
+
     private ControladorRelatorioAcesso() {
         this.listaRelatoriosAcesso = new ArrayList<>();
 
@@ -75,7 +75,5 @@ public class ControladorRelatorioAcesso {
         listaRelatoriosAcesso.add(relatorioAcesso3);
         listaRelatoriosAcesso.add(relatorioAcesso4);
         listaRelatoriosAcesso.add(relatorioAcesso5);
-       
     }
-
 }

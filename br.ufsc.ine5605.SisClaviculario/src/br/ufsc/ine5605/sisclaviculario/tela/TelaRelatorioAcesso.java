@@ -230,7 +230,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
                 System.out.println("Data da Tentativa de Acesso: " + relatorioAcessosBloqueado.getDataAcesso());
                 System.out.println("-------------------------------------------------------");
             }
-
         }
     }
 
@@ -246,7 +245,6 @@ public class TelaRelatorioAcesso extends TelasCabecalho {
                 System.out.println("Data da Tentativa de Acesso: " + relatorioVeiculoDevolvido.getDataAcesso());
                 System.out.println("-------------------------------------------------------");
             }
-
         }
     }
 }
