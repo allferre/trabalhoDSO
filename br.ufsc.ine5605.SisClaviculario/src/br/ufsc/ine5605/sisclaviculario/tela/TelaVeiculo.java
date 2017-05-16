@@ -33,7 +33,7 @@ public class TelaVeiculo extends TelasCabecalho implements ITelaVeiculo {
 
         int opcao = 0;
         do {
-            ControladorVeiculo.getINSTANCE().cabecalhoTelaVeiculo();
+            cabecalhoTelaVeiculo();
             opcao = teclado.nextInt();
 
             switch (opcao) {

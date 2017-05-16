@@ -44,10 +44,6 @@ public class ControladorEmprestimo {
         ControladorPrincipal.getINSTANCE().inicia();
     }
 
-    public void telaEmprestimo() {
-        TelasCabecalho.getINSTANCE().cabecalhoTelaEmprestimo();
-    }
-
     public ArrayList<Funcionario> solicitarListaFuncionarios() {
         return ControladorPrincipal.getINSTANCE().pedirListaFuncionarios();
     }

@@ -37,7 +37,7 @@ public class TelaEmprestimo extends TelasCabecalho {
         int opcao = 0;
 
         do {
-            ControladorEmprestimo.getINSTANCE().telaEmprestimo();
+            cabecalhoTelaEmprestimo();
             opcao = teclado.nextInt();
 
             switch (opcao) {

@@ -26,7 +26,7 @@ public class TelaPrincipal extends TelasCabecalho {
     public void exibeMenuInicial() {
         int opcao = 0;
         do {
-            ControladorPrincipal.getINSTANCE().cabecalhoTelaPrincipal();
+            cabecalhoTelaPrincipal();
             opcao = teclado.nextInt();
 
             switch (opcao) {

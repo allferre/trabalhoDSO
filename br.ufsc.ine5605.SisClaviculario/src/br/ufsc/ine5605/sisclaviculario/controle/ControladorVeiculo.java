@@ -38,10 +38,6 @@ public class ControladorVeiculo {
         TelaVeiculo.getINSTANCE().exibeTelaVeiculo();
     }
 
-    public void cabecalhoTelaVeiculo() {
-        TelasCabecalho.getINSTANCE().cabecalhoTelaVeiculo();
-    }
-
     public void voltaTelaInicial() {
         ControladorPrincipal.getINSTANCE().inicia();
     }

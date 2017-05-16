@@ -42,10 +42,6 @@ public class ControladorPrincipal {
         ControladorFuncionario.getINSTANCE().exibeTelaFuncionario();
     }
 
-    public void cabecalhoTelaPrincipal() {
-        TelasCabecalho.getINSTANCE().cabecalhoTelaPrincipal();
-    }
-
     public ArrayList<Funcionario> pedirListaFuncionarios() {
         return ControladorFuncionario.getINSTANCE().getListaFuncionarios();
     }
