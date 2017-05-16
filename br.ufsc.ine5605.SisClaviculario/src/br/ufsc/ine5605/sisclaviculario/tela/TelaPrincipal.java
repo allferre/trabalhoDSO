@@ -21,7 +21,7 @@ public class TelaPrincipal extends TelasCabecalho {
             return INSTANCE = new TelaPrincipal();
         }
         return INSTANCE;
-    } 
+    }
 
     public void exibeMenuInicial() {
         int opcao = 0;
@@ -44,6 +44,7 @@ public class TelaPrincipal extends TelasCabecalho {
                     break;
                 default:
                     System.out.println(" *** Insira apenas o número das opções do Menu *** ");
+                    System.out.println("");
                     System.out.println("");
             }
         } while (opcao != 0);
